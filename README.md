@@ -42,6 +42,9 @@ AI 的环上有四处先天缺陷，装置的每个观察类组件都在给其�
 
 把链接给 Kimi 让他帮你安装插件，之后就可以让他玩自己的游戏了。
 
+仓库地址 `https://github.com/oppnc/godot-player-kimi`，
+在 Kimi Code 里 `/plugins install https://github.com/oppnc/godot-player-kimi` 即可安装。
+
 ## 仓库结构
 
 ```
