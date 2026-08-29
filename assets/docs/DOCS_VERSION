@@ -1,0 +1,7 @@
+godot_branch: 4.7.2-stable
+godot_version: 4.7.2.stable
+docs_channel: 4.7
+upstream_repo: https://github.com/godotengine/godot.git
+upstream_commit: ed1daf0bf001b61586d9930840f2f1394092c079
+generated_at: 2026-08-29
+class_count: 810

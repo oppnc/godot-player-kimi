@@ -1,0 +1,988 @@
+# Window
+
+> class Window
+> inherits Window Viewport
+
+## Brief
+
+Base class for all windows, dialogs, and popups.
+
+## Description
+
+A node that creates a window. The window can either be a native system window or embedded inside another `Window` (see `Viewport.gui_embed_subwindows`).
+At runtime, `Window`s will not close automatically when requested. You need to handle it manually using the `close_requested` signal (this applies both to pressing the close button and clicking outside of a popup).
+
+## Properties
+
+> property accessibility_description : String ; default="" ; setter=set_accessibility_description ; getter=get_accessibility_description
+
+The human-readable node description that is reported to assistive apps.
+
+> property accessibility_name : String ; default="" ; setter=set_accessibility_name ; getter=get_accessibility_name
+
+The human-readable node name that is reported to assistive apps.
+
+> property always_on_top : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the window will be on top of all other windows. Does not work if `transient` is enabled.
+
+> property auto_translate : bool ; setter=set_auto_translate ; getter=is_auto_translating ; deprecated=Use `Node.auto_translate_mode` and `Node.can_auto_translate` instead.
+
+Toggles if any text should automatically change to its translated version depending on the current locale.
+
+> property borderless : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the window will have no borders.
+
+> property content_scale_aspect : ContentScaleAspect ; default=0 ; setter=set_content_scale_aspect ; getter=get_content_scale_aspect
+
+Specifies how the content's aspect behaves when the `Window` is resized. The base aspect is determined by `content_scale_size`.
+
+> property content_scale_factor : float ; default=1.0 ; setter=set_content_scale_factor ; getter=get_content_scale_factor
+
+Specifies the base scale of `Window`'s content when its `size` is equal to `content_scale_size`. See also `Viewport.get_stretch_transform`.
+
+> property content_scale_mode : ContentScaleMode ; default=0 ; setter=set_content_scale_mode ; getter=get_content_scale_mode
+
+Specifies how the content is scaled when the `Window` is resized.
+
+> property content_scale_size : Vector2i ; default=Vector2i(0, 0) ; setter=set_content_scale_size ; getter=get_content_scale_size
+
+The content's base size in "virtual" pixels. Not to be confused with `size`, which sets the actual window's physical size in pixels. If set to a value greater than `0` and `content_scale_mode` is set to a value other than `CONTENT_SCALE_MODE_DISABLED`, the `Window`'s content will be scaled when the window is resized to a different size. Higher values will make the content appear *smaller*, as it will be able to fit more of the project in view. On the root `Window`, this is set to match `ProjectSettings.display/window/size/viewport_width` and `ProjectSettings.display/window/size/viewport_height` by default.
+For example, when using `CONTENT_SCALE_MODE_CANVAS_ITEMS` and `content_scale_size` set to `Vector2i(1280, 720)`, using a window size of `2560×1440` will make 2D elements appear at double their original size, as the content is scaled by a factor of `2.0` (`2560.0 / 1280.0 = 2.0`, `1440.0 / 720.0 = 2.0`).
+See [the Base size section of the Multiple resolutions documentation]($DOCS_URL/tutorials/rendering/multiple_resolutions.html#base-size) for details.
+
+> property content_scale_stretch : ContentScaleStretch ; default=0 ; setter=set_content_scale_stretch ; getter=get_content_scale_stretch
+
+The policy to use to determine the final scale factor for 2D elements. This affects how `content_scale_factor` is applied, in addition to the automatic scale factor determined by `content_scale_size`.
+
+> property current_screen : int ; setter=set_current_screen ; getter=get_current_screen
+
+The screen the window is currently on.
+
+> property exclude_from_capture : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window` is excluded from screenshots taken by `DisplayServer.screen_get_image`, `DisplayServer.screen_get_image_rect`, and `DisplayServer.screen_get_pixel`.
+**Note:** This property is implemented on macOS and Windows.
+**Note:** Enabling this setting will prevent standard screenshot methods from capturing a window image, but does **NOT** guarantee that other apps won't be able to capture an image. It should not be used as a DRM or security measure.
+
+> property exclusive : bool ; default=false ; setter=set_exclusive ; getter=is_exclusive
+
+If `true`, the `Window` will be in exclusive mode. Exclusive windows are always on top of their parent and will block all input going to the parent `Window`.
+Needs `transient` enabled to work.
+
+> property extend_to_title : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window` contents is expanded to the full size of the window, window title bar is transparent.
+**Note:** This property is implemented only on macOS.
+**Note:** This property only works with native windows.
+
+> property force_native : bool ; default=false ; setter=set_force_native ; getter=get_force_native
+
+If `true`, native window will be used regardless of parent viewport and project settings.
+
+> property hdr_output_requested : bool ; default=false ; setter=set_hdr_output_requested ; getter=is_hdr_output_requested
+
+If `true`, requests HDR output for the `Window`, falling back to SDR if not supported, and automatically switching between HDR and SDR as the window moves between screens, screen capabilities change, or system settings are modified. This will internally force `Viewport.use_hdr_2d` to be enabled on the main `Viewport`. All other `SubViewport` of this `Window` must have their `Viewport.use_hdr_2d` property enabled to produce HDR output.
+
+> property initial_position : WindowInitialPosition ; default=0 ; setter=set_initial_position ; getter=get_initial_position
+
+Specifies the initial type of position for the `Window`.
+
+> property keep_title_visible : bool ; default=false ; setter=set_keep_title_visible ; getter=get_keep_title_visible
+
+If `true`, the `Window` width is expanded to keep the title bar text fully visible.
+
+> property max_size : Vector2i ; default=Vector2i(0, 0) ; setter=set_max_size ; getter=get_max_size
+
+If non-zero, the `Window` can't be resized to be bigger than this size.
+**Note:** This property will be ignored if the value is lower than `min_size`.
+
+> property maximize_disabled : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window`'s maximize button is disabled.
+**Note:** If both minimize and maximize buttons are disabled, buttons are fully hidden, and only close button is visible.
+**Note:** This property is implemented only on macOS and Windows.
+
+> property min_size : Vector2i ; default=Vector2i(0, 0) ; setter=set_min_size ; getter=get_min_size
+
+If non-zero, the `Window` can't be resized to be smaller than this size.
+**Note:** This property will be ignored in favor of `get_contents_minimum_size` if `wrap_controls` is enabled and if its size is bigger.
+
+> property minimize_disabled : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window`'s minimize button is disabled.
+**Note:** If both minimize and maximize buttons are disabled, buttons are fully hidden, and only close button is visible.
+**Note:** This property is implemented only on macOS and Windows.
+
+> property mode : Mode ; default=0 ; setter=set_mode ; getter=get_mode
+
+Set's the window's current mode.
+**Note:** Fullscreen mode is not exclusive full screen on Windows and Linux.
+**Note:** This method only works with native windows, i.e. the main window and `Window`-derived nodes when `Viewport.gui_embed_subwindows` is disabled in the main viewport.
+
+> property mouse_passthrough : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, all mouse events will be passed to the underlying window of the same application. See also `mouse_passthrough_polygon`.
+**Note:** This property is implemented on Linux (X11), macOS and Windows.
+**Note:** This property only works with native windows.
+
+> property mouse_passthrough_polygon : PackedVector2Array ; default=PackedVector2Array() ; setter=set_mouse_passthrough_polygon ; getter=get_mouse_passthrough_polygon
+
+Sets a polygonal region of the window which accepts mouse events. Mouse events outside the region will be passed through.
+Passing an empty array will disable passthrough support (all mouse events will be intercepted by the window, which is the default behavior).
+
+```gdscript
+            # Set region, using Path2D node.
+            $Window.mouse_passthrough_polygon = $Path2D.curve.get_baked_points()
+
+            # Set region, using Polygon2D node.
+            $Window.mouse_passthrough_polygon = $Polygon2D.polygon
+
+            # Reset region to default.
+            $Window.mouse_passthrough_polygon = []
+
+```
+
+```csharp
+            // Set region, using Path2D node.
+            GetNode<Window>("Window").MousePassthroughPolygon = GetNode<Path2D>("Path2D").Curve.GetBakedPoints();
+
+            // Set region, using Polygon2D node.
+            GetNode<Window>("Window").MousePassthroughPolygon = GetNode<Polygon2D>("Polygon2D").Polygon;
+
+            // Reset region to default.
+            GetNode<Window>("Window").MousePassthroughPolygon = [];
+
+```
+
+**Note:** This property is ignored if `mouse_passthrough` is set to `true`.
+**Note:** On Windows, the portion of a window that lies outside the region is not drawn, while on Linux (X11) and macOS it is.
+**Note:** This property is implemented on Linux (X11), macOS and Windows.
+
+> property nonclient_area : Rect2i ; default=Rect2i(0, 0, 0, 0) ; setter=set_nonclient_area ; getter=get_nonclient_area
+
+If set, defines the window's custom decoration area which will receive mouse input, even if normal input to the window is blocked (such as when it has an exclusive child opened). See also `nonclient_window_input`.
+
+> property popup_window : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window` will be considered a popup. Popups are sub-windows that don't show as separate windows in system's window manager's window list and will send close request when anything is clicked outside of them (unless `exclusive` is enabled).
+
+> property popup_wm_hint : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window` will signal to the window manager that it is supposed to be an implementation-defined "popup" (usually a floating, borderless, untileable and immovable child window).
+
+> property position : Vector2i ; default=Vector2i(0, 0) ; setter=set_position ; getter=get_position
+
+The window's position in pixels.
+If `ProjectSettings.display/window/subwindows/embed_subwindows` is `false`, the position is in absolute screen coordinates. This typically applies to editor plugins. If the setting is `true`, the window's position is in the coordinates of its parent `Viewport`.
+**Note:** This property only works if `initial_position` is set to `WINDOW_INITIAL_POSITION_ABSOLUTE`.
+
+> property sharp_corners : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window` will override the OS window style to display sharp corners.
+**Note:** This property is implemented only on Windows (11).
+**Note:** This property only works with native windows.
+
+> property size : Vector2i ; default=Vector2i(100, 100) ; setter=set_size ; getter=get_size
+
+The window's size in pixels. See also `content_scale_size`, which doesn't set the window's physical size but affects how scaling works relative to the current `content_scale_mode`.
+
+> property theme : Theme ; setter=set_theme ; getter=get_theme
+
+The `Theme` resource this node and all its `Control` and `Window` children use. If a child node has its own `Theme` resource set, theme items are merged with child's definitions having higher priority.
+**Note:** `Window` styles will have no effect unless the window is embedded.
+
+> property theme_type_variation : StringName ; default=&"" ; setter=set_theme_type_variation ; getter=get_theme_type_variation
+
+The name of a theme type variation used by this `Window` to look up its own theme items. See `Control.theme_type_variation` for more details.
+
+> property title : String ; default="" ; setter=set_title ; getter=get_title
+
+The window's title. If the `Window` is native, title styles set in `Theme` will have no effect.
+
+> property transient : bool ; default=false ; setter=set_transient ; getter=is_transient
+
+If `true`, the `Window` is transient, i.e. it's considered a child of another `Window`. The transient window will be destroyed with its transient parent and will return focus to their parent when closed. The transient window is displayed on top of a non-exclusive full-screen parent window. Transient windows can't enter full-screen mode.
+Note that behavior might be different depending on the platform.
+
+> property transient_to_focused : bool ; default=false ; setter=set_transient_to_focused ; getter=is_transient_to_focused
+
+If `true`, and the `Window` is `transient`, this window will (at the time of becoming visible) become transient to the currently focused window instead of the immediate parent window in the hierarchy. Note that the transient parent is assigned at the time this window becomes visible, so changing it afterwards has no effect until re-shown.
+
+> property transparent : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window`'s background can be transparent. This is best used with embedded windows.
+**Note:** Transparency support is implemented on Linux, macOS and Windows, but availability might vary depending on GPU driver, display manager, and compositor capabilities.
+**Note:** This property has no effect if `ProjectSettings.display/window/per_pixel_transparency/allowed` is set to `false`.
+
+> property unfocusable : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the `Window` can't be focused nor interacted with. It can still be visible.
+
+> property unresizable : bool ; default=false ; setter=set_flag ; getter=get_flag
+
+If `true`, the window can't be resized.
+
+> property visible : bool ; default=true ; setter=set_visible ; getter=is_visible
+
+If `true`, the window is visible.
+
+> property wrap_controls : bool ; default=false ; setter=set_wrap_controls ; getter=is_wrapping_controls
+
+If `true`, the window's size will automatically update when a child node is added or removed, ignoring `min_size` if the new size is bigger.
+If `false`, you need to call `child_controls_changed` manually.
+
+## Methods
+
+> method _get_contents_minimum_size() -> Vector2 ; qualifiers=virtual const
+
+Virtual method to be implemented by the user. Overrides the value returned by `get_contents_minimum_size`.
+
+> method add_theme_color_override(name: StringName, color: Color) -> void
+
+Creates a local override for a theme `Color` with the specified `name`. Local overrides always take precedence when fetching theme items for the control. An override can be removed with `remove_theme_color_override`.
+See also `get_theme_color` and `Control.add_theme_color_override` for more details.
+
+> method add_theme_constant_override(name: StringName, constant: int) -> void
+
+Creates a local override for a theme constant with the specified `name`. Local overrides always take precedence when fetching theme items for the control. An override can be removed with `remove_theme_constant_override`.
+See also `get_theme_constant`.
+
+> method add_theme_font_override(name: StringName, font: Font) -> void
+
+Creates a local override for a theme `Font` with the specified `name`. Local overrides always take precedence when fetching theme items for the control. An override can be removed with `remove_theme_font_override`.
+See also `get_theme_font`.
+
+> method add_theme_font_size_override(name: StringName, font_size: int) -> void
+
+Creates a local override for a theme font size with the specified `name`. Local overrides always take precedence when fetching theme items for the control. An override can be removed with `remove_theme_font_size_override`.
+See also `get_theme_font_size`.
+
+> method add_theme_icon_override(name: StringName, texture: Texture2D) -> void
+
+Creates a local override for a theme icon with the specified `name`. Local overrides always take precedence when fetching theme items for the control. An override can be removed with `remove_theme_icon_override`.
+See also `get_theme_icon`.
+
+> method add_theme_stylebox_override(name: StringName, stylebox: StyleBox) -> void
+
+Creates a local override for a theme `StyleBox` with the specified `name`. Local overrides always take precedence when fetching theme items for the control. An override can be removed with `remove_theme_stylebox_override`.
+See also `get_theme_stylebox` and `Control.add_theme_stylebox_override` for more details.
+
+> method begin_bulk_theme_override() -> void
+
+Prevents `*_theme_*_override` methods from emitting `NOTIFICATION_THEME_CHANGED` until `end_bulk_theme_override` is called.
+
+> method can_draw() -> bool ; qualifiers=const
+
+Returns whether the window is being drawn to the screen.
+
+> method child_controls_changed() -> void
+
+Requests an update of the `Window` size to fit underlying `Control` nodes.
+
+> method end_bulk_theme_override() -> void
+
+Ends a bulk theme override update. See `begin_bulk_theme_override`.
+
+> method get_contents_minimum_size() -> Vector2 ; qualifiers=const
+
+Returns the combined minimum size from the child `Control` nodes of the window. Use `child_controls_changed` to update it when child nodes have changed.
+The value returned by this method can be overridden with `_get_contents_minimum_size`.
+
+> method get_flag(flag: Flags) -> bool ; qualifiers=const
+
+Returns `true` if the `flag` is set.
+
+> method get_focused_window() -> Window ; qualifiers=static
+
+Returns the focused window.
+
+> method get_layout_direction() -> LayoutDirection ; qualifiers=const
+
+Returns layout direction and text writing direction.
+
+> method get_output_max_linear_value() -> float ; qualifiers=const
+
+Returns the maximum value for linear color components that can be displayed in this window, regardless of SDR or HDR output. Returns `1.0` if HDR is not enabled or not supported. The `output_max_linear_value_changed` signal will be emitted whenever this value changes.
+This value is used by tonemapping and other `Environment` effects to ensure that bright colors are presented in the range that can be displayed by this window. When using this maximum linear value in your project, it should only be used to present colors directly to the screen without tonemapping and without influencing lighting, post-processing effects, or surrounding color. The following is an example that produces the brightest purple color that the screen can produce:
+
+```gdscript
+                func _process(_delta):
+                    # output_max_linear_value may change often, so do this every frame.
+                    var max_linear_value = get_window().get_output_max_linear_value()
+                    # Replace this with your color:
+                    var original_color = Color.PURPLE
+                    # Normalize to max_linear_value to produce the brightest color possible,
+                    # regardless of SDR or HDR output:
+                    var bright_color = normalize_color(original_color, max_linear_value)
+
+                func normalize_color(srgb_color, max_linear_value = 1.0):
+                    # Color must be linear-encoded to use math operations.
+                    var linear_color = srgb_color.srgb_to_linear()
+                    var max_rgb_value = maxf(linear_color.r, maxf(linear_color.g, linear_color.b))
+                    var brightness_scale = max_linear_value / max_rgb_value
+                    linear_color *= brightness_scale
+                    # Undo changes to the alpha channel, which should not be modified.
+                    linear_color.a = srgb_color.a
+                    # Convert back to nonlinear sRGB encoding, which is required for Color in
+                    # Godot unless stated otherwise.
+                    return linear_color.linear_to_srgb()
+
+```
+
+**Note:** You will need to convert sRGB colors to linear before multiplying by this value to get correct results.
+
+> method get_position_with_decorations() -> Vector2i ; qualifiers=const
+
+Returns the window's position including its border.
+**Note:** If `visible` is `false`, this method returns the same value as `position`.
+
+> method get_size_with_decorations() -> Vector2i ; qualifiers=const
+
+Returns the window's size including its border.
+**Note:** If `visible` is `false`, this method returns the same value as `size`.
+
+> method get_theme_color(name: StringName, theme_type: StringName = &"") -> Color ; qualifiers=const
+
+Returns a `Color` from the first matching `Theme` in the tree if that `Theme` has a color item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for more details.
+
+> method get_theme_constant(name: StringName, theme_type: StringName = &"") -> int ; qualifiers=const
+
+Returns a constant from the first matching `Theme` in the tree if that `Theme` has a constant item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for more details.
+
+> method get_theme_default_base_scale() -> float ; qualifiers=const
+
+Returns the default base scale value from the first matching `Theme` in the tree if that `Theme` has a valid `Theme.default_base_scale` value.
+See `Control.get_theme_color` for details.
+
+> method get_theme_default_font() -> Font ; qualifiers=const
+
+Returns the default font from the first matching `Theme` in the tree if that `Theme` has a valid `Theme.default_font` value.
+See `Control.get_theme_color` for details.
+
+> method get_theme_default_font_size() -> int ; qualifiers=const
+
+Returns the default font size value from the first matching `Theme` in the tree if that `Theme` has a valid `Theme.default_font_size` value.
+See `Control.get_theme_color` for details.
+
+> method get_theme_font(name: StringName, theme_type: StringName = &"") -> Font ; qualifiers=const
+
+Returns a `Font` from the first matching `Theme` in the tree if that `Theme` has a font item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method get_theme_font_size(name: StringName, theme_type: StringName = &"") -> int ; qualifiers=const
+
+Returns a font size from the first matching `Theme` in the tree if that `Theme` has a font size item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method get_theme_icon(name: StringName, theme_type: StringName = &"") -> Texture2D ; qualifiers=const
+
+Returns an icon from the first matching `Theme` in the tree if that `Theme` has an icon item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method get_theme_stylebox(name: StringName, theme_type: StringName = &"") -> StyleBox ; qualifiers=const
+
+Returns a `StyleBox` from the first matching `Theme` in the tree if that `Theme` has a stylebox item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method get_window_id() -> int ; qualifiers=const
+
+Returns the ID of the window.
+
+> method grab_focus() -> void
+
+Causes the window to grab focus, allowing it to receive user input.
+
+> method has_focus() -> bool ; qualifiers=const
+
+Returns `true` if the window is focused.
+
+> method has_theme_color(name: StringName, theme_type: StringName = &"") -> bool ; qualifiers=const
+
+Returns `true` if there is a matching `Theme` in the tree that has a color item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method has_theme_color_override(name: StringName) -> bool ; qualifiers=const
+
+Returns `true` if there is a local override for a theme `Color` with the specified `name` in this `Control` node.
+See `add_theme_color_override`.
+
+> method has_theme_constant(name: StringName, theme_type: StringName = &"") -> bool ; qualifiers=const
+
+Returns `true` if there is a matching `Theme` in the tree that has a constant item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method has_theme_constant_override(name: StringName) -> bool ; qualifiers=const
+
+Returns `true` if there is a local override for a theme constant with the specified `name` in this `Control` node.
+See `add_theme_constant_override`.
+
+> method has_theme_font(name: StringName, theme_type: StringName = &"") -> bool ; qualifiers=const
+
+Returns `true` if there is a matching `Theme` in the tree that has a font item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method has_theme_font_override(name: StringName) -> bool ; qualifiers=const
+
+Returns `true` if there is a local override for a theme `Font` with the specified `name` in this `Control` node.
+See `add_theme_font_override`.
+
+> method has_theme_font_size(name: StringName, theme_type: StringName = &"") -> bool ; qualifiers=const
+
+Returns `true` if there is a matching `Theme` in the tree that has a font size item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method has_theme_font_size_override(name: StringName) -> bool ; qualifiers=const
+
+Returns `true` if there is a local override for a theme font size with the specified `name` in this `Control` node.
+See `add_theme_font_size_override`.
+
+> method has_theme_icon(name: StringName, theme_type: StringName = &"") -> bool ; qualifiers=const
+
+Returns `true` if there is a matching `Theme` in the tree that has an icon item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method has_theme_icon_override(name: StringName) -> bool ; qualifiers=const
+
+Returns `true` if there is a local override for a theme icon with the specified `name` in this `Control` node.
+See `add_theme_icon_override`.
+
+> method has_theme_stylebox(name: StringName, theme_type: StringName = &"") -> bool ; qualifiers=const
+
+Returns `true` if there is a matching `Theme` in the tree that has a stylebox item with the specified `name` and `theme_type`.
+See `Control.get_theme_color` for details.
+
+> method has_theme_stylebox_override(name: StringName) -> bool ; qualifiers=const
+
+Returns `true` if there is a local override for a theme `StyleBox` with the specified `name` in this `Control` node.
+See `add_theme_stylebox_override`.
+
+> method hide() -> void
+
+Hides the window. This is not the same as minimized state. Hidden window can't be interacted with and needs to be made visible with `show`.
+
+> method is_embedded() -> bool ; qualifiers=const
+
+Returns `true` if the window is currently embedded in another window.
+
+> method is_layout_rtl() -> bool ; qualifiers=const
+
+Returns `true` if the layout is right-to-left.
+
+> method is_maximize_allowed() -> bool ; qualifiers=const
+
+Returns `true` if the window can be maximized (the maximize button is enabled).
+
+> method is_using_font_oversampling() -> bool ; qualifiers=const
+
+Returns `true` if font oversampling is enabled. See `set_use_font_oversampling`.
+
+> method move_to_center() -> void
+
+Centers the window in the current screen. If the window is embedded, it is centered in the embedder `Viewport` instead.
+
+> method move_to_foreground() -> void ; deprecated=Use `Window.grab_focus` instead.
+
+Causes the window to grab focus, allowing it to receive user input.
+
+> method popup(rect: Rect2i = Rect2i(0, 0, 0, 0)) -> void
+
+Shows the `Window` and makes it transient (see `transient`). If `rect` is provided, it will be set as the `Window`'s size. Fails if called on the main window.
+If `ProjectSettings.display/window/subwindows/embed_subwindows` is `true` (single-window mode), `rect`'s coordinates are global and relative to the main window's top-left corner (excluding window decorations). If `rect`'s position coordinates are negative, the window will be located outside the main window and may not be visible as a result.
+If `ProjectSettings.display/window/subwindows/embed_subwindows` is `false` (multi-window mode), `rect`'s coordinates are global and relative to the top-left corner of the leftmost screen. If `rect`'s position coordinates are negative, the window will be placed at the top-left corner of the screen.
+**Note:** `rect` must be in global coordinates if specified.
+
+> method popup_centered(minsize: Vector2i = Vector2i(0, 0)) -> void
+
+Popups the `Window` at the center of the current screen, with optionally given minimum size. If the `Window` is embedded, it will be centered in the parent `Viewport` instead.
+**Note:** Calling it with the default value of `minsize` is equivalent to calling it with `size`.
+
+> method popup_centered_clamped(minsize: Vector2i = Vector2i(0, 0), fallback_ratio: float = 0.75) -> void
+
+Popups the `Window` centered inside its parent `Window`. `fallback_ratio` determines the maximum size of the `Window`, in relation to its parent.
+**Note:** Calling it with the default value of `minsize` is equivalent to calling it with `size`.
+
+> method popup_centered_ratio(ratio: float = 0.8) -> void
+
+If `Window` is embedded, popups the `Window` centered inside its embedder and sets its size as a `ratio` of embedder's size.
+If `Window` is a native window, popups the `Window` centered inside the screen of its parent `Window` and sets its size as a `ratio` of the screen size.
+
+> method popup_exclusive(from_node: Node, rect: Rect2i = Rect2i(0, 0, 0, 0)) -> void
+
+Attempts to parent this dialog to the last exclusive window relative to `from_node`, and then calls `Window.popup` on it. The dialog must have no current parent, otherwise the method fails.
+See also `set_unparent_when_invisible` and `Node.get_last_exclusive_window`.
+
+> method popup_exclusive_centered(from_node: Node, minsize: Vector2i = Vector2i(0, 0)) -> void
+
+Attempts to parent this dialog to the last exclusive window relative to `from_node`, and then calls `Window.popup_centered` on it. The dialog must have no current parent, otherwise the method fails.
+See also `set_unparent_when_invisible` and `Node.get_last_exclusive_window`.
+
+> method popup_exclusive_centered_clamped(from_node: Node, minsize: Vector2i = Vector2i(0, 0), fallback_ratio: float = 0.75) -> void
+
+Attempts to parent this dialog to the last exclusive window relative to `from_node`, and then calls `Window.popup_centered_clamped` on it. The dialog must have no current parent, otherwise the method fails.
+See also `set_unparent_when_invisible` and `Node.get_last_exclusive_window`.
+
+> method popup_exclusive_centered_ratio(from_node: Node, ratio: float = 0.8) -> void
+
+Attempts to parent this dialog to the last exclusive window relative to `from_node`, and then calls `Window.popup_centered_ratio` on it. The dialog must have no current parent, otherwise the method fails.
+See also `set_unparent_when_invisible` and `Node.get_last_exclusive_window`.
+
+> method popup_exclusive_on_parent(from_node: Node, parent_rect: Rect2i) -> void
+
+Attempts to parent this dialog to the last exclusive window relative to `from_node`, and then calls `Window.popup_on_parent` on it. The dialog must have no current parent, otherwise the method fails.
+See also `set_unparent_when_invisible` and `Node.get_last_exclusive_window`.
+
+> method popup_on_parent(parent_rect: Rect2i) -> void
+
+Popups the `Window` with a position shifted by parent `Window`'s position. If the `Window` is embedded, has the same effect as `popup`.
+
+> method remove_theme_color_override(name: StringName) -> void
+
+Removes a local override for a theme `Color` with the specified `name` previously added by `add_theme_color_override` or via the Inspector dock.
+
+> method remove_theme_constant_override(name: StringName) -> void
+
+Removes a local override for a theme constant with the specified `name` previously added by `add_theme_constant_override` or via the Inspector dock.
+
+> method remove_theme_font_override(name: StringName) -> void
+
+Removes a local override for a theme `Font` with the specified `name` previously added by `add_theme_font_override` or via the Inspector dock.
+
+> method remove_theme_font_size_override(name: StringName) -> void
+
+Removes a local override for a theme font size with the specified `name` previously added by `add_theme_font_size_override` or via the Inspector dock.
+
+> method remove_theme_icon_override(name: StringName) -> void
+
+Removes a local override for a theme icon with the specified `name` previously added by `add_theme_icon_override` or via the Inspector dock.
+
+> method remove_theme_stylebox_override(name: StringName) -> void
+
+Removes a local override for a theme `StyleBox` with the specified `name` previously added by `add_theme_stylebox_override` or via the Inspector dock.
+
+> method request_attention() -> void
+
+Tells the OS that the `Window` needs an attention. This makes the window stand out in some way depending on the system, e.g. it might blink on the task bar.
+
+> method reset_size() -> void
+
+Resets the size to the minimum size, which is the max of `min_size` and (if `wrap_controls` is enabled) `get_contents_minimum_size`. This is equivalent to calling `set_size(Vector2i())` (or any size below the minimum).
+
+> method set_flag(flag: Flags, enabled: bool) -> void
+
+Sets a specified window flag.
+
+> method set_ime_active(active: bool) -> void
+
+If `active` is `true`, enables system's native IME (Input Method Editor).
+
+> method set_ime_position(position: Vector2i) -> void
+
+Moves IME to the given position.
+
+> method set_layout_direction(direction: LayoutDirection) -> void
+
+Sets layout direction and text writing direction. Right-to-left layouts are necessary for certain languages (e.g. Arabic and Hebrew).
+
+> method set_taskbar_progress_state(state: DisplayServer.ProgressState) -> void
+
+Sets the type and state of the progress bar on the taskbar/dock icon of the `Window`. See `DisplayServer.ProgressState` for possible values and how each mode behaves.
+**Note:** This method is implemented only on Windows and macOS.
+
+> method set_taskbar_progress_value(value: float) -> void
+
+Creates a progress bar on the taskbar/dock icon of the `Window` if it does not exist, sets the progress of the icon.
+`value` acts as a relative percentage value, ranges from `0.0` (lowest) to `1.0` (highest).
+**Note:** This method is implemented only on Windows and macOS.
+
+> method set_unparent_when_invisible(unparent: bool) -> void
+
+If `unparent` is `true`, the window is automatically unparented when going invisible.
+**Note:** Make sure to keep a reference to the node, otherwise it will be orphaned. You also need to manually call `Node.queue_free` to free the window if it's not parented.
+
+> method set_use_font_oversampling(enable: bool) -> void
+
+Enables font oversampling. This makes fonts look better when they are scaled up.
+
+> method show() -> void
+
+Makes the `Window` appear. This enables interactions with the `Window` and doesn't change any of its property other than visibility (unlike e.g. `popup`).
+
+> method start_drag() -> void
+
+Starts an interactive drag operation on the window, using the current mouse position. Call this method when handling a mouse button being pressed to simulate a pressed event on the window's title bar. Using this method allows the window to participate in space switching, tiling, and other system features.
+
+> method start_resize(edge: DisplayServer.WindowResizeEdge) -> void
+
+Starts an interactive resize operation on the window, using the current mouse position. Call this method when handling a mouse button being pressed to simulate a pressed event on the window's edge.
+
+## Signals
+
+> signal about_to_popup()
+
+Emitted right after `popup` call, before the `Window` appears or does anything.
+
+> signal close_requested()
+
+Emitted when the `Window`'s close button is pressed or when `popup_window` is enabled and user clicks outside the window.
+This signal can be used to handle window closing, e.g. by connecting it to `hide`.
+
+> signal dpi_changed()
+
+Emitted when the `Window`'s DPI changes as a result of OS-level changes (e.g. moving the window from a Retina display to a lower resolution one).
+**Note:** Only implemented on macOS and Linux (Wayland).
+
+> signal files_dropped(files: PackedStringArray)
+
+Emitted when files are dragged from the OS file manager and dropped in the game window. The argument is a list of file paths.
+
+```text
+                func _ready():
+                    get_window().files_dropped.connect(on_files_dropped)
+
+                func on_files_dropped(files):
+                    print(files)
+
+```
+
+**Note:** This signal only works with native windows, i.e. the main window and `Window`-derived nodes when `Viewport.gui_embed_subwindows` is disabled in the main viewport.
+
+> signal focus_entered()
+
+Emitted when the `Window` gains focus.
+
+> signal focus_exited()
+
+Emitted when the `Window` loses its focus.
+
+> signal go_back_requested()
+
+Emitted when a go back request is sent (e.g. pressing the "Back" button on Android), right after `Node.NOTIFICATION_WM_GO_BACK_REQUEST`.
+
+> signal mouse_entered()
+
+Emitted when the mouse cursor enters the `Window`'s visible area, that is not occluded behind other `Control`s or windows, provided its `Viewport.gui_disable_input` is `false` and regardless if it's currently focused or not.
+
+> signal mouse_exited()
+
+Emitted when the mouse cursor leaves the `Window`'s visible area, that is not occluded behind other `Control`s or windows, provided its `Viewport.gui_disable_input` is `false` and regardless if it's currently focused or not.
+
+> signal nonclient_window_input(event: InputEvent)
+
+Emitted when the mouse event is received by the custom decoration area defined by `nonclient_area`, and normal input to the window is blocked (such as when it has an exclusive child opened). `event`'s position is in the embedder's coordinate system.
+
+> signal output_max_linear_value_changed(output_max_linear_value: float)
+
+Emitted when the output max linear value returned by `Window.get_output_max_linear_value` has changed. This occurs when HDR output is enabled or disabled and when any HDR output luminance values of the window have changed, such as when the player adjusts their screen brightness setting or moves the window to a different screen. `output_max_linear_value` is the new value.
+
+> signal theme_changed()
+
+Emitted when the `NOTIFICATION_THEME_CHANGED` notification is sent.
+
+> signal title_changed()
+
+Emitted when window title bar text is changed.
+
+> signal titlebar_changed()
+
+Emitted when window title bar decorations are changed, e.g. macOS window enter/exit full screen mode, or extend-to-title flag is changed.
+
+> signal visibility_changed()
+
+Emitted when `Window` is made visible or disappears.
+
+> signal window_input(event: InputEvent)
+
+Emitted when the `Window` is currently focused and receives any input, passing the received event as an argument. The event's position, if present, is in the embedder's coordinate system.
+
+## Enumerations
+
+> enum ContentScaleAspect
+
+> enum_value ContentScaleAspect.CONTENT_SCALE_ASPECT_IGNORE = 0
+
+The aspect will be ignored. Scaling will simply stretch the content to fit the target size.
+
+> enum_value ContentScaleAspect.CONTENT_SCALE_ASPECT_KEEP = 1
+
+The content's aspect will be preserved. If the target size has different aspect from the base one, the image will be centered and black bars will appear on left and right sides.
+
+> enum_value ContentScaleAspect.CONTENT_SCALE_ASPECT_KEEP_WIDTH = 2
+
+The content can be expanded vertically. Scaling horizontally will result in keeping the width ratio and then black bars on left and right sides.
+
+> enum_value ContentScaleAspect.CONTENT_SCALE_ASPECT_KEEP_HEIGHT = 3
+
+The content can be expanded horizontally. Scaling vertically will result in keeping the height ratio and then black bars on top and bottom sides.
+
+> enum_value ContentScaleAspect.CONTENT_SCALE_ASPECT_EXPAND = 4
+
+The content's aspect will be preserved. If the target size has different aspect from the base one, the content will stay in the top-left corner and add an extra visible area in the stretched space.
+
+> enum ContentScaleMode
+
+> enum_value ContentScaleMode.CONTENT_SCALE_MODE_DISABLED = 0
+
+The content will not be scaled to match the `Window`'s size (`content_scale_size` is ignored).
+
+> enum_value ContentScaleMode.CONTENT_SCALE_MODE_CANVAS_ITEMS = 1
+
+The content will be rendered at the target size. This is more performance-expensive than `CONTENT_SCALE_MODE_VIEWPORT`, but provides better results.
+
+> enum_value ContentScaleMode.CONTENT_SCALE_MODE_VIEWPORT = 2
+
+The content will be rendered at the base size and then scaled to the target size. More performant than `CONTENT_SCALE_MODE_CANVAS_ITEMS`, but results in pixelated image.
+
+> enum ContentScaleStretch
+
+> enum_value ContentScaleStretch.CONTENT_SCALE_STRETCH_FRACTIONAL = 0
+
+The content will be stretched according to a fractional factor. This fills all the space available in the window, but allows "pixel wobble" to occur due to uneven pixel scaling.
+
+> enum_value ContentScaleStretch.CONTENT_SCALE_STRETCH_INTEGER = 1
+
+The content will be stretched only according to an integer factor, preserving sharp pixels. This may leave a black background visible on the window's edges depending on the window size.
+
+> enum Flags
+
+> enum_value Flags.FLAG_RESIZE_DISABLED = 0
+
+The window can't be resized by dragging its resize grip. It's still possible to resize the window using `size`. This flag is ignored for full screen windows. Set with `unresizable`.
+**Note:** This flag is implemented on Linux (X11), macOS, Windows, and embedded windows.
+
+> enum_value Flags.FLAG_BORDERLESS = 1
+
+The window do not have native title bar and other decorations. This flag is ignored for full-screen windows. Set with `borderless`.
+**Note:** This flag is implemented on Linux (X11/Wayland), macOS, Windows, and embedded windows.
+
+> enum_value Flags.FLAG_ALWAYS_ON_TOP = 2
+
+The window is floating on top of all other windows. This flag is ignored for full-screen windows. Set with `always_on_top`.
+**Note:** This flag is implemented on Linux (X11), macOS, Windows, and embedded windows.
+
+> enum_value Flags.FLAG_TRANSPARENT = 3
+
+The window background can be transparent. Set with `transparent`.
+**Note:** This flag has no effect if either `ProjectSettings.display/window/per_pixel_transparency/allowed`, or the window's `Viewport.transparent_bg` is set to `false`.
+**Note:** Transparency support is implemented on Linux (X11/Wayland), macOS, Windows, and embedded windows.
+
+> enum_value Flags.FLAG_NO_FOCUS = 4
+
+The window can't be focused. No-focus window will ignore all input, except mouse clicks. Set with `unfocusable`.
+**Note:** This flag is implemented on Linux (X11), macOS, Windows, and embedded windows.
+
+> enum_value Flags.FLAG_POPUP = 5
+
+Window is part of menu or `OptionButton` dropdown. This flag can't be changed when the window is visible. An active popup window will exclusively receive all input, without stealing focus from its parent. Popup windows are automatically closed when uses click outside it, or when an application is switched. Popup window must have transient parent set (see `transient`).
+**Note:** This flag is implemented on Linux (X11/Wayland), macOS, Windows, and embedded `Popup` windows.
+
+> enum_value Flags.FLAG_EXTEND_TO_TITLE = 6
+
+Window content is expanded to the full size of the window. Unlike borderless window, the frame is left intact and can be used to resize the window, title bar is transparent, but have minimize/maximize/close buttons. Set with `extend_to_title`.
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented only on macOS.
+
+> enum_value Flags.FLAG_MOUSE_PASSTHROUGH = 7
+
+All mouse events are passed to the underlying window of the same application.
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented on Linux (X11), macOS, Windows.
+
+> enum_value Flags.FLAG_SHARP_CORNERS = 8
+
+Window style is overridden, forcing sharp corners.
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented only on Windows (11).
+
+> enum_value Flags.FLAG_EXCLUDE_FROM_CAPTURE = 9
+
+Windows is excluded from screenshots taken by `DisplayServer.screen_get_image`, `DisplayServer.screen_get_image_rect`, and `DisplayServer.screen_get_pixel`.
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented on macOS and Windows (10, 20H1).
+**Note:** Setting this flag will prevent standard screenshot methods from capturing a window image, but does **NOT** guarantee that other apps won't be able to capture an image. It should not be used as a DRM or security measure.
+
+> enum_value Flags.FLAG_POPUP_WM_HINT = 10
+
+Signals the window manager that this window is supposed to be an implementation-defined "popup" (usually a floating, borderless, untileable and immovable child window).
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented on Linux (Wayland).
+
+> enum_value Flags.FLAG_MINIMIZE_DISABLED = 11
+
+Window minimize button is disabled.
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented on Linux (X11), macOS, and Windows.
+
+> enum_value Flags.FLAG_MAXIMIZE_DISABLED = 12
+
+Window maximize button is disabled.
+**Note:** This flag has no effect in embedded windows.
+**Note:** This flag is implemented on Linux (X11), macOS, and Windows.
+
+> enum_value Flags.FLAG_MAX = 13
+
+Max value of the `Flags`.
+
+> enum LayoutDirection
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_INHERITED = 0
+
+Automatic layout direction, determined from the parent window layout direction.
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_APPLICATION_LOCALE = 1
+
+Automatic layout direction, determined from the current locale.
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_LTR = 2
+
+Left-to-right layout direction.
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_RTL = 3
+
+Right-to-left layout direction.
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_SYSTEM_LOCALE = 4
+
+Automatic layout direction, determined from the system locale.
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_MAX = 5
+
+Represents the size of the `LayoutDirection` enum.
+
+> enum_value LayoutDirection.LAYOUT_DIRECTION_LOCALE = 1 ; deprecated=Use `LAYOUT_DIRECTION_APPLICATION_LOCALE` instead.
+
+> enum Mode
+
+> enum_value Mode.MODE_WINDOWED = 0
+
+Windowed mode, i.e. `Window` doesn't occupy the whole screen (unless set to the size of the screen).
+
+> enum_value Mode.MODE_MINIMIZED = 1
+
+Minimized window mode, i.e. `Window` is not visible and available on window manager's window list. Normally happens when the minimize button is pressed.
+
+> enum_value Mode.MODE_MAXIMIZED = 2
+
+Maximized window mode, i.e. `Window` will occupy whole screen area except task bar and still display its borders. Normally happens when the maximize button is pressed.
+
+> enum_value Mode.MODE_FULLSCREEN = 3
+
+Full screen mode with full multi-window support.
+Full screen window covers the entire display area of a screen and has no decorations. The display's video mode is not changed.
+**On Android:** This enables immersive mode.
+**On macOS:** A new desktop is used to display the running project.
+**Note:** Regardless of the platform, enabling full screen will change the window size to match the monitor's size. Therefore, make sure your project supports [multiple resolutions]($DOCS_URL/tutorials/rendering/multiple_resolutions.html) when enabling full screen mode.
+
+> enum_value Mode.MODE_EXCLUSIVE_FULLSCREEN = 4
+
+A single window full screen mode. This mode has less overhead, but only one window can be open on a given screen at a time (opening a child window or application switching will trigger a full screen transition).
+Full screen window covers the entire display area of a screen and has no border or decorations. The display's video mode is not changed.
+**Note:** This mode might not work with screen recording software.
+**On Android:** This enables immersive mode.
+**On Windows:** Depending on video driver, full screen transition might cause screens to go black for a moment.
+**On macOS:** A new desktop is used to display the running project. Exclusive full screen mode prevents Dock and Menu from showing up when the mouse pointer is hovering the edge of the screen.
+**On Linux (X11):** Exclusive full screen mode bypasses compositor.
+**On Linux (Wayland):** Equivalent to `MODE_FULLSCREEN`.
+**Note:** Regardless of the platform, enabling full screen will change the window size to match the monitor's size. Therefore, make sure your project supports [multiple resolutions]($DOCS_URL/tutorials/rendering/multiple_resolutions.html) when enabling full screen mode.
+
+> enum WindowInitialPosition
+
+> enum_value WindowInitialPosition.WINDOW_INITIAL_POSITION_ABSOLUTE = 0
+
+Initial window position is determined by `position`.
+
+> enum_value WindowInitialPosition.WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN = 1
+
+Initial window position is the center of the primary screen.
+
+> enum_value WindowInitialPosition.WINDOW_INITIAL_POSITION_CENTER_MAIN_WINDOW_SCREEN = 2
+
+Initial window position is the center of the main window screen.
+
+> enum_value WindowInitialPosition.WINDOW_INITIAL_POSITION_CENTER_OTHER_SCREEN = 3
+
+Initial window position is the center of `current_screen` screen.
+
+> enum_value WindowInitialPosition.WINDOW_INITIAL_POSITION_CENTER_SCREEN_WITH_MOUSE_FOCUS = 4
+
+Initial window position is the center of the screen containing the mouse pointer.
+
+> enum_value WindowInitialPosition.WINDOW_INITIAL_POSITION_CENTER_SCREEN_WITH_KEYBOARD_FOCUS = 5
+
+Initial window position is the center of the screen containing the window with the keyboard focus.
+
+## Constants
+
+> constant NOTIFICATION_VISIBILITY_CHANGED = 30
+
+Emitted when `Window`'s visibility changes, right before `visibility_changed`.
+
+> constant NOTIFICATION_THEME_CHANGED = 32
+
+Sent when the node needs to refresh its theme items. This happens in one of the following cases:
+- The `theme` property is changed on this node or any of its ancestors.
+- The `theme_type_variation` property is changed on this node.
+- The node enters the scene tree.
+**Note:** As an optimization, this notification won't be sent from changes that occur while this node is outside of the scene tree. Instead, all of the theme item updates can be applied at once when the node enters the scene tree.
+
+## Theme Properties
+
+> theme_property title_color : Color ; data=color ; default=Color(0.875, 0.875, 0.875, 1)
+
+The color of the title's text.
+
+> theme_property title_outline_modulate : Color ; data=color ; default=Color(0, 0, 0, 1)
+
+The color of the title's text outline.
+
+> theme_property close_h_offset : int ; data=constant ; default=18
+
+Horizontal position offset of the close button, relative to the end of the title bar, towards the beginning of the title bar.
+
+> theme_property close_v_offset : int ; data=constant ; default=24
+
+Vertical position offset of the close button, relative to the bottom of the title bar, towards the top of the title bar.
+
+> theme_property resize_margin : int ; data=constant ; default=4
+
+Defines the outside margin at which the window border can be grabbed with mouse and resized.
+
+> theme_property title_height : int ; data=constant ; default=36
+
+Height of the title bar.
+
+> theme_property title_outline_size : int ; data=constant ; default=0
+
+The size of the title outline.
+
+> theme_property title_font : Font ; data=font
+
+The font used to draw the title.
+
+> theme_property title_font_size : int ; data=font_size
+
+The size of the title font.
+
+> theme_property close : Texture2D ; data=icon
+
+The icon for the close button.
+
+> theme_property close_pressed : Texture2D ; data=icon
+
+The icon for the close button when it's being pressed.
+
+> theme_property embedded_border : StyleBox ; data=style
+
+The background style used when the `Window` is embedded. Note that this is drawn only under the window's content, excluding the title. For proper borders and title bar style, you can use `expand_margin_*` properties of `StyleBoxFlat`.
+**Note:** The content background will not be visible unless `transparent` is enabled.
+
+> theme_property embedded_unfocused_border : StyleBox ; data=style
+
+The background style used when the `Window` is embedded and unfocused.
+
+## Tutorials
+- [HDR output]($DOCS_URL/tutorials/rendering/hdr_output.html)
+- [Multiple Windows demo](https://github.com/godotengine/godot-demo-projects/tree/master/misc/multiple_windows)

@@ -1,0 +1,28 @@
+# 设计/调研工作稿（本地保留的证据链，不进 GitHub——对外叙事以 README 为准）
+DESIGN.md
+PLAY.md
+ROADMAP.md
+
+# 测试题集（本地回归用，不进 GitHub——只发工具本身）
+tools/docs_benchmark.md
+
+# 本地工作材料（不进 GitHub）
+# demos/       官方 demo 项目克隆（~1.9G，自带 .git，需要时重新克隆）
+# experiments/ 装置实验项目（~170M，turn_test / wait_test 产物）
+# showcase/    验证用游戏项目（~1.9G，flappybird / greedy-snake / motato / voxelgame）
+# test_videos/ 测试录像素材
+demos/
+experiments/
+showcase/
+test_videos/
+
+# 管线缓存
+# tools/.cache/ godot 稀疏克隆缓存（update_docs.sh 会重建）
+tools/.cache/
+tools/__pycache__/
+
+# demo_project 的录像产物（项目本体保留作为 M0 种子）
+demo_project/movie*.avi
+
+# Godot 项目通用
+.godot/

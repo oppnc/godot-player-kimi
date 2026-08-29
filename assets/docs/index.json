@@ -1,0 +1,4869 @@
+{
+ "schema": 1,
+ "godot_version": "4.7",
+ "upstream_commit": "ed1daf0bf001b61586d9930840f2f1394092c079",
+ "generated_at": "2026-08-29",
+ "class_count": 810,
+ "classes": [
+  {
+   "name": "@GlobalScope",
+   "file": "classes/@globalscope.md",
+   "inherits": null,
+   "brief": "Global scope constants and functions."
+  },
+  {
+   "name": "AABB",
+   "file": "classes/aabb.md",
+   "inherits": null,
+   "brief": "A 3D axis-aligned bounding box."
+  },
+  {
+   "name": "AcceptDialog",
+   "file": "classes/acceptdialog.md",
+   "inherits": "Window",
+   "brief": "A base dialog used for user notification."
+  },
+  {
+   "name": "AccessibilityServer",
+   "file": "classes/accessibilityserver.md",
+   "inherits": "Object",
+   "brief": "A server interface for screen reader support."
+  },
+  {
+   "name": "AESContext",
+   "file": "classes/aescontext.md",
+   "inherits": "RefCounted",
+   "brief": "Provides access to AES encryption/decryption of raw data."
+  },
+  {
+   "name": "AimModifier3D",
+   "file": "classes/aimmodifier3d.md",
+   "inherits": "BoneConstraint3D",
+   "brief": "The `AimModifier3D` rotates a bone to look at a reference bone."
+  },
+  {
+   "name": "AnimatableBody2D",
+   "file": "classes/animatablebody2d.md",
+   "inherits": "StaticBody2D",
+   "brief": "A 2D physics body that can't be moved by external forces. When moved manually, it affects other bodies in its path."
+  },
+  {
+   "name": "AnimatableBody3D",
+   "file": "classes/animatablebody3d.md",
+   "inherits": "StaticBody3D",
+   "brief": "A 3D physics body that can't be moved by external forces. When moved manually, it affects other bodies in its path."
+  },
+  {
+   "name": "AnimatedSprite2D",
+   "file": "classes/animatedsprite2d.md",
+   "inherits": "Node2D",
+   "brief": "Sprite node that contains multiple textures as frames to play for animation."
+  },
+  {
+   "name": "AnimatedSprite3D",
+   "file": "classes/animatedsprite3d.md",
+   "inherits": "SpriteBase3D",
+   "brief": "2D sprite node in 3D world, that can use multiple 2D textures for animation."
+  },
+  {
+   "name": "AnimatedTexture",
+   "file": "classes/animatedtexture.md",
+   "inherits": "Texture2D",
+   "brief": "Proxy texture for simple frame-based animations."
+  },
+  {
+   "name": "Animation",
+   "file": "classes/animation.md",
+   "inherits": "Resource",
+   "brief": "Holds data that can be used to animate anything in the engine."
+  },
+  {
+   "name": "AnimationLibrary",
+   "file": "classes/animationlibrary.md",
+   "inherits": "Resource",
+   "brief": "Container for `Animation` resources."
+  },
+  {
+   "name": "AnimationMixer",
+   "file": "classes/animationmixer.md",
+   "inherits": "Node",
+   "brief": "Base class for `AnimationPlayer` and `AnimationTree`."
+  },
+  {
+   "name": "AnimationNode",
+   "file": "classes/animationnode.md",
+   "inherits": "Resource",
+   "brief": "Base class for `AnimationTree` nodes. Not related to scene nodes."
+  },
+  {
+   "name": "AnimationNodeAdd2",
+   "file": "classes/animationnodeadd2.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "Blends two animations additively inside of an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeAdd3",
+   "file": "classes/animationnodeadd3.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "Blends two of three animations additively inside of an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeAnimation",
+   "file": "classes/animationnodeanimation.md",
+   "inherits": "AnimationRootNode",
+   "brief": "An input animation for an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeBlend2",
+   "file": "classes/animationnodeblend2.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "Blends two animations linearly inside of an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeBlend3",
+   "file": "classes/animationnodeblend3.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "Blends two of three animations linearly inside of an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeBlendSpace1D",
+   "file": "classes/animationnodeblendspace1d.md",
+   "inherits": "AnimationRootNode",
+   "brief": "A set of `AnimationRootNode`s placed on a virtual axis, crossfading between the two adjacent ones. Used by `AnimationTree`."
+  },
+  {
+   "name": "AnimationNodeBlendSpace2D",
+   "file": "classes/animationnodeblendspace2d.md",
+   "inherits": "AnimationRootNode",
+   "brief": "A set of `AnimationRootNode`s placed on 2D coordinates, crossfading between the three adjacent ones. Used by `AnimationTree`."
+  },
+  {
+   "name": "AnimationNodeBlendTree",
+   "file": "classes/animationnodeblendtree.md",
+   "inherits": "AnimationRootNode",
+   "brief": "A sub-tree of many type `AnimationNode`s used for complex animations. Used by `AnimationTree`."
+  },
+  {
+   "name": "AnimationNodeExtension",
+   "file": "classes/animationnodeextension.md",
+   "inherits": "AnimationNode",
+   "brief": "Base class for extending `AnimationRootNode`s from GDScript, C#, or C++."
+  },
+  {
+   "name": "AnimationNodeOneShot",
+   "file": "classes/animationnodeoneshot.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "Plays an animation once in an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeOutput",
+   "file": "classes/animationnodeoutput.md",
+   "inherits": "AnimationNode",
+   "brief": "The animation output node of an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeStateMachine",
+   "file": "classes/animationnodestatemachine.md",
+   "inherits": "AnimationRootNode",
+   "brief": "A state machine with multiple `AnimationRootNode`s, used by `AnimationTree`."
+  },
+  {
+   "name": "AnimationNodeStateMachinePlayback",
+   "file": "classes/animationnodestatemachineplayback.md",
+   "inherits": "Resource",
+   "brief": "Provides playback control for an `AnimationNodeStateMachine`."
+  },
+  {
+   "name": "AnimationNodeStateMachineTransition",
+   "file": "classes/animationnodestatemachinetransition.md",
+   "inherits": "Resource",
+   "brief": "A transition within an `AnimationNodeStateMachine` connecting two `AnimationRootNode`s."
+  },
+  {
+   "name": "AnimationNodeSub2",
+   "file": "classes/animationnodesub2.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "Blends two animations subtractively inside of an `AnimationNodeBlendTree`."
+  },
+  {
+   "name": "AnimationNodeSync",
+   "file": "classes/animationnodesync.md",
+   "inherits": "AnimationNode",
+   "brief": "Base class for `AnimationNode`s with multiple input ports that must be synchronized."
+  },
+  {
+   "name": "AnimationNodeTimeScale",
+   "file": "classes/animationnodetimescale.md",
+   "inherits": "AnimationNode",
+   "brief": "A time-scaling animation node used in `AnimationTree`."
+  },
+  {
+   "name": "AnimationNodeTimeSeek",
+   "file": "classes/animationnodetimeseek.md",
+   "inherits": "AnimationNode",
+   "brief": "A time-seeking animation node used in `AnimationTree`."
+  },
+  {
+   "name": "AnimationNodeTransition",
+   "file": "classes/animationnodetransition.md",
+   "inherits": "AnimationNodeSync",
+   "brief": "A transition within an `AnimationTree` connecting two `AnimationNode`s."
+  },
+  {
+   "name": "AnimationPlayer",
+   "file": "classes/animationplayer.md",
+   "inherits": "AnimationMixer",
+   "brief": "A node used for animation playback."
+  },
+  {
+   "name": "AnimationRootNode",
+   "file": "classes/animationrootnode.md",
+   "inherits": "AnimationNode",
+   "brief": "Base class for `AnimationNode`s that hold one or multiple composite animations. Usually used for `AnimationTree.tree_root`."
+  },
+  {
+   "name": "AnimationTree",
+   "file": "classes/animationtree.md",
+   "inherits": "AnimationMixer",
+   "brief": "A node used for advanced animation transitions in an `AnimationPlayer`."
+  },
+  {
+   "name": "Area2D",
+   "file": "classes/area2d.md",
+   "inherits": "CollisionObject2D",
+   "brief": "A region of 2D space that detects other `CollisionObject2D`s entering or exiting it."
+  },
+  {
+   "name": "Area3D",
+   "file": "classes/area3d.md",
+   "inherits": "CollisionObject3D",
+   "brief": "A region of 3D space that detects other `CollisionObject3D`s entering or exiting it."
+  },
+  {
+   "name": "AreaLight3D",
+   "file": "classes/arealight3d.md",
+   "inherits": "Light3D",
+   "brief": "An area light, such as a neon light tube or a screen."
+  },
+  {
+   "name": "Array",
+   "file": "classes/array.md",
+   "inherits": null,
+   "brief": "A built-in data structure that holds a sequence of elements."
+  },
+  {
+   "name": "ArrayMesh",
+   "file": "classes/arraymesh.md",
+   "inherits": "Mesh",
+   "brief": "`Mesh` type that provides utility for constructing a surface from arrays."
+  },
+  {
+   "name": "ArrayOccluder3D",
+   "file": "classes/arrayoccluder3d.md",
+   "inherits": "Occluder3D",
+   "brief": "3D polygon shape for use with occlusion culling in `OccluderInstance3D`."
+  },
+  {
+   "name": "AspectRatioContainer",
+   "file": "classes/aspectratiocontainer.md",
+   "inherits": "Container",
+   "brief": "A container that preserves the proportions of its child controls."
+  },
+  {
+   "name": "AStar2D",
+   "file": "classes/astar2d.md",
+   "inherits": "RefCounted",
+   "brief": "An implementation of A* for finding the shortest path between two vertices on a connected graph in 2D space."
+  },
+  {
+   "name": "AStar3D",
+   "file": "classes/astar3d.md",
+   "inherits": "RefCounted",
+   "brief": "An implementation of A* for finding the shortest path between two vertices on a connected graph in 3D space."
+  },
+  {
+   "name": "AStarGrid2D",
+   "file": "classes/astargrid2d.md",
+   "inherits": "RefCounted",
+   "brief": "An implementation of A* for finding the shortest path between two points on a partial 2D grid."
+  },
+  {
+   "name": "AtlasTexture",
+   "file": "classes/atlastexture.md",
+   "inherits": "Texture2D",
+   "brief": "A texture that crops out part of another Texture2D."
+  },
+  {
+   "name": "AudioBusLayout",
+   "file": "classes/audiobuslayout.md",
+   "inherits": "Resource",
+   "brief": "Stores information about the audio buses."
+  },
+  {
+   "name": "AudioEffect",
+   "file": "classes/audioeffect.md",
+   "inherits": "Resource",
+   "brief": "Base class for audio effect resources."
+  },
+  {
+   "name": "AudioEffectAmplify",
+   "file": "classes/audioeffectamplify.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a volume manipulation audio effect to an audio bus."
+  },
+  {
+   "name": "AudioEffectBandLimitFilter",
+   "file": "classes/audioeffectbandlimitfilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a band-limit filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectBandPassFilter",
+   "file": "classes/audioeffectbandpassfilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a band-pass filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectCapture",
+   "file": "classes/audioeffectcapture.md",
+   "inherits": "AudioEffect",
+   "brief": "Exposes audio samples from an audio bus in real-time, such that it can be accessed as data."
+  },
+  {
+   "name": "AudioEffectChorus",
+   "file": "classes/audioeffectchorus.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a chorus audio effect to an audio bus. Gives the impression of multiple audio sources."
+  },
+  {
+   "name": "AudioEffectCompressor",
+   "file": "classes/audioeffectcompressor.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a downward compressor audio effect to an audio bus. Allows control of the dynamic range via a volume threshold and timing controls."
+  },
+  {
+   "name": "AudioEffectDelay",
+   "file": "classes/audioeffectdelay.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a delay audio effect to an audio bus. Emulates an echo by playing the input audio back after a period of time."
+  },
+  {
+   "name": "AudioEffectDistortion",
+   "file": "classes/audioeffectdistortion.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a distortion audio effect to an audio bus. Remaps audio samples using a nonlinear function to achieve a distorted sound."
+  },
+  {
+   "name": "AudioEffectEQ",
+   "file": "classes/audioeffecteq.md",
+   "inherits": "AudioEffect",
+   "brief": "Base class for audio equalizers (EQ). Gives you control over frequencies. Use it to create a custom equalizer if `AudioEffectEQ6`, `AudioEffectEQ10`, or `AudioEffectEQ21` don't fit your needs."
+  },
+  {
+   "name": "AudioEffectEQ10",
+   "file": "classes/audioeffecteq10.md",
+   "inherits": "AudioEffectEQ",
+   "brief": "Adds a 10-band equalizer audio effect to an audio bus. Gives you control over frequencies from 31 Hz to 16000 Hz. Each frequency can be modulated between -60/+24 dB."
+  },
+  {
+   "name": "AudioEffectEQ21",
+   "file": "classes/audioeffecteq21.md",
+   "inherits": "AudioEffectEQ",
+   "brief": "Adds a 21-band equalizer audio effect to an audio bus. Gives you control over frequencies from 22 Hz to 22000 Hz. Each frequency can be modulated between -60/+24 dB."
+  },
+  {
+   "name": "AudioEffectEQ6",
+   "file": "classes/audioeffecteq6.md",
+   "inherits": "AudioEffectEQ",
+   "brief": "Adds a 6-band equalizer audio effect to an audio bus. Gives you control over frequencies from 32 Hz to 10000 Hz. Each frequency can be modulated between -60/+24 dB."
+  },
+  {
+   "name": "AudioEffectFilter",
+   "file": "classes/audioeffectfilter.md",
+   "inherits": "AudioEffect",
+   "brief": "Base class for filters. Use effects that inherit this class instead of using it directly."
+  },
+  {
+   "name": "AudioEffectHardLimiter",
+   "file": "classes/audioeffecthardlimiter.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a limiter audio effect to an audio bus. Prevents audio signals from exceeding a specified volume level."
+  },
+  {
+   "name": "AudioEffectHighPassFilter",
+   "file": "classes/audioeffecthighpassfilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a high-pass filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectHighShelfFilter",
+   "file": "classes/audioeffecthighshelffilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a high-shelf filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectInstance",
+   "file": "classes/audioeffectinstance.md",
+   "inherits": "RefCounted",
+   "brief": "Manipulates the audio it receives for a given effect."
+  },
+  {
+   "name": "AudioEffectLimiter",
+   "file": "classes/audioeffectlimiter.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a soft-clip limiter audio effect to an audio bus."
+  },
+  {
+   "name": "AudioEffectLowPassFilter",
+   "file": "classes/audioeffectlowpassfilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a low-pass filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectLowShelfFilter",
+   "file": "classes/audioeffectlowshelffilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a low-shelf filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectNotchFilter",
+   "file": "classes/audioeffectnotchfilter.md",
+   "inherits": "AudioEffectFilter",
+   "brief": "Adds a notch filter to an audio bus."
+  },
+  {
+   "name": "AudioEffectPanner",
+   "file": "classes/audioeffectpanner.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a panner audio effect to an audio bus. Pans the sound left or right."
+  },
+  {
+   "name": "AudioEffectPhaser",
+   "file": "classes/audioeffectphaser.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a phaser audio effect to an audio bus. Creates several notch and peak filters that sweep across the spectrum."
+  },
+  {
+   "name": "AudioEffectPitchShift",
+   "file": "classes/audioeffectpitchshift.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a pitch-shifting audio effect to an audio bus. Raises or lowers the pitch of the input audio."
+  },
+  {
+   "name": "AudioEffectRecord",
+   "file": "classes/audioeffectrecord.md",
+   "inherits": "AudioEffect",
+   "brief": "Audio effect used for recording the sound from an audio bus."
+  },
+  {
+   "name": "AudioEffectReverb",
+   "file": "classes/audioeffectreverb.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a reverberation audio effect to an audio bus. Emulates an echo by playing a blurred version of the input audio."
+  },
+  {
+   "name": "AudioEffectSpectrumAnalyzer",
+   "file": "classes/audioeffectspectrumanalyzer.md",
+   "inherits": "AudioEffect",
+   "brief": "Creates an `AudioEffectInstance` which performs frequency analysis and exposes results to be accessed in real-time."
+  },
+  {
+   "name": "AudioEffectSpectrumAnalyzerInstance",
+   "file": "classes/audioeffectspectrumanalyzerinstance.md",
+   "inherits": "AudioEffectInstance",
+   "brief": "Queryable instance of an `AudioEffectSpectrumAnalyzer`."
+  },
+  {
+   "name": "AudioEffectStereoEnhance",
+   "file": "classes/audioeffectstereoenhance.md",
+   "inherits": "AudioEffect",
+   "brief": "Adds a stereo manipulation audio effect to an audio bus. Controls gain of the side channels, and widens the stereo image."
+  },
+  {
+   "name": "AudioListener2D",
+   "file": "classes/audiolistener2d.md",
+   "inherits": "Node2D",
+   "brief": "Overrides the location sounds are heard from."
+  },
+  {
+   "name": "AudioListener3D",
+   "file": "classes/audiolistener3d.md",
+   "inherits": "Node3D",
+   "brief": "Overrides the location sounds are heard from."
+  },
+  {
+   "name": "AudioSample",
+   "file": "classes/audiosample.md",
+   "inherits": "RefCounted",
+   "brief": "Base class for audio samples."
+  },
+  {
+   "name": "AudioSamplePlayback",
+   "file": "classes/audiosampleplayback.md",
+   "inherits": "RefCounted",
+   "brief": "Meta class for playing back audio samples."
+  },
+  {
+   "name": "AudioServer",
+   "file": "classes/audioserver.md",
+   "inherits": "Object",
+   "brief": "Server interface for low-level audio access."
+  },
+  {
+   "name": "AudioStream",
+   "file": "classes/audiostream.md",
+   "inherits": "Resource",
+   "brief": "Base class for audio streams."
+  },
+  {
+   "name": "AudioStreamGenerator",
+   "file": "classes/audiostreamgenerator.md",
+   "inherits": "AudioStream",
+   "brief": "An audio stream with utilities for procedural sound generation."
+  },
+  {
+   "name": "AudioStreamGeneratorPlayback",
+   "file": "classes/audiostreamgeneratorplayback.md",
+   "inherits": "AudioStreamPlaybackResampled",
+   "brief": "Plays back audio generated using `AudioStreamGenerator`."
+  },
+  {
+   "name": "AudioStreamMicrophone",
+   "file": "classes/audiostreammicrophone.md",
+   "inherits": "AudioStream",
+   "brief": "Plays real-time audio input data."
+  },
+  {
+   "name": "AudioStreamPlayback",
+   "file": "classes/audiostreamplayback.md",
+   "inherits": "RefCounted",
+   "brief": "Meta class for playing back audio."
+  },
+  {
+   "name": "AudioStreamPlaybackPolyphonic",
+   "file": "classes/audiostreamplaybackpolyphonic.md",
+   "inherits": "AudioStreamPlayback",
+   "brief": "Playback instance for `AudioStreamPolyphonic`."
+  },
+  {
+   "name": "AudioStreamPlaybackResampled",
+   "file": "classes/audiostreamplaybackresampled.md",
+   "inherits": "AudioStreamPlayback",
+   "brief": "Playback class used for resampled `AudioStream`s."
+  },
+  {
+   "name": "AudioStreamPlayer",
+   "file": "classes/audiostreamplayer.md",
+   "inherits": "Node",
+   "brief": "A node for audio playback."
+  },
+  {
+   "name": "AudioStreamPlayer2D",
+   "file": "classes/audiostreamplayer2d.md",
+   "inherits": "Node2D",
+   "brief": "Plays positional sound in 2D space."
+  },
+  {
+   "name": "AudioStreamPlayer3D",
+   "file": "classes/audiostreamplayer3d.md",
+   "inherits": "Node3D",
+   "brief": "Plays positional sound in 3D space."
+  },
+  {
+   "name": "AudioStreamPolyphonic",
+   "file": "classes/audiostreampolyphonic.md",
+   "inherits": "AudioStream",
+   "brief": "AudioStream that lets the user play custom streams at any time from code, simultaneously using a single player."
+  },
+  {
+   "name": "AudioStreamRandomizer",
+   "file": "classes/audiostreamrandomizer.md",
+   "inherits": "AudioStream",
+   "brief": "Wraps a pool of audio streams with pitch and volume shifting."
+  },
+  {
+   "name": "AudioStreamWAV",
+   "file": "classes/audiostreamwav.md",
+   "inherits": "AudioStream",
+   "brief": "Stores audio data loaded from WAV files."
+  },
+  {
+   "name": "AwaitTweener",
+   "file": "classes/awaittweener.md",
+   "inherits": "Tweener",
+   "brief": "Awaits a specified signal."
+  },
+  {
+   "name": "BackBufferCopy",
+   "file": "classes/backbuffercopy.md",
+   "inherits": "Node2D",
+   "brief": "A node that copies a region of the screen to a buffer for access in shader code."
+  },
+  {
+   "name": "BaseButton",
+   "file": "classes/basebutton.md",
+   "inherits": "Control",
+   "brief": "Abstract base class for GUI buttons."
+  },
+  {
+   "name": "BaseMaterial3D",
+   "file": "classes/basematerial3d.md",
+   "inherits": "Material",
+   "brief": "Abstract base class for defining the 3D rendering properties of meshes."
+  },
+  {
+   "name": "Basis",
+   "file": "classes/basis.md",
+   "inherits": null,
+   "brief": "A 3×3 matrix for representing 3D rotation and scale."
+  },
+  {
+   "name": "BitMap",
+   "file": "classes/bitmap.md",
+   "inherits": "Resource",
+   "brief": "Boolean matrix."
+  },
+  {
+   "name": "BlitMaterial",
+   "file": "classes/blitmaterial.md",
+   "inherits": "Material",
+   "brief": "A material that processes blit calls to a DrawableTexture."
+  },
+  {
+   "name": "Bone2D",
+   "file": "classes/bone2d.md",
+   "inherits": "Node2D",
+   "brief": "A joint used with `Skeleton2D` to control and animate other nodes."
+  },
+  {
+   "name": "BoneAttachment3D",
+   "file": "classes/boneattachment3d.md",
+   "inherits": "Node3D",
+   "brief": "А node that dynamically copies or overrides the 3D transform of a bone in its parent `Skeleton3D`."
+  },
+  {
+   "name": "BoneConstraint3D",
+   "file": "classes/boneconstraint3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A node that may modify Skeleton3D's bone with associating the two bones."
+  },
+  {
+   "name": "BoneMap",
+   "file": "classes/bonemap.md",
+   "inherits": "Resource",
+   "brief": "Describes a mapping of bone names for retargeting `Skeleton3D` into common names defined by a `SkeletonProfile`."
+  },
+  {
+   "name": "BoneTwistDisperser3D",
+   "file": "classes/bonetwistdisperser3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A node that propagates and disperses the child bone's twist to the parent bones."
+  },
+  {
+   "name": "bool",
+   "file": "classes/bool.md",
+   "inherits": null,
+   "brief": "A built-in boolean type."
+  },
+  {
+   "name": "BoxContainer",
+   "file": "classes/boxcontainer.md",
+   "inherits": "Container",
+   "brief": "A container that arranges its child controls horizontally or vertically."
+  },
+  {
+   "name": "BoxMesh",
+   "file": "classes/boxmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Generate an axis-aligned box `PrimitiveMesh`."
+  },
+  {
+   "name": "BoxOccluder3D",
+   "file": "classes/boxoccluder3d.md",
+   "inherits": "Occluder3D",
+   "brief": "Cuboid shape for use with occlusion culling in `OccluderInstance3D`."
+  },
+  {
+   "name": "BoxShape3D",
+   "file": "classes/boxshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D box shape used for physics collision."
+  },
+  {
+   "name": "Button",
+   "file": "classes/button.md",
+   "inherits": "BaseButton",
+   "brief": "A themed button that can contain text and an icon."
+  },
+  {
+   "name": "ButtonGroup",
+   "file": "classes/buttongroup.md",
+   "inherits": "Resource",
+   "brief": "A group of buttons that doesn't allow more than one button to be pressed at a time."
+  },
+  {
+   "name": "Callable",
+   "file": "classes/callable.md",
+   "inherits": null,
+   "brief": "A built-in type representing a method or a standalone function."
+  },
+  {
+   "name": "CallbackTweener",
+   "file": "classes/callbacktweener.md",
+   "inherits": "Tweener",
+   "brief": "Calls the specified method after optional delay."
+  },
+  {
+   "name": "Camera2D",
+   "file": "classes/camera2d.md",
+   "inherits": "Node2D",
+   "brief": "Camera node for 2D scenes."
+  },
+  {
+   "name": "Camera3D",
+   "file": "classes/camera3d.md",
+   "inherits": "Node3D",
+   "brief": "Camera node, displays from a point of view."
+  },
+  {
+   "name": "CameraAttributes",
+   "file": "classes/cameraattributes.md",
+   "inherits": "Resource",
+   "brief": "Parent class for camera settings."
+  },
+  {
+   "name": "CameraAttributesPhysical",
+   "file": "classes/cameraattributesphysical.md",
+   "inherits": "CameraAttributes",
+   "brief": "Physically-based camera settings."
+  },
+  {
+   "name": "CameraAttributesPractical",
+   "file": "classes/cameraattributespractical.md",
+   "inherits": "CameraAttributes",
+   "brief": "Camera settings in an easy to use format."
+  },
+  {
+   "name": "CameraFeed",
+   "file": "classes/camerafeed.md",
+   "inherits": "RefCounted",
+   "brief": "A camera feed gives you access to a single physical camera attached to your device."
+  },
+  {
+   "name": "CameraServer",
+   "file": "classes/cameraserver.md",
+   "inherits": "Object",
+   "brief": "Server keeping track of different cameras accessible in Godot."
+  },
+  {
+   "name": "CameraTexture",
+   "file": "classes/cameratexture.md",
+   "inherits": "Texture2D",
+   "brief": "Texture provided by a `CameraFeed`."
+  },
+  {
+   "name": "CanvasGroup",
+   "file": "classes/canvasgroup.md",
+   "inherits": "Node2D",
+   "brief": "Merges several 2D nodes into a single draw operation."
+  },
+  {
+   "name": "CanvasItem",
+   "file": "classes/canvasitem.md",
+   "inherits": "Node",
+   "brief": "Abstract base class for everything in 2D space."
+  },
+  {
+   "name": "CanvasItemMaterial",
+   "file": "classes/canvasitemmaterial.md",
+   "inherits": "Material",
+   "brief": "A material for `CanvasItem`s."
+  },
+  {
+   "name": "CanvasLayer",
+   "file": "classes/canvaslayer.md",
+   "inherits": "Node",
+   "brief": "A node used for independent rendering of objects within a 2D scene."
+  },
+  {
+   "name": "CanvasModulate",
+   "file": "classes/canvasmodulate.md",
+   "inherits": "Node2D",
+   "brief": "A node that applies a color tint to a canvas."
+  },
+  {
+   "name": "CanvasTexture",
+   "file": "classes/canvastexture.md",
+   "inherits": "Texture2D",
+   "brief": "Texture with optional normal and specular maps for use in 2D rendering."
+  },
+  {
+   "name": "CapsuleMesh",
+   "file": "classes/capsulemesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Class representing a capsule-shaped `PrimitiveMesh`."
+  },
+  {
+   "name": "CapsuleShape2D",
+   "file": "classes/capsuleshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D capsule shape used for physics collision."
+  },
+  {
+   "name": "CapsuleShape3D",
+   "file": "classes/capsuleshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D capsule shape used for physics collision."
+  },
+  {
+   "name": "CCDIK3D",
+   "file": "classes/ccdik3d.md",
+   "inherits": "IterateIK3D",
+   "brief": "Rotation based cyclic coordinate descent inverse kinematics solver."
+  },
+  {
+   "name": "CenterContainer",
+   "file": "classes/centercontainer.md",
+   "inherits": "Container",
+   "brief": "A container that keeps child controls in its center."
+  },
+  {
+   "name": "ChainIK3D",
+   "file": "classes/chainik3d.md",
+   "inherits": "IKModifier3D",
+   "brief": "A `SkeletonModifier3D` to apply inverse kinematics to bone chains containing an arbitrary number of bones."
+  },
+  {
+   "name": "CharacterBody2D",
+   "file": "classes/characterbody2d.md",
+   "inherits": "PhysicsBody2D",
+   "brief": "A 2D physics body specialized for characters moved by script."
+  },
+  {
+   "name": "CharacterBody3D",
+   "file": "classes/characterbody3d.md",
+   "inherits": "PhysicsBody3D",
+   "brief": "A 3D physics body specialized for characters moved by script."
+  },
+  {
+   "name": "CharFXTransform",
+   "file": "classes/charfxtransform.md",
+   "inherits": "RefCounted",
+   "brief": "Controls how an individual character will be displayed in a `RichTextEffect`."
+  },
+  {
+   "name": "CheckBox",
+   "file": "classes/checkbox.md",
+   "inherits": "Button",
+   "brief": "A button that represents a binary choice."
+  },
+  {
+   "name": "CheckButton",
+   "file": "classes/checkbutton.md",
+   "inherits": "Button",
+   "brief": "A button that represents a binary choice."
+  },
+  {
+   "name": "CircleShape2D",
+   "file": "classes/circleshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D circle shape used for physics collision."
+  },
+  {
+   "name": "ClassDB",
+   "file": "classes/classdb.md",
+   "inherits": "Object",
+   "brief": "A class information repository."
+  },
+  {
+   "name": "CodeEdit",
+   "file": "classes/codeedit.md",
+   "inherits": "TextEdit",
+   "brief": "A multiline text editor designed for editing code."
+  },
+  {
+   "name": "CodeHighlighter",
+   "file": "classes/codehighlighter.md",
+   "inherits": "SyntaxHighlighter",
+   "brief": "A syntax highlighter intended for code."
+  },
+  {
+   "name": "CollisionObject2D",
+   "file": "classes/collisionobject2d.md",
+   "inherits": "Node2D",
+   "brief": "Abstract base class for 2D physics objects."
+  },
+  {
+   "name": "CollisionObject3D",
+   "file": "classes/collisionobject3d.md",
+   "inherits": "Node3D",
+   "brief": "Abstract base class for 3D physics objects."
+  },
+  {
+   "name": "CollisionPolygon2D",
+   "file": "classes/collisionpolygon2d.md",
+   "inherits": "Node2D",
+   "brief": "A node that provides a polygon shape to a `CollisionObject2D` parent."
+  },
+  {
+   "name": "CollisionPolygon3D",
+   "file": "classes/collisionpolygon3d.md",
+   "inherits": "Node3D",
+   "brief": "A node that provides a thickened polygon shape (a prism) to a `CollisionObject3D` parent."
+  },
+  {
+   "name": "CollisionShape2D",
+   "file": "classes/collisionshape2d.md",
+   "inherits": "Node2D",
+   "brief": "A node that provides a `Shape2D` to a `CollisionObject2D` parent."
+  },
+  {
+   "name": "CollisionShape3D",
+   "file": "classes/collisionshape3d.md",
+   "inherits": "Node3D",
+   "brief": "A node that provides a `Shape3D` to a `CollisionObject3D` parent."
+  },
+  {
+   "name": "Color",
+   "file": "classes/color.md",
+   "inherits": null,
+   "brief": "A color represented in RGBA format."
+  },
+  {
+   "name": "ColorPalette",
+   "file": "classes/colorpalette.md",
+   "inherits": "Resource",
+   "brief": "A resource class for managing a palette of colors, which can be loaded and saved using `ColorPicker`."
+  },
+  {
+   "name": "ColorPicker",
+   "file": "classes/colorpicker.md",
+   "inherits": "VBoxContainer",
+   "brief": "A widget that provides an interface for selecting or modifying a color."
+  },
+  {
+   "name": "ColorPickerButton",
+   "file": "classes/colorpickerbutton.md",
+   "inherits": "Button",
+   "brief": "A button that brings up a `ColorPicker` when pressed."
+  },
+  {
+   "name": "ColorRect",
+   "file": "classes/colorrect.md",
+   "inherits": "Control",
+   "brief": "A control that displays a solid color rectangle."
+  },
+  {
+   "name": "Compositor",
+   "file": "classes/compositor.md",
+   "inherits": "Resource",
+   "brief": "Stores attributes used to customize how a Viewport is rendered."
+  },
+  {
+   "name": "CompositorEffect",
+   "file": "classes/compositoreffect.md",
+   "inherits": "Resource",
+   "brief": "This resource allows for creating a custom rendering effect."
+  },
+  {
+   "name": "CompressedCubemap",
+   "file": "classes/compressedcubemap.md",
+   "inherits": "CompressedTextureLayered",
+   "brief": "An optionally compressed `Cubemap`."
+  },
+  {
+   "name": "CompressedCubemapArray",
+   "file": "classes/compressedcubemaparray.md",
+   "inherits": "CompressedTextureLayered",
+   "brief": "An optionally compressed `CubemapArray`."
+  },
+  {
+   "name": "CompressedTexture2D",
+   "file": "classes/compressedtexture2d.md",
+   "inherits": "Texture2D",
+   "brief": "Texture with 2 dimensions, optionally compressed."
+  },
+  {
+   "name": "CompressedTexture2DArray",
+   "file": "classes/compressedtexture2darray.md",
+   "inherits": "CompressedTextureLayered",
+   "brief": "Array of 2-dimensional textures, optionally compressed."
+  },
+  {
+   "name": "CompressedTexture3D",
+   "file": "classes/compressedtexture3d.md",
+   "inherits": "Texture3D",
+   "brief": "Texture with 3 dimensions, optionally compressed."
+  },
+  {
+   "name": "CompressedTextureLayered",
+   "file": "classes/compressedtexturelayered.md",
+   "inherits": "TextureLayered",
+   "brief": "Base class for texture arrays that can optionally be compressed."
+  },
+  {
+   "name": "ConcavePolygonShape2D",
+   "file": "classes/concavepolygonshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D polyline shape used for physics collision."
+  },
+  {
+   "name": "ConcavePolygonShape3D",
+   "file": "classes/concavepolygonshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D trimesh shape used for physics collision."
+  },
+  {
+   "name": "ConeTwistJoint3D",
+   "file": "classes/conetwistjoint3d.md",
+   "inherits": "Joint3D",
+   "brief": "A physics joint that connects two 3D physics bodies in a way that simulates a ball-and-socket joint."
+  },
+  {
+   "name": "ConfigFile",
+   "file": "classes/configfile.md",
+   "inherits": "RefCounted",
+   "brief": "Helper class to handle INI-style files."
+  },
+  {
+   "name": "ConfirmationDialog",
+   "file": "classes/confirmationdialog.md",
+   "inherits": "AcceptDialog",
+   "brief": "A dialog used for confirmation of actions."
+  },
+  {
+   "name": "Container",
+   "file": "classes/container.md",
+   "inherits": "Control",
+   "brief": "Base class for all GUI containers."
+  },
+  {
+   "name": "Control",
+   "file": "classes/control.md",
+   "inherits": "CanvasItem",
+   "brief": "Base class for all GUI controls. Adapts its position and size based on its parent control."
+  },
+  {
+   "name": "ConvertTransformModifier3D",
+   "file": "classes/converttransformmodifier3d.md",
+   "inherits": "BoneConstraint3D",
+   "brief": "A `SkeletonModifier3D` that apply transform to the bone which converted from reference."
+  },
+  {
+   "name": "ConvexPolygonShape2D",
+   "file": "classes/convexpolygonshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D convex polygon shape used for physics collision."
+  },
+  {
+   "name": "ConvexPolygonShape3D",
+   "file": "classes/convexpolygonshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D convex polyhedron shape used for physics collision."
+  },
+  {
+   "name": "CopyTransformModifier3D",
+   "file": "classes/copytransformmodifier3d.md",
+   "inherits": "BoneConstraint3D",
+   "brief": "A `SkeletonModifier3D` that apply transform to the bone which copied from reference."
+  },
+  {
+   "name": "CPUParticles2D",
+   "file": "classes/cpuparticles2d.md",
+   "inherits": "Node2D",
+   "brief": "A CPU-based 2D particle emitter."
+  },
+  {
+   "name": "CPUParticles3D",
+   "file": "classes/cpuparticles3d.md",
+   "inherits": "GeometryInstance3D",
+   "brief": "A CPU-based 3D particle emitter."
+  },
+  {
+   "name": "Crypto",
+   "file": "classes/crypto.md",
+   "inherits": "RefCounted",
+   "brief": "Provides access to advanced cryptographic functionalities."
+  },
+  {
+   "name": "CryptoKey",
+   "file": "classes/cryptokey.md",
+   "inherits": "Resource",
+   "brief": "A cryptographic key (RSA or elliptic-curve)."
+  },
+  {
+   "name": "Cubemap",
+   "file": "classes/cubemap.md",
+   "inherits": "ImageTextureLayered",
+   "brief": "Six square textures representing the faces of a cube. Commonly used as a skybox."
+  },
+  {
+   "name": "CubemapArray",
+   "file": "classes/cubemaparray.md",
+   "inherits": "ImageTextureLayered",
+   "brief": "An array of `Cubemap`s, stored together and with a single reference."
+  },
+  {
+   "name": "Curve",
+   "file": "classes/curve.md",
+   "inherits": "Resource",
+   "brief": "A mathematical curve."
+  },
+  {
+   "name": "Curve2D",
+   "file": "classes/curve2d.md",
+   "inherits": "Resource",
+   "brief": "Describes a Bézier curve in 2D space."
+  },
+  {
+   "name": "Curve3D",
+   "file": "classes/curve3d.md",
+   "inherits": "Resource",
+   "brief": "Describes a Bézier curve in 3D space."
+  },
+  {
+   "name": "CurveTexture",
+   "file": "classes/curvetexture.md",
+   "inherits": "Texture2D",
+   "brief": "A 1D texture where pixel brightness corresponds to points on a curve."
+  },
+  {
+   "name": "CurveXYZTexture",
+   "file": "classes/curvexyztexture.md",
+   "inherits": "Texture2D",
+   "brief": "A 1D texture where the red, green, and blue color channels correspond to points on 3 curves."
+  },
+  {
+   "name": "CylinderMesh",
+   "file": "classes/cylindermesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Class representing a cylindrical `PrimitiveMesh`."
+  },
+  {
+   "name": "CylinderShape3D",
+   "file": "classes/cylindershape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D cylinder shape used for physics collision."
+  },
+  {
+   "name": "DampedSpringJoint2D",
+   "file": "classes/dampedspringjoint2d.md",
+   "inherits": "Joint2D",
+   "brief": "A physics joint that connects two 2D physics bodies with a spring-like force."
+  },
+  {
+   "name": "Decal",
+   "file": "classes/decal.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Node that projects a texture onto a `MeshInstance3D`."
+  },
+  {
+   "name": "Dictionary",
+   "file": "classes/dictionary.md",
+   "inherits": null,
+   "brief": "A built-in data structure that holds key-value pairs."
+  },
+  {
+   "name": "DirAccess",
+   "file": "classes/diraccess.md",
+   "inherits": "RefCounted",
+   "brief": "Provides methods for managing directories and their content."
+  },
+  {
+   "name": "DirectionalLight2D",
+   "file": "classes/directionallight2d.md",
+   "inherits": "Light2D",
+   "brief": "Directional 2D light from a distance."
+  },
+  {
+   "name": "DirectionalLight3D",
+   "file": "classes/directionallight3d.md",
+   "inherits": "Light3D",
+   "brief": "Directional light from a distance, as from the Sun."
+  },
+  {
+   "name": "DisplayServer",
+   "file": "classes/displayserver.md",
+   "inherits": "Object",
+   "brief": "A server interface for low-level window management."
+  },
+  {
+   "name": "DPITexture",
+   "file": "classes/dpitexture.md",
+   "inherits": "Texture2D",
+   "brief": "An automatically scalable `Texture2D` based on an SVG image."
+  },
+  {
+   "name": "DrawableTexture2D",
+   "file": "classes/drawabletexture2d.md",
+   "inherits": "Texture2D",
+   "brief": "A 2D texture that supports drawing to itself via Blit calls."
+  },
+  {
+   "name": "DTLSServer",
+   "file": "classes/dtlsserver.md",
+   "inherits": "RefCounted",
+   "brief": "Helper class to implement a DTLS server."
+  },
+  {
+   "name": "EditorCommandPalette",
+   "file": "classes/editorcommandpalette.md",
+   "inherits": "ConfirmationDialog",
+   "brief": "Godot editor's command palette."
+  },
+  {
+   "name": "EditorContextMenuPlugin",
+   "file": "classes/editorcontextmenuplugin.md",
+   "inherits": "RefCounted",
+   "brief": "Plugin for adding custom context menus in the editor."
+  },
+  {
+   "name": "EditorDebuggerPlugin",
+   "file": "classes/editordebuggerplugin.md",
+   "inherits": "RefCounted",
+   "brief": "A base class to implement debugger plugins."
+  },
+  {
+   "name": "EditorDebuggerSession",
+   "file": "classes/editordebuggersession.md",
+   "inherits": "RefCounted",
+   "brief": "A class to interact with the editor debugger."
+  },
+  {
+   "name": "EditorDock",
+   "file": "classes/editordock.md",
+   "inherits": "MarginContainer",
+   "brief": "Dockable container for the editor."
+  },
+  {
+   "name": "EditorExportPlatform",
+   "file": "classes/editorexportplatform.md",
+   "inherits": "RefCounted",
+   "brief": "Identifies a supported export platform, and internally provides the functionality of exporting to that platform."
+  },
+  {
+   "name": "EditorExportPlatformAppleEmbedded",
+   "file": "classes/editorexportplatformappleembedded.md",
+   "inherits": "EditorExportPlatform",
+   "brief": "Base class for the Apple embedded platform exporters (iOS and visionOS)."
+  },
+  {
+   "name": "EditorExportPlatformExtension",
+   "file": "classes/editorexportplatformextension.md",
+   "inherits": "EditorExportPlatform",
+   "brief": "Base class for custom `EditorExportPlatform` implementations (plugins)."
+  },
+  {
+   "name": "EditorExportPlatformPC",
+   "file": "classes/editorexportplatformpc.md",
+   "inherits": "EditorExportPlatform",
+   "brief": "Base class for the desktop platform exporter (Windows and Linux/BSD)."
+  },
+  {
+   "name": "EditorExportPlugin",
+   "file": "classes/editorexportplugin.md",
+   "inherits": "RefCounted",
+   "brief": "A script that is executed when exporting the project."
+  },
+  {
+   "name": "EditorExportPreset",
+   "file": "classes/editorexportpreset.md",
+   "inherits": "RefCounted",
+   "brief": "Export preset configuration."
+  },
+  {
+   "name": "EditorFeatureProfile",
+   "file": "classes/editorfeatureprofile.md",
+   "inherits": "RefCounted",
+   "brief": "An editor feature profile which can be used to disable specific features."
+  },
+  {
+   "name": "EditorFileDialog",
+   "file": "classes/editorfiledialog.md",
+   "inherits": "FileDialog",
+   "brief": "A modified version of `FileDialog` used by the editor."
+  },
+  {
+   "name": "EditorFileSystem",
+   "file": "classes/editorfilesystem.md",
+   "inherits": "Node",
+   "brief": "Resource filesystem, as the editor sees it."
+  },
+  {
+   "name": "EditorFileSystemDirectory",
+   "file": "classes/editorfilesystemdirectory.md",
+   "inherits": "Object",
+   "brief": "A directory for the resource filesystem."
+  },
+  {
+   "name": "EditorFileSystemImportFormatSupportQuery",
+   "file": "classes/editorfilesystemimportformatsupportquery.md",
+   "inherits": "RefCounted",
+   "brief": "Used to query and configure import format support."
+  },
+  {
+   "name": "EditorImportPlugin",
+   "file": "classes/editorimportplugin.md",
+   "inherits": "ResourceImporter",
+   "brief": "Registers a custom resource importer in the editor. Use the class to parse any file and import it as a new resource type."
+  },
+  {
+   "name": "EditorInspector",
+   "file": "classes/editorinspector.md",
+   "inherits": "ScrollContainer",
+   "brief": "A control used to edit properties of an object."
+  },
+  {
+   "name": "EditorInspectorPlugin",
+   "file": "classes/editorinspectorplugin.md",
+   "inherits": "RefCounted",
+   "brief": "Plugin for adding custom property editors on the inspector."
+  },
+  {
+   "name": "EditorInterface",
+   "file": "classes/editorinterface.md",
+   "inherits": "Object",
+   "brief": "Godot editor's interface."
+  },
+  {
+   "name": "EditorNode3DGizmo",
+   "file": "classes/editornode3dgizmo.md",
+   "inherits": "Node3DGizmo",
+   "brief": "Gizmo for editing `Node3D` objects."
+  },
+  {
+   "name": "EditorNode3DGizmoPlugin",
+   "file": "classes/editornode3dgizmoplugin.md",
+   "inherits": "Resource",
+   "brief": "A class used by the editor to define Node3D gizmo types."
+  },
+  {
+   "name": "EditorPaths",
+   "file": "classes/editorpaths.md",
+   "inherits": "Object",
+   "brief": "Editor-only singleton that returns paths to various OS-specific data folders and files."
+  },
+  {
+   "name": "EditorPlugin",
+   "file": "classes/editorplugin.md",
+   "inherits": "Node",
+   "brief": "Used by the editor to extend its functionality."
+  },
+  {
+   "name": "EditorProperty",
+   "file": "classes/editorproperty.md",
+   "inherits": "Container",
+   "brief": "Custom control for editing properties that can be added to the `EditorInspector`."
+  },
+  {
+   "name": "EditorResourceConversionPlugin",
+   "file": "classes/editorresourceconversionplugin.md",
+   "inherits": "RefCounted",
+   "brief": "Plugin for adding custom converters from one resource format to another in the editor resource picker context menu; for example, converting a `StandardMaterial3D` to a `ShaderMaterial`."
+  },
+  {
+   "name": "EditorResourcePicker",
+   "file": "classes/editorresourcepicker.md",
+   "inherits": "HBoxContainer",
+   "brief": "Godot editor's control for selecting `Resource` type properties."
+  },
+  {
+   "name": "EditorResourcePreview",
+   "file": "classes/editorresourcepreview.md",
+   "inherits": "Node",
+   "brief": "A node used to generate previews of resources or files."
+  },
+  {
+   "name": "EditorResourcePreviewGenerator",
+   "file": "classes/editorresourcepreviewgenerator.md",
+   "inherits": "RefCounted",
+   "brief": "Custom generator of previews."
+  },
+  {
+   "name": "EditorResourceTooltipPlugin",
+   "file": "classes/editorresourcetooltipplugin.md",
+   "inherits": "RefCounted",
+   "brief": "A plugin that advanced tooltip for its handled resource type."
+  },
+  {
+   "name": "EditorSceneFormatImporter",
+   "file": "classes/editorsceneformatimporter.md",
+   "inherits": "RefCounted",
+   "brief": "Imports scenes from third-parties' 3D files."
+  },
+  {
+   "name": "EditorScenePostImport",
+   "file": "classes/editorscenepostimport.md",
+   "inherits": "RefCounted",
+   "brief": "Post-processes scenes after import."
+  },
+  {
+   "name": "EditorScenePostImportPlugin",
+   "file": "classes/editorscenepostimportplugin.md",
+   "inherits": "RefCounted",
+   "brief": "Plugin to control and modifying the process of importing a scene."
+  },
+  {
+   "name": "EditorScript",
+   "file": "classes/editorscript.md",
+   "inherits": "RefCounted",
+   "brief": "Base script that can be used to add extension functions to the editor."
+  },
+  {
+   "name": "EditorScriptPicker",
+   "file": "classes/editorscriptpicker.md",
+   "inherits": "EditorResourcePicker",
+   "brief": "Godot editor's control for selecting the `script` property of a `Node`."
+  },
+  {
+   "name": "EditorSelection",
+   "file": "classes/editorselection.md",
+   "inherits": "Object",
+   "brief": "Manages the SceneTree selection in the editor."
+  },
+  {
+   "name": "EditorSettings",
+   "file": "classes/editorsettings.md",
+   "inherits": "Resource",
+   "brief": "Object that holds the project-independent editor settings."
+  },
+  {
+   "name": "EditorSpinSlider",
+   "file": "classes/editorspinslider.md",
+   "inherits": "Range",
+   "brief": "Godot editor's control for editing numeric values."
+  },
+  {
+   "name": "EditorSyntaxHighlighter",
+   "file": "classes/editorsyntaxhighlighter.md",
+   "inherits": "SyntaxHighlighter",
+   "brief": "Base class for `SyntaxHighlighter` used by the `ScriptEditor`."
+  },
+  {
+   "name": "EditorToaster",
+   "file": "classes/editortoaster.md",
+   "inherits": "HBoxContainer",
+   "brief": "Manages toast notifications within the editor."
+  },
+  {
+   "name": "EditorTranslationParserPlugin",
+   "file": "classes/editortranslationparserplugin.md",
+   "inherits": "RefCounted",
+   "brief": "Plugin for adding custom parsers to extract strings that are to be translated from custom files (.csv, .json etc.)."
+  },
+  {
+   "name": "EditorUndoRedoManager",
+   "file": "classes/editorundoredomanager.md",
+   "inherits": "Object",
+   "brief": "Manages undo history of scenes opened in the editor."
+  },
+  {
+   "name": "EditorVCSInterface",
+   "file": "classes/editorvcsinterface.md",
+   "inherits": "Object",
+   "brief": "Version Control System (VCS) interface, which reads and writes to the local VCS in use."
+  },
+  {
+   "name": "EncodedObjectAsID",
+   "file": "classes/encodedobjectasid.md",
+   "inherits": "RefCounted",
+   "brief": "Holds a reference to an `Object`'s instance ID."
+  },
+  {
+   "name": "Engine",
+   "file": "classes/engine.md",
+   "inherits": "Object",
+   "brief": "Provides access to engine properties."
+  },
+  {
+   "name": "EngineDebugger",
+   "file": "classes/enginedebugger.md",
+   "inherits": "Object",
+   "brief": "Exposes the internal debugger."
+  },
+  {
+   "name": "EngineProfiler",
+   "file": "classes/engineprofiler.md",
+   "inherits": "RefCounted",
+   "brief": "Base class for creating custom profilers."
+  },
+  {
+   "name": "Environment",
+   "file": "classes/environment.md",
+   "inherits": "Resource",
+   "brief": "Resource for environment nodes (like `WorldEnvironment`) that define multiple rendering options."
+  },
+  {
+   "name": "Expression",
+   "file": "classes/expression.md",
+   "inherits": "RefCounted",
+   "brief": "A class that stores an expression you can execute."
+  },
+  {
+   "name": "ExternalTexture",
+   "file": "classes/externaltexture.md",
+   "inherits": "Texture2D",
+   "brief": "Texture which displays the content of an external buffer."
+  },
+  {
+   "name": "FABRIK3D",
+   "file": "classes/fabrik3d.md",
+   "inherits": "IterateIK3D",
+   "brief": "Position based forward and backward reaching inverse kinematics solver."
+  },
+  {
+   "name": "FileAccess",
+   "file": "classes/fileaccess.md",
+   "inherits": "RefCounted",
+   "brief": "Provides methods for file reading and writing operations."
+  },
+  {
+   "name": "FileDialog",
+   "file": "classes/filedialog.md",
+   "inherits": "ConfirmationDialog",
+   "brief": "A dialog for selecting files or directories in the filesystem."
+  },
+  {
+   "name": "FileSystemDock",
+   "file": "classes/filesystemdock.md",
+   "inherits": "EditorDock",
+   "brief": "Godot editor's dock for managing files in the project."
+  },
+  {
+   "name": "float",
+   "file": "classes/float.md",
+   "inherits": null,
+   "brief": "A built-in type for floating-point numbers."
+  },
+  {
+   "name": "FlowContainer",
+   "file": "classes/flowcontainer.md",
+   "inherits": "Container",
+   "brief": "A container that arranges its child controls horizontally or vertically and wraps them around at the borders."
+  },
+  {
+   "name": "FogMaterial",
+   "file": "classes/fogmaterial.md",
+   "inherits": "Material",
+   "brief": "A material that controls how volumetric fog is rendered, to be assigned to a `FogVolume`."
+  },
+  {
+   "name": "FogVolume",
+   "file": "classes/fogvolume.md",
+   "inherits": "VisualInstance3D",
+   "brief": "A region that contributes to the default volumetric fog from the world environment."
+  },
+  {
+   "name": "FoldableContainer",
+   "file": "classes/foldablecontainer.md",
+   "inherits": "Container",
+   "brief": "A container that can be expanded/collapsed."
+  },
+  {
+   "name": "FoldableGroup",
+   "file": "classes/foldablegroup.md",
+   "inherits": "Resource",
+   "brief": "A group of foldable containers that doesn't allow more than one container to be expanded at a time."
+  },
+  {
+   "name": "Font",
+   "file": "classes/font.md",
+   "inherits": "Resource",
+   "brief": "Abstract base class for fonts and font variations."
+  },
+  {
+   "name": "FontFile",
+   "file": "classes/fontfile.md",
+   "inherits": "Font",
+   "brief": "Holds font source data and prerendered glyph cache, imported from a dynamic or a bitmap font."
+  },
+  {
+   "name": "FontVariation",
+   "file": "classes/fontvariation.md",
+   "inherits": "Font",
+   "brief": "A variation of a font with additional settings."
+  },
+  {
+   "name": "FramebufferCacheRD",
+   "file": "classes/framebuffercacherd.md",
+   "inherits": "Object",
+   "brief": "Framebuffer cache manager for Rendering Device based renderers."
+  },
+  {
+   "name": "GDExtension",
+   "file": "classes/gdextension.md",
+   "inherits": "Resource",
+   "brief": "A native library for GDExtension."
+  },
+  {
+   "name": "GDExtensionManager",
+   "file": "classes/gdextensionmanager.md",
+   "inherits": "Object",
+   "brief": "Provides access to GDExtension functionality."
+  },
+  {
+   "name": "Generic6DOFJoint3D",
+   "file": "classes/generic6dofjoint3d.md",
+   "inherits": "Joint3D",
+   "brief": "A physics joint that allows for complex movement and rotation between two 3D physics bodies."
+  },
+  {
+   "name": "Geometry2D",
+   "file": "classes/geometry2d.md",
+   "inherits": "Object",
+   "brief": "Provides methods for some common 2D geometric operations."
+  },
+  {
+   "name": "Geometry3D",
+   "file": "classes/geometry3d.md",
+   "inherits": "Object",
+   "brief": "Provides methods for some common 3D geometric operations."
+  },
+  {
+   "name": "GeometryInstance3D",
+   "file": "classes/geometryinstance3d.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Base node for geometry-based visual instances."
+  },
+  {
+   "name": "GodotInstance",
+   "file": "classes/godotinstance.md",
+   "inherits": "Object",
+   "brief": "Provides access to an embedded Godot instance."
+  },
+  {
+   "name": "GPUParticles2D",
+   "file": "classes/gpuparticles2d.md",
+   "inherits": "Node2D",
+   "brief": "A 2D particle emitter."
+  },
+  {
+   "name": "GPUParticles3D",
+   "file": "classes/gpuparticles3d.md",
+   "inherits": "GeometryInstance3D",
+   "brief": "A 3D particle emitter."
+  },
+  {
+   "name": "GPUParticlesAttractor3D",
+   "file": "classes/gpuparticlesattractor3d.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Abstract base class for 3D particle attractors."
+  },
+  {
+   "name": "GPUParticlesAttractorBox3D",
+   "file": "classes/gpuparticlesattractorbox3d.md",
+   "inherits": "GPUParticlesAttractor3D",
+   "brief": "A box-shaped attractor that influences particles from `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesAttractorSphere3D",
+   "file": "classes/gpuparticlesattractorsphere3d.md",
+   "inherits": "GPUParticlesAttractor3D",
+   "brief": "A spheroid-shaped attractor that influences particles from `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesAttractorVectorField3D",
+   "file": "classes/gpuparticlesattractorvectorfield3d.md",
+   "inherits": "GPUParticlesAttractor3D",
+   "brief": "A box-shaped attractor with varying directions and strengths defined in it that influences particles from `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesCollision3D",
+   "file": "classes/gpuparticlescollision3d.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Abstract base class for 3D particle collision shapes affecting `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesCollisionBox3D",
+   "file": "classes/gpuparticlescollisionbox3d.md",
+   "inherits": "GPUParticlesCollision3D",
+   "brief": "A box-shaped 3D particle collision shape affecting `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesCollisionHeightField3D",
+   "file": "classes/gpuparticlescollisionheightfield3d.md",
+   "inherits": "GPUParticlesCollision3D",
+   "brief": "A real-time heightmap-shaped 3D particle collision shape affecting `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesCollisionSDF3D",
+   "file": "classes/gpuparticlescollisionsdf3d.md",
+   "inherits": "GPUParticlesCollision3D",
+   "brief": "A baked signed distance field 3D particle collision shape affecting `GPUParticles3D` nodes."
+  },
+  {
+   "name": "GPUParticlesCollisionSphere3D",
+   "file": "classes/gpuparticlescollisionsphere3d.md",
+   "inherits": "GPUParticlesCollision3D",
+   "brief": "A sphere-shaped 3D particle collision shape affecting `GPUParticles3D` nodes."
+  },
+  {
+   "name": "Gradient",
+   "file": "classes/gradient.md",
+   "inherits": "Resource",
+   "brief": "A color transition."
+  },
+  {
+   "name": "GradientTexture1D",
+   "file": "classes/gradienttexture1d.md",
+   "inherits": "Texture2D",
+   "brief": "A 1D texture that uses colors obtained from a `Gradient`."
+  },
+  {
+   "name": "GradientTexture2D",
+   "file": "classes/gradienttexture2d.md",
+   "inherits": "Texture2D",
+   "brief": "A 2D texture that creates a pattern with colors obtained from a `Gradient`."
+  },
+  {
+   "name": "GraphEdit",
+   "file": "classes/graphedit.md",
+   "inherits": "Control",
+   "brief": "An editor for graph-like structures, using `GraphNode`s."
+  },
+  {
+   "name": "GraphElement",
+   "file": "classes/graphelement.md",
+   "inherits": "Container",
+   "brief": "A container that represents a basic element that can be placed inside a `GraphEdit` control."
+  },
+  {
+   "name": "GraphFrame",
+   "file": "classes/graphframe.md",
+   "inherits": "GraphElement",
+   "brief": "GraphFrame is a special `GraphElement` that can be used to organize other `GraphElement`s inside a `GraphEdit`."
+  },
+  {
+   "name": "GraphNode",
+   "file": "classes/graphnode.md",
+   "inherits": "GraphElement",
+   "brief": "A container with connection ports, representing a node in a `GraphEdit`."
+  },
+  {
+   "name": "GridContainer",
+   "file": "classes/gridcontainer.md",
+   "inherits": "Container",
+   "brief": "A container that arranges its child controls in a grid layout."
+  },
+  {
+   "name": "GrooveJoint2D",
+   "file": "classes/groovejoint2d.md",
+   "inherits": "Joint2D",
+   "brief": "A physics joint that restricts the movement of two 2D physics bodies to a fixed axis."
+  },
+  {
+   "name": "HashingContext",
+   "file": "classes/hashingcontext.md",
+   "inherits": "RefCounted",
+   "brief": "Provides functionality for computing cryptographic hashes chunk by chunk."
+  },
+  {
+   "name": "HBoxContainer",
+   "file": "classes/hboxcontainer.md",
+   "inherits": "BoxContainer",
+   "brief": "A container that arranges its child controls horizontally."
+  },
+  {
+   "name": "HeightMapShape3D",
+   "file": "classes/heightmapshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D heightmap shape used for physics collision."
+  },
+  {
+   "name": "HFlowContainer",
+   "file": "classes/hflowcontainer.md",
+   "inherits": "FlowContainer",
+   "brief": "A container that arranges its child controls horizontally and wraps them around at the borders."
+  },
+  {
+   "name": "HingeJoint3D",
+   "file": "classes/hingejoint3d.md",
+   "inherits": "Joint3D",
+   "brief": "A physics joint that restricts the rotation of a 3D physics body around an axis relative to another physics body."
+  },
+  {
+   "name": "HMACContext",
+   "file": "classes/hmaccontext.md",
+   "inherits": "RefCounted",
+   "brief": "Used to create an HMAC for a message using a key."
+  },
+  {
+   "name": "HScrollBar",
+   "file": "classes/hscrollbar.md",
+   "inherits": "ScrollBar",
+   "brief": "A horizontal scrollbar that goes from left (min) to right (max)."
+  },
+  {
+   "name": "HSeparator",
+   "file": "classes/hseparator.md",
+   "inherits": "Separator",
+   "brief": "A horizontal line used for separating other controls."
+  },
+  {
+   "name": "HSlider",
+   "file": "classes/hslider.md",
+   "inherits": "Slider",
+   "brief": "A horizontal slider that goes from left (min) to right (max)."
+  },
+  {
+   "name": "HSplitContainer",
+   "file": "classes/hsplitcontainer.md",
+   "inherits": "SplitContainer",
+   "brief": "A container that splits two child controls horizontally and provides a grabber for adjusting the split ratio."
+  },
+  {
+   "name": "HTTPClient",
+   "file": "classes/httpclient.md",
+   "inherits": "RefCounted",
+   "brief": "Low-level hyper-text transfer protocol client."
+  },
+  {
+   "name": "HTTPRequest",
+   "file": "classes/httprequest.md",
+   "inherits": "Node",
+   "brief": "A node with the ability to send HTTP(S) requests."
+  },
+  {
+   "name": "IKModifier3D",
+   "file": "classes/ikmodifier3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A node for inverse kinematics which may modify more than one bone."
+  },
+  {
+   "name": "Image",
+   "file": "classes/image.md",
+   "inherits": "Resource",
+   "brief": "Image datatype."
+  },
+  {
+   "name": "ImageFormatLoader",
+   "file": "classes/imageformatloader.md",
+   "inherits": "RefCounted",
+   "brief": "Base class to add support for specific image formats."
+  },
+  {
+   "name": "ImageFormatLoaderExtension",
+   "file": "classes/imageformatloaderextension.md",
+   "inherits": "ImageFormatLoader",
+   "brief": "Base class for creating `ImageFormatLoader` extensions (adding support for extra image formats)."
+  },
+  {
+   "name": "ImageTexture",
+   "file": "classes/imagetexture.md",
+   "inherits": "Texture2D",
+   "brief": "A `Texture2D` based on an `Image`."
+  },
+  {
+   "name": "ImageTexture3D",
+   "file": "classes/imagetexture3d.md",
+   "inherits": "Texture3D",
+   "brief": "Texture with 3 dimensions."
+  },
+  {
+   "name": "ImageTextureLayered",
+   "file": "classes/imagetexturelayered.md",
+   "inherits": "TextureLayered",
+   "brief": "Base class for texture types which contain the data of multiple `ImageTexture`s. Each image is of the same size and format."
+  },
+  {
+   "name": "ImmediateMesh",
+   "file": "classes/immediatemesh.md",
+   "inherits": "Mesh",
+   "brief": "Mesh optimized for creating geometry manually."
+  },
+  {
+   "name": "ImporterMesh",
+   "file": "classes/importermesh.md",
+   "inherits": "Resource",
+   "brief": "A `Resource` that contains vertex array-based geometry during the import process."
+  },
+  {
+   "name": "ImporterMeshInstance3D",
+   "file": "classes/importermeshinstance3d.md",
+   "inherits": "Node3D",
+   "brief": ""
+  },
+  {
+   "name": "Input",
+   "file": "classes/input.md",
+   "inherits": "Object",
+   "brief": "A singleton for handling inputs."
+  },
+  {
+   "name": "InputEvent",
+   "file": "classes/inputevent.md",
+   "inherits": "Resource",
+   "brief": "Abstract base class for input events."
+  },
+  {
+   "name": "InputEventAction",
+   "file": "classes/inputeventaction.md",
+   "inherits": "InputEvent",
+   "brief": "An input event type for actions."
+  },
+  {
+   "name": "InputEventFromWindow",
+   "file": "classes/inputeventfromwindow.md",
+   "inherits": "InputEvent",
+   "brief": "Abstract base class for `Viewport`-based input events."
+  },
+  {
+   "name": "InputEventGesture",
+   "file": "classes/inputeventgesture.md",
+   "inherits": "InputEventWithModifiers",
+   "brief": "Abstract base class for touch gestures."
+  },
+  {
+   "name": "InputEventJoypadButton",
+   "file": "classes/inputeventjoypadbutton.md",
+   "inherits": "InputEvent",
+   "brief": "Represents a gamepad button being pressed or released."
+  },
+  {
+   "name": "InputEventJoypadMotion",
+   "file": "classes/inputeventjoypadmotion.md",
+   "inherits": "InputEvent",
+   "brief": "Represents axis motions (such as joystick or analog triggers) from a gamepad."
+  },
+  {
+   "name": "InputEventKey",
+   "file": "classes/inputeventkey.md",
+   "inherits": "InputEventWithModifiers",
+   "brief": "Represents a key on a keyboard being pressed or released."
+  },
+  {
+   "name": "InputEventMagnifyGesture",
+   "file": "classes/inputeventmagnifygesture.md",
+   "inherits": "InputEventGesture",
+   "brief": "Represents a magnifying touch gesture."
+  },
+  {
+   "name": "InputEventMIDI",
+   "file": "classes/inputeventmidi.md",
+   "inherits": "InputEvent",
+   "brief": "Represents a MIDI message from a MIDI device, such as a musical keyboard."
+  },
+  {
+   "name": "InputEventMouse",
+   "file": "classes/inputeventmouse.md",
+   "inherits": "InputEventWithModifiers",
+   "brief": "Base input event type for mouse events."
+  },
+  {
+   "name": "InputEventMouseButton",
+   "file": "classes/inputeventmousebutton.md",
+   "inherits": "InputEventMouse",
+   "brief": "Represents a mouse button being pressed or released."
+  },
+  {
+   "name": "InputEventMouseMotion",
+   "file": "classes/inputeventmousemotion.md",
+   "inherits": "InputEventMouse",
+   "brief": "Represents a mouse or a pen movement."
+  },
+  {
+   "name": "InputEventPanGesture",
+   "file": "classes/inputeventpangesture.md",
+   "inherits": "InputEventGesture",
+   "brief": "Represents a panning touch gesture."
+  },
+  {
+   "name": "InputEventScreenDrag",
+   "file": "classes/inputeventscreendrag.md",
+   "inherits": "InputEventFromWindow",
+   "brief": "Represents a screen drag event."
+  },
+  {
+   "name": "InputEventScreenTouch",
+   "file": "classes/inputeventscreentouch.md",
+   "inherits": "InputEventFromWindow",
+   "brief": "Represents a screen touch event."
+  },
+  {
+   "name": "InputEventShortcut",
+   "file": "classes/inputeventshortcut.md",
+   "inherits": "InputEvent",
+   "brief": "Represents a triggered keyboard `Shortcut`."
+  },
+  {
+   "name": "InputEventWithModifiers",
+   "file": "classes/inputeventwithmodifiers.md",
+   "inherits": "InputEventFromWindow",
+   "brief": "Abstract base class for input events affected by modifier keys like `Shift` and `Alt`."
+  },
+  {
+   "name": "InputMap",
+   "file": "classes/inputmap.md",
+   "inherits": "Object",
+   "brief": "A singleton that manages all `InputEventAction`s."
+  },
+  {
+   "name": "InstancePlaceholder",
+   "file": "classes/instanceplaceholder.md",
+   "inherits": "Node",
+   "brief": "Placeholder for the root `Node` of a `PackedScene`."
+  },
+  {
+   "name": "int",
+   "file": "classes/int.md",
+   "inherits": null,
+   "brief": "A built-in type for integers."
+  },
+  {
+   "name": "IntervalTweener",
+   "file": "classes/intervaltweener.md",
+   "inherits": "Tweener",
+   "brief": "Creates an idle interval in a `Tween` animation."
+  },
+  {
+   "name": "IP",
+   "file": "classes/ip.md",
+   "inherits": "Object",
+   "brief": "Internet protocol (IP) support functions such as DNS resolution."
+  },
+  {
+   "name": "ItemList",
+   "file": "classes/itemlist.md",
+   "inherits": "Control",
+   "brief": "A vertical list of selectable items with one or multiple columns."
+  },
+  {
+   "name": "IterateIK3D",
+   "file": "classes/iterateik3d.md",
+   "inherits": "ChainIK3D",
+   "brief": "A `SkeletonModifier3D` to approach the goal by repeating small rotations."
+  },
+  {
+   "name": "JacobianIK3D",
+   "file": "classes/jacobianik3d.md",
+   "inherits": "IterateIK3D",
+   "brief": "Jacobian transpose based inverse kinematics solver."
+  },
+  {
+   "name": "JavaClass",
+   "file": "classes/javaclass.md",
+   "inherits": "RefCounted",
+   "brief": "Represents a class from the Java Native Interface."
+  },
+  {
+   "name": "JavaClassWrapper",
+   "file": "classes/javaclasswrapper.md",
+   "inherits": "Object",
+   "brief": "Provides access to the Java Native Interface."
+  },
+  {
+   "name": "JavaObject",
+   "file": "classes/javaobject.md",
+   "inherits": "RefCounted",
+   "brief": "Represents an object from the Java Native Interface."
+  },
+  {
+   "name": "JavaScriptBridge",
+   "file": "classes/javascriptbridge.md",
+   "inherits": "Object",
+   "brief": "Singleton that connects the engine with the browser's JavaScript context in Web export."
+  },
+  {
+   "name": "JavaScriptObject",
+   "file": "classes/javascriptobject.md",
+   "inherits": "RefCounted",
+   "brief": "A wrapper class for web native JavaScript objects."
+  },
+  {
+   "name": "JNISingleton",
+   "file": "classes/jnisingleton.md",
+   "inherits": "Object",
+   "brief": "Singleton that connects the engine with Android plugins to interface with native Android code."
+  },
+  {
+   "name": "Joint2D",
+   "file": "classes/joint2d.md",
+   "inherits": "Node2D",
+   "brief": "Abstract base class for all 2D physics joints."
+  },
+  {
+   "name": "Joint3D",
+   "file": "classes/joint3d.md",
+   "inherits": "Node3D",
+   "brief": "Abstract base class for all 3D physics joints."
+  },
+  {
+   "name": "JointLimitation3D",
+   "file": "classes/jointlimitation3d.md",
+   "inherits": "Resource",
+   "brief": "A base class of the limitation that interacts with `ChainIK3D`."
+  },
+  {
+   "name": "JointLimitationCone3D",
+   "file": "classes/jointlimitationcone3d.md",
+   "inherits": "JointLimitation3D",
+   "brief": "A cone shape limitation that interacts with `ChainIK3D`."
+  },
+  {
+   "name": "JSON",
+   "file": "classes/json.md",
+   "inherits": "Resource",
+   "brief": "Helper class for creating and parsing JSON data."
+  },
+  {
+   "name": "JSONRPC",
+   "file": "classes/jsonrpc.md",
+   "inherits": "Object",
+   "brief": "A helper to handle dictionaries which look like JSONRPC documents."
+  },
+  {
+   "name": "KinematicCollision2D",
+   "file": "classes/kinematiccollision2d.md",
+   "inherits": "RefCounted",
+   "brief": "Holds collision data from the movement of a `PhysicsBody2D`."
+  },
+  {
+   "name": "KinematicCollision3D",
+   "file": "classes/kinematiccollision3d.md",
+   "inherits": "RefCounted",
+   "brief": "Holds collision data from the movement of a `PhysicsBody3D`."
+  },
+  {
+   "name": "Label",
+   "file": "classes/label.md",
+   "inherits": "Control",
+   "brief": "A control for displaying plain text."
+  },
+  {
+   "name": "Label3D",
+   "file": "classes/label3d.md",
+   "inherits": "GeometryInstance3D",
+   "brief": "A node for displaying plain text in 3D space."
+  },
+  {
+   "name": "LabelSettings",
+   "file": "classes/labelsettings.md",
+   "inherits": "Resource",
+   "brief": "Provides common settings to customize the text in a `Label`."
+  },
+  {
+   "name": "Light2D",
+   "file": "classes/light2d.md",
+   "inherits": "Node2D",
+   "brief": "Casts light in a 2D environment."
+  },
+  {
+   "name": "Light3D",
+   "file": "classes/light3d.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Provides a base class for different kinds of light nodes."
+  },
+  {
+   "name": "LightmapGI",
+   "file": "classes/lightmapgi.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Computes and stores baked lightmaps for fast global illumination."
+  },
+  {
+   "name": "LightmapGIData",
+   "file": "classes/lightmapgidata.md",
+   "inherits": "Resource",
+   "brief": "Contains baked lightmap and dynamic object probe data for `LightmapGI`."
+  },
+  {
+   "name": "Lightmapper",
+   "file": "classes/lightmapper.md",
+   "inherits": "RefCounted",
+   "brief": "Abstract class extended by lightmappers, for use in `LightmapGI`."
+  },
+  {
+   "name": "LightmapperRD",
+   "file": "classes/lightmapperrd.md",
+   "inherits": "Lightmapper",
+   "brief": "The built-in GPU-based lightmapper for use with `LightmapGI`."
+  },
+  {
+   "name": "LightmapProbe",
+   "file": "classes/lightmapprobe.md",
+   "inherits": "Node3D",
+   "brief": "Represents a single manually placed probe for dynamic object lighting with `LightmapGI`."
+  },
+  {
+   "name": "LightOccluder2D",
+   "file": "classes/lightoccluder2d.md",
+   "inherits": "Node2D",
+   "brief": "Occludes light cast by a Light2D, casting shadows."
+  },
+  {
+   "name": "LimitAngularVelocityModifier3D",
+   "file": "classes/limitangularvelocitymodifier3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "Limit bone rotation angular velocity."
+  },
+  {
+   "name": "Line2D",
+   "file": "classes/line2d.md",
+   "inherits": "Node2D",
+   "brief": "A 2D polyline that can optionally be textured."
+  },
+  {
+   "name": "LineEdit",
+   "file": "classes/lineedit.md",
+   "inherits": "Control",
+   "brief": "An input field for single-line text."
+  },
+  {
+   "name": "LinkButton",
+   "file": "classes/linkbutton.md",
+   "inherits": "BaseButton",
+   "brief": "A button that represents a link."
+  },
+  {
+   "name": "Logger",
+   "file": "classes/logger.md",
+   "inherits": "RefCounted",
+   "brief": "Custom logger to receive messages from the internal error/warning stream."
+  },
+  {
+   "name": "LookAtModifier3D",
+   "file": "classes/lookatmodifier3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "The `LookAtModifier3D` rotates a bone to look at a target."
+  },
+  {
+   "name": "MainLoop",
+   "file": "classes/mainloop.md",
+   "inherits": "Object",
+   "brief": "Abstract base class for the game's main loop."
+  },
+  {
+   "name": "MarginContainer",
+   "file": "classes/margincontainer.md",
+   "inherits": "Container",
+   "brief": "A container that keeps a margin around its child controls."
+  },
+  {
+   "name": "Marker2D",
+   "file": "classes/marker2d.md",
+   "inherits": "Node2D",
+   "brief": "Generic 2D position hint for editing."
+  },
+  {
+   "name": "Marker3D",
+   "file": "classes/marker3d.md",
+   "inherits": "Node3D",
+   "brief": "Generic 3D position hint for editing."
+  },
+  {
+   "name": "Marshalls",
+   "file": "classes/marshalls.md",
+   "inherits": "Object",
+   "brief": "Data transformation (marshaling) and encoding helpers."
+  },
+  {
+   "name": "Material",
+   "file": "classes/material.md",
+   "inherits": "Resource",
+   "brief": "Virtual base class for applying visual properties to an object, such as color and roughness."
+  },
+  {
+   "name": "MenuBar",
+   "file": "classes/menubar.md",
+   "inherits": "Control",
+   "brief": "A horizontal menu bar that creates a menu for each `PopupMenu` child."
+  },
+  {
+   "name": "MenuButton",
+   "file": "classes/menubutton.md",
+   "inherits": "Button",
+   "brief": "A button that brings up a `PopupMenu` when clicked."
+  },
+  {
+   "name": "Mesh",
+   "file": "classes/mesh.md",
+   "inherits": "Resource",
+   "brief": "A `Resource` that contains vertex array-based geometry."
+  },
+  {
+   "name": "MeshConvexDecompositionSettings",
+   "file": "classes/meshconvexdecompositionsettings.md",
+   "inherits": "RefCounted",
+   "brief": "Parameters to be used with a `Mesh` convex decomposition operation."
+  },
+  {
+   "name": "MeshDataTool",
+   "file": "classes/meshdatatool.md",
+   "inherits": "RefCounted",
+   "brief": "Helper tool to access and edit `Mesh` data."
+  },
+  {
+   "name": "MeshInstance2D",
+   "file": "classes/meshinstance2d.md",
+   "inherits": "Node2D",
+   "brief": "Node used for displaying a `Mesh` in 2D."
+  },
+  {
+   "name": "MeshInstance3D",
+   "file": "classes/meshinstance3d.md",
+   "inherits": "GeometryInstance3D",
+   "brief": "Node that instances meshes into a scenario."
+  },
+  {
+   "name": "MeshLibrary",
+   "file": "classes/meshlibrary.md",
+   "inherits": "Resource",
+   "brief": "Library of meshes."
+  },
+  {
+   "name": "MeshTexture",
+   "file": "classes/meshtexture.md",
+   "inherits": "Texture2D",
+   "brief": "Simple texture that uses a mesh to draw itself."
+  },
+  {
+   "name": "MethodTweener",
+   "file": "classes/methodtweener.md",
+   "inherits": "Tweener",
+   "brief": "Interpolates an abstract value and supplies it to a method called over time."
+  },
+  {
+   "name": "MissingNode",
+   "file": "classes/missingnode.md",
+   "inherits": "Node",
+   "brief": "An internal editor class intended for keeping the data of unrecognized nodes."
+  },
+  {
+   "name": "MissingResource",
+   "file": "classes/missingresource.md",
+   "inherits": "Resource",
+   "brief": "An internal editor class intended for keeping the data of unrecognized resources."
+  },
+  {
+   "name": "ModifierBoneTarget3D",
+   "file": "classes/modifierbonetarget3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "А node that dynamically copies the 3D transform of a bone in its parent `Skeleton3D`."
+  },
+  {
+   "name": "MovieWriter",
+   "file": "classes/moviewriter.md",
+   "inherits": "Object",
+   "brief": "Abstract class for non-real-time video recording encoders."
+  },
+  {
+   "name": "MultiMesh",
+   "file": "classes/multimesh.md",
+   "inherits": "Resource",
+   "brief": "Provides high-performance drawing of a mesh multiple times using GPU instancing."
+  },
+  {
+   "name": "MultiMeshInstance2D",
+   "file": "classes/multimeshinstance2d.md",
+   "inherits": "Node2D",
+   "brief": "Node that instances a `MultiMesh` in 2D."
+  },
+  {
+   "name": "MultiMeshInstance3D",
+   "file": "classes/multimeshinstance3d.md",
+   "inherits": "GeometryInstance3D",
+   "brief": "Node that instances a `MultiMesh`."
+  },
+  {
+   "name": "MultiplayerAPI",
+   "file": "classes/multiplayerapi.md",
+   "inherits": "RefCounted",
+   "brief": "High-level multiplayer API interface."
+  },
+  {
+   "name": "MultiplayerAPIExtension",
+   "file": "classes/multiplayerapiextension.md",
+   "inherits": "MultiplayerAPI",
+   "brief": "Base class used for extending the `MultiplayerAPI`."
+  },
+  {
+   "name": "MultiplayerPeer",
+   "file": "classes/multiplayerpeer.md",
+   "inherits": "PacketPeer",
+   "brief": "Abstract class for specialized `PacketPeer`s used by the `MultiplayerAPI`."
+  },
+  {
+   "name": "MultiplayerPeerExtension",
+   "file": "classes/multiplayerpeerextension.md",
+   "inherits": "MultiplayerPeer",
+   "brief": "Class that can be inherited to implement custom multiplayer API networking layers via GDExtension."
+  },
+  {
+   "name": "Mutex",
+   "file": "classes/mutex.md",
+   "inherits": "RefCounted",
+   "brief": "A binary `Semaphore` for synchronization of multiple `Thread`s."
+  },
+  {
+   "name": "NativeMenu",
+   "file": "classes/nativemenu.md",
+   "inherits": "Object",
+   "brief": "A server interface for OS native menus."
+  },
+  {
+   "name": "NavigationAgent2D",
+   "file": "classes/navigationagent2d.md",
+   "inherits": "Node",
+   "brief": "A 2D agent used to pathfind to a position while avoiding obstacles."
+  },
+  {
+   "name": "NavigationAgent3D",
+   "file": "classes/navigationagent3d.md",
+   "inherits": "Node",
+   "brief": "A 3D agent used to pathfind to a position while avoiding obstacles."
+  },
+  {
+   "name": "NavigationLink2D",
+   "file": "classes/navigationlink2d.md",
+   "inherits": "Node2D",
+   "brief": "A link between two positions on `NavigationRegion2D`s that agents can be routed through."
+  },
+  {
+   "name": "NavigationLink3D",
+   "file": "classes/navigationlink3d.md",
+   "inherits": "Node3D",
+   "brief": "A link between two positions on `NavigationRegion3D`s that agents can be routed through."
+  },
+  {
+   "name": "NavigationMesh",
+   "file": "classes/navigationmesh.md",
+   "inherits": "Resource",
+   "brief": "A navigation mesh that defines traversable areas and obstacles."
+  },
+  {
+   "name": "NavigationMeshGenerator",
+   "file": "classes/navigationmeshgenerator.md",
+   "inherits": "Object",
+   "brief": "Helper class for creating and clearing navigation meshes."
+  },
+  {
+   "name": "NavigationMeshSourceGeometryData2D",
+   "file": "classes/navigationmeshsourcegeometrydata2d.md",
+   "inherits": "Resource",
+   "brief": "Container for parsed source geometry data used in navigation mesh baking."
+  },
+  {
+   "name": "NavigationMeshSourceGeometryData3D",
+   "file": "classes/navigationmeshsourcegeometrydata3d.md",
+   "inherits": "Resource",
+   "brief": "Container for parsed source geometry data used in navigation mesh baking."
+  },
+  {
+   "name": "NavigationObstacle2D",
+   "file": "classes/navigationobstacle2d.md",
+   "inherits": "Node2D",
+   "brief": "2D obstacle used to affect navigation mesh baking or constrain velocities of avoidance controlled agents."
+  },
+  {
+   "name": "NavigationObstacle3D",
+   "file": "classes/navigationobstacle3d.md",
+   "inherits": "Node3D",
+   "brief": "3D obstacle used to affect navigation mesh baking or constrain velocities of avoidance controlled agents."
+  },
+  {
+   "name": "NavigationPathQueryParameters2D",
+   "file": "classes/navigationpathqueryparameters2d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for 2D navigation path queries."
+  },
+  {
+   "name": "NavigationPathQueryParameters3D",
+   "file": "classes/navigationpathqueryparameters3d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for 3D navigation path queries."
+  },
+  {
+   "name": "NavigationPathQueryResult2D",
+   "file": "classes/navigationpathqueryresult2d.md",
+   "inherits": "RefCounted",
+   "brief": "Represents the result of a 2D pathfinding query."
+  },
+  {
+   "name": "NavigationPathQueryResult3D",
+   "file": "classes/navigationpathqueryresult3d.md",
+   "inherits": "RefCounted",
+   "brief": "Represents the result of a 3D pathfinding query."
+  },
+  {
+   "name": "NavigationPolygon",
+   "file": "classes/navigationpolygon.md",
+   "inherits": "Resource",
+   "brief": "A 2D navigation mesh that describes a traversable surface for pathfinding."
+  },
+  {
+   "name": "NavigationRegion2D",
+   "file": "classes/navigationregion2d.md",
+   "inherits": "Node2D",
+   "brief": "A traversable 2D region that `NavigationAgent2D`s can use for pathfinding."
+  },
+  {
+   "name": "NavigationRegion3D",
+   "file": "classes/navigationregion3d.md",
+   "inherits": "Node3D",
+   "brief": "A traversable 3D region that `NavigationAgent3D`s can use for pathfinding."
+  },
+  {
+   "name": "NavigationServer2D",
+   "file": "classes/navigationserver2d.md",
+   "inherits": "Object",
+   "brief": "A server interface for low-level 2D navigation access."
+  },
+  {
+   "name": "NavigationServer2DManager",
+   "file": "classes/navigationserver2dmanager.md",
+   "inherits": "Object",
+   "brief": "A singleton for managing `NavigationServer2D` implementations."
+  },
+  {
+   "name": "NavigationServer3D",
+   "file": "classes/navigationserver3d.md",
+   "inherits": "Object",
+   "brief": "A server interface for low-level 3D navigation access."
+  },
+  {
+   "name": "NavigationServer3DManager",
+   "file": "classes/navigationserver3dmanager.md",
+   "inherits": "Object",
+   "brief": "A singleton for managing `NavigationServer3D` implementations."
+  },
+  {
+   "name": "NinePatchRect",
+   "file": "classes/ninepatchrect.md",
+   "inherits": "Control",
+   "brief": "A control that displays a texture by keeping its corners intact, but tiling its edges and center."
+  },
+  {
+   "name": "Node",
+   "file": "classes/node.md",
+   "inherits": "Object",
+   "brief": "Base class for all scene objects."
+  },
+  {
+   "name": "Node2D",
+   "file": "classes/node2d.md",
+   "inherits": "CanvasItem",
+   "brief": "A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and skew."
+  },
+  {
+   "name": "Node3D",
+   "file": "classes/node3d.md",
+   "inherits": "Node",
+   "brief": "Base object in 3D space, inherited by all 3D nodes."
+  },
+  {
+   "name": "Node3DGizmo",
+   "file": "classes/node3dgizmo.md",
+   "inherits": "RefCounted",
+   "brief": "Abstract class to expose editor gizmos for `Node3D`."
+  },
+  {
+   "name": "NodePath",
+   "file": "classes/nodepath.md",
+   "inherits": null,
+   "brief": "A pre-parsed scene tree path."
+  },
+  {
+   "name": "Object",
+   "file": "classes/object.md",
+   "inherits": null,
+   "brief": "Base class for all other classes in the engine."
+  },
+  {
+   "name": "Occluder3D",
+   "file": "classes/occluder3d.md",
+   "inherits": "Resource",
+   "brief": "Occluder shape resource for use with occlusion culling in `OccluderInstance3D`."
+  },
+  {
+   "name": "OccluderInstance3D",
+   "file": "classes/occluderinstance3d.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Provides occlusion culling for 3D nodes, which improves performance in closed areas."
+  },
+  {
+   "name": "OccluderPolygon2D",
+   "file": "classes/occluderpolygon2d.md",
+   "inherits": "Resource",
+   "brief": "Defines a 2D polygon for LightOccluder2D."
+  },
+  {
+   "name": "OmniLight3D",
+   "file": "classes/omnilight3d.md",
+   "inherits": "Light3D",
+   "brief": "Omnidirectional light, such as a light bulb or a candle."
+  },
+  {
+   "name": "OptimizedTranslation",
+   "file": "classes/optimizedtranslation.md",
+   "inherits": "Translation",
+   "brief": "An optimized translation."
+  },
+  {
+   "name": "OptionButton",
+   "file": "classes/optionbutton.md",
+   "inherits": "Button",
+   "brief": "A button that brings up a dropdown with selectable options when pressed."
+  },
+  {
+   "name": "ORMMaterial3D",
+   "file": "classes/ormmaterial3d.md",
+   "inherits": "BaseMaterial3D",
+   "brief": "A PBR (Physically Based Rendering) material to be used on 3D objects. Uses an ORM texture."
+  },
+  {
+   "name": "OS",
+   "file": "classes/os.md",
+   "inherits": "Object",
+   "brief": "Provides access to common operating system functionalities."
+  },
+  {
+   "name": "PackedByteArray",
+   "file": "classes/packedbytearray.md",
+   "inherits": null,
+   "brief": "A packed array of bytes."
+  },
+  {
+   "name": "PackedColorArray",
+   "file": "classes/packedcolorarray.md",
+   "inherits": null,
+   "brief": "A packed array of `Color`s."
+  },
+  {
+   "name": "PackedDataContainer",
+   "file": "classes/packeddatacontainer.md",
+   "inherits": "Resource",
+   "brief": "Efficiently packs and serializes `Array` or `Dictionary`."
+  },
+  {
+   "name": "PackedDataContainerRef",
+   "file": "classes/packeddatacontainerref.md",
+   "inherits": "RefCounted",
+   "brief": "An internal class used by `PackedDataContainer` to pack nested arrays and dictionaries."
+  },
+  {
+   "name": "PackedFloat32Array",
+   "file": "classes/packedfloat32array.md",
+   "inherits": null,
+   "brief": "A packed array of 32-bit floating-point values."
+  },
+  {
+   "name": "PackedFloat64Array",
+   "file": "classes/packedfloat64array.md",
+   "inherits": null,
+   "brief": "A packed array of 64-bit floating-point values."
+  },
+  {
+   "name": "PackedInt32Array",
+   "file": "classes/packedint32array.md",
+   "inherits": null,
+   "brief": "A packed array of 32-bit integers."
+  },
+  {
+   "name": "PackedInt64Array",
+   "file": "classes/packedint64array.md",
+   "inherits": null,
+   "brief": "A packed array of 64-bit integers."
+  },
+  {
+   "name": "PackedScene",
+   "file": "classes/packedscene.md",
+   "inherits": "Resource",
+   "brief": "An abstraction of a serialized scene."
+  },
+  {
+   "name": "PackedStringArray",
+   "file": "classes/packedstringarray.md",
+   "inherits": null,
+   "brief": "A packed array of `String`s."
+  },
+  {
+   "name": "PackedVector2Array",
+   "file": "classes/packedvector2array.md",
+   "inherits": null,
+   "brief": "A packed array of `Vector2`s."
+  },
+  {
+   "name": "PackedVector3Array",
+   "file": "classes/packedvector3array.md",
+   "inherits": null,
+   "brief": "A packed array of `Vector3`s."
+  },
+  {
+   "name": "PackedVector4Array",
+   "file": "classes/packedvector4array.md",
+   "inherits": null,
+   "brief": "A packed array of `Vector4`s."
+  },
+  {
+   "name": "PacketPeer",
+   "file": "classes/packetpeer.md",
+   "inherits": "RefCounted",
+   "brief": "Abstraction and base class for packet-based protocols."
+  },
+  {
+   "name": "PacketPeerDTLS",
+   "file": "classes/packetpeerdtls.md",
+   "inherits": "PacketPeer",
+   "brief": "DTLS packet peer."
+  },
+  {
+   "name": "PacketPeerExtension",
+   "file": "classes/packetpeerextension.md",
+   "inherits": "PacketPeer",
+   "brief": ""
+  },
+  {
+   "name": "PacketPeerStream",
+   "file": "classes/packetpeerstream.md",
+   "inherits": "PacketPeer",
+   "brief": "Wrapper to use a PacketPeer over a StreamPeer."
+  },
+  {
+   "name": "PacketPeerUDP",
+   "file": "classes/packetpeerudp.md",
+   "inherits": "PacketPeer",
+   "brief": "UDP packet peer."
+  },
+  {
+   "name": "Panel",
+   "file": "classes/panel.md",
+   "inherits": "Control",
+   "brief": "A GUI control that displays a `StyleBox`."
+  },
+  {
+   "name": "PanelContainer",
+   "file": "classes/panelcontainer.md",
+   "inherits": "Container",
+   "brief": "A container that keeps its child controls within the area of a `StyleBox`."
+  },
+  {
+   "name": "PanoramaSkyMaterial",
+   "file": "classes/panoramaskymaterial.md",
+   "inherits": "Material",
+   "brief": "A material that provides a special texture to a `Sky`, usually an HDR panorama."
+  },
+  {
+   "name": "Parallax2D",
+   "file": "classes/parallax2d.md",
+   "inherits": "Node2D",
+   "brief": "A node used to create a parallax scrolling background."
+  },
+  {
+   "name": "ParallaxBackground",
+   "file": "classes/parallaxbackground.md",
+   "inherits": "CanvasLayer",
+   "brief": "A node used to create a parallax scrolling background."
+  },
+  {
+   "name": "ParallaxLayer",
+   "file": "classes/parallaxlayer.md",
+   "inherits": "Node2D",
+   "brief": "A parallax scrolling layer to be used with `ParallaxBackground`."
+  },
+  {
+   "name": "ParticleProcessMaterial",
+   "file": "classes/particleprocessmaterial.md",
+   "inherits": "Material",
+   "brief": "Holds a particle configuration for `GPUParticles2D` or `GPUParticles3D` nodes."
+  },
+  {
+   "name": "Path2D",
+   "file": "classes/path2d.md",
+   "inherits": "Node2D",
+   "brief": "Contains a `Curve2D` path for `PathFollow2D` nodes to follow."
+  },
+  {
+   "name": "Path3D",
+   "file": "classes/path3d.md",
+   "inherits": "Node3D",
+   "brief": "Contains a `Curve3D` path for `PathFollow3D` nodes to follow."
+  },
+  {
+   "name": "PathFollow2D",
+   "file": "classes/pathfollow2d.md",
+   "inherits": "Node2D",
+   "brief": "Point sampler for a `Path2D`."
+  },
+  {
+   "name": "PathFollow3D",
+   "file": "classes/pathfollow3d.md",
+   "inherits": "Node3D",
+   "brief": "Point sampler for a `Path3D`."
+  },
+  {
+   "name": "PCKPacker",
+   "file": "classes/pckpacker.md",
+   "inherits": "RefCounted",
+   "brief": "Creates packages that can be loaded into a running project."
+  },
+  {
+   "name": "Performance",
+   "file": "classes/performance.md",
+   "inherits": "Object",
+   "brief": "Exposes performance-related data."
+  },
+  {
+   "name": "PhysicalBone2D",
+   "file": "classes/physicalbone2d.md",
+   "inherits": "RigidBody2D",
+   "brief": "A `RigidBody2D`-derived node used to make `Bone2D`s in a `Skeleton2D` react to physics."
+  },
+  {
+   "name": "PhysicalBone3D",
+   "file": "classes/physicalbone3d.md",
+   "inherits": "PhysicsBody3D",
+   "brief": "A physics body used to make bones in a `Skeleton3D` react to physics."
+  },
+  {
+   "name": "PhysicalBoneSimulator3D",
+   "file": "classes/physicalbonesimulator3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "Node that can be the parent of `PhysicalBone3D` and can apply the simulation results to `Skeleton3D`."
+  },
+  {
+   "name": "PhysicalSkyMaterial",
+   "file": "classes/physicalskymaterial.md",
+   "inherits": "Material",
+   "brief": "A material that defines a sky for a `Sky` resource by a set of physical properties."
+  },
+  {
+   "name": "PhysicsBody2D",
+   "file": "classes/physicsbody2d.md",
+   "inherits": "CollisionObject2D",
+   "brief": "Abstract base class for 2D game objects affected by physics."
+  },
+  {
+   "name": "PhysicsBody3D",
+   "file": "classes/physicsbody3d.md",
+   "inherits": "CollisionObject3D",
+   "brief": "Abstract base class for 3D game objects affected by physics."
+  },
+  {
+   "name": "PhysicsDirectBodyState2D",
+   "file": "classes/physicsdirectbodystate2d.md",
+   "inherits": "Object",
+   "brief": "Provides direct access to a physics body in the `PhysicsServer2D`."
+  },
+  {
+   "name": "PhysicsDirectBodyState2DExtension",
+   "file": "classes/physicsdirectbodystate2dextension.md",
+   "inherits": "PhysicsDirectBodyState2D",
+   "brief": "Provides virtual methods that can be overridden to create custom `PhysicsDirectBodyState2D` implementations."
+  },
+  {
+   "name": "PhysicsDirectBodyState3D",
+   "file": "classes/physicsdirectbodystate3d.md",
+   "inherits": "Object",
+   "brief": "Provides direct access to a physics body in the `PhysicsServer3D`."
+  },
+  {
+   "name": "PhysicsDirectBodyState3DExtension",
+   "file": "classes/physicsdirectbodystate3dextension.md",
+   "inherits": "PhysicsDirectBodyState3D",
+   "brief": "Provides virtual methods that can be overridden to create custom `PhysicsDirectBodyState3D` implementations."
+  },
+  {
+   "name": "PhysicsDirectSpaceState2D",
+   "file": "classes/physicsdirectspacestate2d.md",
+   "inherits": "Object",
+   "brief": "Provides direct access to a physics space in the `PhysicsServer2D`."
+  },
+  {
+   "name": "PhysicsDirectSpaceState2DExtension",
+   "file": "classes/physicsdirectspacestate2dextension.md",
+   "inherits": "PhysicsDirectSpaceState2D",
+   "brief": "Provides virtual methods that can be overridden to create custom `PhysicsDirectSpaceState2D` implementations."
+  },
+  {
+   "name": "PhysicsDirectSpaceState3D",
+   "file": "classes/physicsdirectspacestate3d.md",
+   "inherits": "Object",
+   "brief": "Provides direct access to a physics space in the `PhysicsServer3D`."
+  },
+  {
+   "name": "PhysicsDirectSpaceState3DExtension",
+   "file": "classes/physicsdirectspacestate3dextension.md",
+   "inherits": "PhysicsDirectSpaceState3D",
+   "brief": "Provides virtual methods that can be overridden to create custom `PhysicsDirectSpaceState3D` implementations."
+  },
+  {
+   "name": "PhysicsMaterial",
+   "file": "classes/physicsmaterial.md",
+   "inherits": "Resource",
+   "brief": "Holds physics-related properties of a surface, namely its roughness and bounciness."
+  },
+  {
+   "name": "PhysicsPointQueryParameters2D",
+   "file": "classes/physicspointqueryparameters2d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsDirectSpaceState2D.intersect_point`."
+  },
+  {
+   "name": "PhysicsPointQueryParameters3D",
+   "file": "classes/physicspointqueryparameters3d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsDirectSpaceState3D.intersect_point`."
+  },
+  {
+   "name": "PhysicsRayQueryParameters2D",
+   "file": "classes/physicsrayqueryparameters2d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsDirectSpaceState2D.intersect_ray`."
+  },
+  {
+   "name": "PhysicsRayQueryParameters3D",
+   "file": "classes/physicsrayqueryparameters3d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsDirectSpaceState3D.intersect_ray`."
+  },
+  {
+   "name": "PhysicsServer2D",
+   "file": "classes/physicsserver2d.md",
+   "inherits": "Object",
+   "brief": "A server interface for low-level 2D physics access."
+  },
+  {
+   "name": "PhysicsServer2DExtension",
+   "file": "classes/physicsserver2dextension.md",
+   "inherits": "PhysicsServer2D",
+   "brief": "Provides virtual methods that can be overridden to create custom `PhysicsServer2D` implementations."
+  },
+  {
+   "name": "PhysicsServer2DManager",
+   "file": "classes/physicsserver2dmanager.md",
+   "inherits": "Object",
+   "brief": "A singleton for managing `PhysicsServer2D` implementations."
+  },
+  {
+   "name": "PhysicsServer3D",
+   "file": "classes/physicsserver3d.md",
+   "inherits": "Object",
+   "brief": "A server interface for low-level 3D physics access."
+  },
+  {
+   "name": "PhysicsServer3DExtension",
+   "file": "classes/physicsserver3dextension.md",
+   "inherits": "PhysicsServer3D",
+   "brief": "Provides virtual methods that can be overridden to create custom `PhysicsServer3D` implementations."
+  },
+  {
+   "name": "PhysicsServer3DManager",
+   "file": "classes/physicsserver3dmanager.md",
+   "inherits": "Object",
+   "brief": "A singleton for managing `PhysicsServer3D` implementations."
+  },
+  {
+   "name": "PhysicsServer3DRenderingServerHandler",
+   "file": "classes/physicsserver3drenderingserverhandler.md",
+   "inherits": "Object",
+   "brief": "A class used to provide `PhysicsServer3DExtension._soft_body_update_rendering_server` with a rendering handler for soft bodies."
+  },
+  {
+   "name": "PhysicsShapeQueryParameters2D",
+   "file": "classes/physicsshapequeryparameters2d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsDirectSpaceState2D`'s methods."
+  },
+  {
+   "name": "PhysicsShapeQueryParameters3D",
+   "file": "classes/physicsshapequeryparameters3d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsDirectSpaceState3D`'s methods."
+  },
+  {
+   "name": "PhysicsTestMotionParameters2D",
+   "file": "classes/physicstestmotionparameters2d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsServer2D.body_test_motion`."
+  },
+  {
+   "name": "PhysicsTestMotionParameters3D",
+   "file": "classes/physicstestmotionparameters3d.md",
+   "inherits": "RefCounted",
+   "brief": "Provides parameters for `PhysicsServer3D.body_test_motion`."
+  },
+  {
+   "name": "PhysicsTestMotionResult2D",
+   "file": "classes/physicstestmotionresult2d.md",
+   "inherits": "RefCounted",
+   "brief": "Describes the motion and collision result from `PhysicsServer2D.body_test_motion`."
+  },
+  {
+   "name": "PhysicsTestMotionResult3D",
+   "file": "classes/physicstestmotionresult3d.md",
+   "inherits": "RefCounted",
+   "brief": "Describes the motion and collision result from `PhysicsServer3D.body_test_motion`."
+  },
+  {
+   "name": "PinJoint2D",
+   "file": "classes/pinjoint2d.md",
+   "inherits": "Joint2D",
+   "brief": "A physics joint that attaches two 2D physics bodies at a single point, allowing them to freely rotate."
+  },
+  {
+   "name": "PinJoint3D",
+   "file": "classes/pinjoint3d.md",
+   "inherits": "Joint3D",
+   "brief": "A physics joint that attaches two 3D physics bodies at a single point, allowing them to freely rotate."
+  },
+  {
+   "name": "PlaceholderCubemap",
+   "file": "classes/placeholdercubemap.md",
+   "inherits": "PlaceholderTextureLayered",
+   "brief": "A `Cubemap` without image data."
+  },
+  {
+   "name": "PlaceholderCubemapArray",
+   "file": "classes/placeholdercubemaparray.md",
+   "inherits": "PlaceholderTextureLayered",
+   "brief": "A `CubemapArray` without image data."
+  },
+  {
+   "name": "PlaceholderMaterial",
+   "file": "classes/placeholdermaterial.md",
+   "inherits": "Material",
+   "brief": "Placeholder class for a material."
+  },
+  {
+   "name": "PlaceholderMesh",
+   "file": "classes/placeholdermesh.md",
+   "inherits": "Mesh",
+   "brief": "Placeholder class for a mesh."
+  },
+  {
+   "name": "PlaceholderTexture2D",
+   "file": "classes/placeholdertexture2d.md",
+   "inherits": "Texture2D",
+   "brief": "Placeholder class for a 2-dimensional texture."
+  },
+  {
+   "name": "PlaceholderTexture2DArray",
+   "file": "classes/placeholdertexture2darray.md",
+   "inherits": "PlaceholderTextureLayered",
+   "brief": "Placeholder class for a 2-dimensional texture array."
+  },
+  {
+   "name": "PlaceholderTexture3D",
+   "file": "classes/placeholdertexture3d.md",
+   "inherits": "Texture3D",
+   "brief": "Placeholder class for a 3-dimensional texture."
+  },
+  {
+   "name": "PlaceholderTextureLayered",
+   "file": "classes/placeholdertexturelayered.md",
+   "inherits": "TextureLayered",
+   "brief": "Placeholder class for a 2-dimensional texture array."
+  },
+  {
+   "name": "Plane",
+   "file": "classes/plane.md",
+   "inherits": null,
+   "brief": "A plane in Hessian normal form."
+  },
+  {
+   "name": "PlaneMesh",
+   "file": "classes/planemesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Class representing a planar `PrimitiveMesh`."
+  },
+  {
+   "name": "PointLight2D",
+   "file": "classes/pointlight2d.md",
+   "inherits": "Light2D",
+   "brief": "Positional 2D light source."
+  },
+  {
+   "name": "PointMesh",
+   "file": "classes/pointmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Mesh with a single point primitive."
+  },
+  {
+   "name": "Polygon2D",
+   "file": "classes/polygon2d.md",
+   "inherits": "Node2D",
+   "brief": "A 2D polygon."
+  },
+  {
+   "name": "PolygonOccluder3D",
+   "file": "classes/polygonoccluder3d.md",
+   "inherits": "Occluder3D",
+   "brief": "Flat 2D polygon shape for use with occlusion culling in `OccluderInstance3D`."
+  },
+  {
+   "name": "PolygonPathFinder",
+   "file": "classes/polygonpathfinder.md",
+   "inherits": "Resource",
+   "brief": ""
+  },
+  {
+   "name": "Popup",
+   "file": "classes/popup.md",
+   "inherits": "Window",
+   "brief": "Base class for contextual windows and panels with fixed position."
+  },
+  {
+   "name": "PopupMenu",
+   "file": "classes/popupmenu.md",
+   "inherits": "Popup",
+   "brief": "A modal window used to display a list of options."
+  },
+  {
+   "name": "PopupPanel",
+   "file": "classes/popuppanel.md",
+   "inherits": "Popup",
+   "brief": "A popup with a panel background."
+  },
+  {
+   "name": "PortableCompressedTexture2D",
+   "file": "classes/portablecompressedtexture2d.md",
+   "inherits": "Texture2D",
+   "brief": "Provides a compressed texture for disk and/or VRAM in a way that is portable."
+  },
+  {
+   "name": "PrimitiveMesh",
+   "file": "classes/primitivemesh.md",
+   "inherits": "Mesh",
+   "brief": "Base class for all primitive meshes. Handles applying a `Material` to a primitive mesh."
+  },
+  {
+   "name": "PrismMesh",
+   "file": "classes/prismmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Class representing a prism-shaped `PrimitiveMesh`."
+  },
+  {
+   "name": "ProceduralSkyMaterial",
+   "file": "classes/proceduralskymaterial.md",
+   "inherits": "Material",
+   "brief": "A material that defines a simple sky for a `Sky` resource."
+  },
+  {
+   "name": "ProgressBar",
+   "file": "classes/progressbar.md",
+   "inherits": "Range",
+   "brief": "A control used for visual representation of a percentage."
+  },
+  {
+   "name": "Projection",
+   "file": "classes/projection.md",
+   "inherits": null,
+   "brief": "A 4×4 matrix for 3D projective transformations."
+  },
+  {
+   "name": "ProjectSettings",
+   "file": "classes/projectsettings.md",
+   "inherits": "Object",
+   "brief": "Stores globally-accessible variables."
+  },
+  {
+   "name": "PropertyTweener",
+   "file": "classes/propertytweener.md",
+   "inherits": "Tweener",
+   "brief": "Interpolates an `Object`'s property over time."
+  },
+  {
+   "name": "QuadMesh",
+   "file": "classes/quadmesh.md",
+   "inherits": "PlaneMesh",
+   "brief": "Class representing a square mesh facing the camera."
+  },
+  {
+   "name": "QuadOccluder3D",
+   "file": "classes/quadoccluder3d.md",
+   "inherits": "Occluder3D",
+   "brief": "Flat plane shape for use with occlusion culling in `OccluderInstance3D`."
+  },
+  {
+   "name": "Quaternion",
+   "file": "classes/quaternion.md",
+   "inherits": null,
+   "brief": "A unit quaternion used for representing 3D rotations."
+  },
+  {
+   "name": "RandomNumberGenerator",
+   "file": "classes/randomnumbergenerator.md",
+   "inherits": "RefCounted",
+   "brief": "Provides methods for generating pseudo-random numbers."
+  },
+  {
+   "name": "Range",
+   "file": "classes/range.md",
+   "inherits": "Control",
+   "brief": "Abstract base class for controls that represent a number within a range."
+  },
+  {
+   "name": "RayCast2D",
+   "file": "classes/raycast2d.md",
+   "inherits": "Node2D",
+   "brief": "A ray in 2D space, used to find the first collision object it intersects."
+  },
+  {
+   "name": "RayCast3D",
+   "file": "classes/raycast3d.md",
+   "inherits": "Node3D",
+   "brief": "A ray in 3D space, used to find the first collision object it intersects."
+  },
+  {
+   "name": "RDAccelerationStructureGeometry",
+   "file": "classes/rdaccelerationstructuregeometry.md",
+   "inherits": "RefCounted",
+   "brief": "Acceleration structure geometry (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDAccelerationStructureInstance",
+   "file": "classes/rdaccelerationstructureinstance.md",
+   "inherits": "RefCounted",
+   "brief": "Acceleration structure instance (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDAttachmentFormat",
+   "file": "classes/rdattachmentformat.md",
+   "inherits": "RefCounted",
+   "brief": "Attachment format (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDFramebufferPass",
+   "file": "classes/rdframebufferpass.md",
+   "inherits": "RefCounted",
+   "brief": "Framebuffer pass attachment description (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDHitGroup",
+   "file": "classes/rdhitgroup.md",
+   "inherits": "RefCounted",
+   "brief": "Hit group (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineColorBlendState",
+   "file": "classes/rdpipelinecolorblendstate.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline color blend state (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineColorBlendStateAttachment",
+   "file": "classes/rdpipelinecolorblendstateattachment.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline color blend state attachment (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineDepthStencilState",
+   "file": "classes/rdpipelinedepthstencilstate.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline depth/stencil state (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineMultisampleState",
+   "file": "classes/rdpipelinemultisamplestate.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline multisample state (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineRasterizationState",
+   "file": "classes/rdpipelinerasterizationstate.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline rasterization state (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineShader",
+   "file": "classes/rdpipelineshader.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline shader (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDPipelineSpecializationConstant",
+   "file": "classes/rdpipelinespecializationconstant.md",
+   "inherits": "RefCounted",
+   "brief": "Pipeline specialization constant (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDSamplerState",
+   "file": "classes/rdsamplerstate.md",
+   "inherits": "RefCounted",
+   "brief": "Sampler state (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDShaderFile",
+   "file": "classes/rdshaderfile.md",
+   "inherits": "Resource",
+   "brief": "Compiled shader file in SPIR-V form (used by `RenderingDevice`). Not to be confused with Godot's own `Shader`."
+  },
+  {
+   "name": "RDShaderSource",
+   "file": "classes/rdshadersource.md",
+   "inherits": "RefCounted",
+   "brief": "Shader source code (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDShaderSPIRV",
+   "file": "classes/rdshaderspirv.md",
+   "inherits": "Resource",
+   "brief": "SPIR-V intermediate representation as part of an `RDShaderFile` (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDTextureFormat",
+   "file": "classes/rdtextureformat.md",
+   "inherits": "RefCounted",
+   "brief": "Texture format (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDTextureView",
+   "file": "classes/rdtextureview.md",
+   "inherits": "RefCounted",
+   "brief": "Texture view (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDUniform",
+   "file": "classes/rduniform.md",
+   "inherits": "RefCounted",
+   "brief": "Shader uniform (used by `RenderingDevice`)."
+  },
+  {
+   "name": "RDVertexAttribute",
+   "file": "classes/rdvertexattribute.md",
+   "inherits": "RefCounted",
+   "brief": "Vertex attribute (used by `RenderingDevice`)."
+  },
+  {
+   "name": "Rect2",
+   "file": "classes/rect2.md",
+   "inherits": null,
+   "brief": "A 2D axis-aligned bounding box using floating-point coordinates."
+  },
+  {
+   "name": "Rect2i",
+   "file": "classes/rect2i.md",
+   "inherits": null,
+   "brief": "A 2D axis-aligned bounding box using integer coordinates."
+  },
+  {
+   "name": "RectangleShape2D",
+   "file": "classes/rectangleshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D rectangle shape used for physics collision."
+  },
+  {
+   "name": "RefCounted",
+   "file": "classes/refcounted.md",
+   "inherits": "Object",
+   "brief": "Base class for reference-counted objects."
+  },
+  {
+   "name": "ReferenceRect",
+   "file": "classes/referencerect.md",
+   "inherits": "Control",
+   "brief": "A rectangular box for designing UIs."
+  },
+  {
+   "name": "ReflectionProbe",
+   "file": "classes/reflectionprobe.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Captures its surroundings to create fast, accurate reflections from a given point."
+  },
+  {
+   "name": "RemoteTransform2D",
+   "file": "classes/remotetransform2d.md",
+   "inherits": "Node2D",
+   "brief": "RemoteTransform2D pushes its own `Transform2D` to another `Node2D` derived node in the scene."
+  },
+  {
+   "name": "RemoteTransform3D",
+   "file": "classes/remotetransform3d.md",
+   "inherits": "Node3D",
+   "brief": "RemoteTransform3D pushes its own `Transform3D` to another `Node3D` derived Node in the scene."
+  },
+  {
+   "name": "RenderData",
+   "file": "classes/renderdata.md",
+   "inherits": "Object",
+   "brief": "Abstract render data object, holds frame data related to rendering a single frame of a viewport."
+  },
+  {
+   "name": "RenderDataExtension",
+   "file": "classes/renderdataextension.md",
+   "inherits": "RenderData",
+   "brief": "This class allows for a RenderData implementation to be made in GDExtension."
+  },
+  {
+   "name": "RenderDataRD",
+   "file": "classes/renderdatard.md",
+   "inherits": "RenderData",
+   "brief": "Render data implementation for the RenderingDevice based renderers."
+  },
+  {
+   "name": "RenderingDevice",
+   "file": "classes/renderingdevice.md",
+   "inherits": "Object",
+   "brief": "Abstraction for working with modern low-level graphics APIs."
+  },
+  {
+   "name": "RenderingServer",
+   "file": "classes/renderingserver.md",
+   "inherits": "Object",
+   "brief": "Server for anything visible."
+  },
+  {
+   "name": "RenderSceneBuffers",
+   "file": "classes/renderscenebuffers.md",
+   "inherits": "RefCounted",
+   "brief": "Abstract scene buffers object, created for each viewport for which 3D rendering is done."
+  },
+  {
+   "name": "RenderSceneBuffersConfiguration",
+   "file": "classes/renderscenebuffersconfiguration.md",
+   "inherits": "RefCounted",
+   "brief": "Configuration object used to setup a `RenderSceneBuffers` object."
+  },
+  {
+   "name": "RenderSceneBuffersExtension",
+   "file": "classes/renderscenebuffersextension.md",
+   "inherits": "RenderSceneBuffers",
+   "brief": "This class allows for a RenderSceneBuffer implementation to be made in GDExtension."
+  },
+  {
+   "name": "RenderSceneBuffersRD",
+   "file": "classes/renderscenebuffersrd.md",
+   "inherits": "RenderSceneBuffers",
+   "brief": "Render scene buffer implementation for the RenderingDevice based renderers."
+  },
+  {
+   "name": "RenderSceneData",
+   "file": "classes/renderscenedata.md",
+   "inherits": "Object",
+   "brief": "Abstract render data object, holds scene data related to rendering a single frame of a viewport."
+  },
+  {
+   "name": "RenderSceneDataExtension",
+   "file": "classes/renderscenedataextension.md",
+   "inherits": "RenderSceneData",
+   "brief": "This class allows for a RenderSceneData implementation to be made in GDExtension."
+  },
+  {
+   "name": "RenderSceneDataRD",
+   "file": "classes/renderscenedatard.md",
+   "inherits": "RenderSceneData",
+   "brief": "Render scene data implementation for the RenderingDevice based renderers."
+  },
+  {
+   "name": "Resource",
+   "file": "classes/resource.md",
+   "inherits": "RefCounted",
+   "brief": "Base class for serializable objects."
+  },
+  {
+   "name": "ResourceFormatLoader",
+   "file": "classes/resourceformatloader.md",
+   "inherits": "RefCounted",
+   "brief": "Loads a specific resource type from a file."
+  },
+  {
+   "name": "ResourceFormatSaver",
+   "file": "classes/resourceformatsaver.md",
+   "inherits": "RefCounted",
+   "brief": "Saves a specific resource type to a file."
+  },
+  {
+   "name": "ResourceImporter",
+   "file": "classes/resourceimporter.md",
+   "inherits": "RefCounted",
+   "brief": "Base class for resource importers."
+  },
+  {
+   "name": "ResourceImporterBitMap",
+   "file": "classes/resourceimporterbitmap.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a `BitMap` resource (2D array of boolean values)."
+  },
+  {
+   "name": "ResourceImporterBMFont",
+   "file": "classes/resourceimporterbmfont.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a bitmap font in the BMFont (`.fnt`) format."
+  },
+  {
+   "name": "ResourceImporterCSVTranslation",
+   "file": "classes/resourceimportercsvtranslation.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports comma-separated values as `Translation`s."
+  },
+  {
+   "name": "ResourceImporterDynamicFont",
+   "file": "classes/resourceimporterdynamicfont.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a TTF, TTC, OTF, OTC, WOFF or WOFF2 font file for font rendering that adapts to any size."
+  },
+  {
+   "name": "ResourceImporterImage",
+   "file": "classes/resourceimporterimage.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports an image for use in scripting, with no rendering capabilities."
+  },
+  {
+   "name": "ResourceImporterImageFont",
+   "file": "classes/resourceimporterimagefont.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a bitmap font where all glyphs have the same width and height."
+  },
+  {
+   "name": "ResourceImporterLayeredTexture",
+   "file": "classes/resourceimporterlayeredtexture.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a 3-dimensional texture (`Texture3D`), a `Texture2DArray`, a `Cubemap` or a `CubemapArray`."
+  },
+  {
+   "name": "ResourceImporterOBJ",
+   "file": "classes/resourceimporterobj.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports an OBJ 3D model as an independent `Mesh` or scene."
+  },
+  {
+   "name": "ResourceImporterScene",
+   "file": "classes/resourceimporterscene.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a glTF, FBX, COLLADA, or Blender 3D scene."
+  },
+  {
+   "name": "ResourceImporterShaderFile",
+   "file": "classes/resourceimportershaderfile.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports native GLSL shaders (not Godot shaders) as an `RDShaderFile`."
+  },
+  {
+   "name": "ResourceImporterSVG",
+   "file": "classes/resourceimportersvg.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports an SVG file as an automatically scalable texture for use in UI elements and 2D rendering."
+  },
+  {
+   "name": "ResourceImporterTexture",
+   "file": "classes/resourceimportertexture.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports an image for use in 2D or 3D rendering."
+  },
+  {
+   "name": "ResourceImporterTextureAtlas",
+   "file": "classes/resourceimportertextureatlas.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a collection of textures from a PNG image into an optimized `AtlasTexture` for 2D rendering."
+  },
+  {
+   "name": "ResourceImporterWAV",
+   "file": "classes/resourceimporterwav.md",
+   "inherits": "ResourceImporter",
+   "brief": "Imports a WAV audio file for playback."
+  },
+  {
+   "name": "ResourceLoader",
+   "file": "classes/resourceloader.md",
+   "inherits": "Object",
+   "brief": "A singleton for loading resource files."
+  },
+  {
+   "name": "ResourcePreloader",
+   "file": "classes/resourcepreloader.md",
+   "inherits": "Node",
+   "brief": "A node used to preload sub-resources inside a scene."
+  },
+  {
+   "name": "ResourceSaver",
+   "file": "classes/resourcesaver.md",
+   "inherits": "Object",
+   "brief": "A singleton for saving `Resource`s to the filesystem."
+  },
+  {
+   "name": "ResourceUID",
+   "file": "classes/resourceuid.md",
+   "inherits": "Object",
+   "brief": "A singleton that manages the unique identifiers of all resources within a project."
+  },
+  {
+   "name": "RetargetModifier3D",
+   "file": "classes/retargetmodifier3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A modifier to transfer parent skeleton poses (or global poses) to child skeletons in model space with different rests."
+  },
+  {
+   "name": "RibbonTrailMesh",
+   "file": "classes/ribbontrailmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Represents a straight ribbon-shaped `PrimitiveMesh` with variable width."
+  },
+  {
+   "name": "RichTextEffect",
+   "file": "classes/richtexteffect.md",
+   "inherits": "Resource",
+   "brief": "A custom effect for a `RichTextLabel`."
+  },
+  {
+   "name": "RichTextLabel",
+   "file": "classes/richtextlabel.md",
+   "inherits": "Control",
+   "brief": "A control for displaying text that can contain different font styles, images, and basic formatting."
+  },
+  {
+   "name": "RID",
+   "file": "classes/rid.md",
+   "inherits": null,
+   "brief": "A handle for a `Resource`'s unique identifier."
+  },
+  {
+   "name": "RigidBody2D",
+   "file": "classes/rigidbody2d.md",
+   "inherits": "PhysicsBody2D",
+   "brief": "A 2D physics body that is moved by a physics simulation."
+  },
+  {
+   "name": "RigidBody3D",
+   "file": "classes/rigidbody3d.md",
+   "inherits": "PhysicsBody3D",
+   "brief": "A 3D physics body that is moved by a physics simulation."
+  },
+  {
+   "name": "RootMotionView",
+   "file": "classes/rootmotionview.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Editor-only helper for setting up root motion in `AnimationMixer`."
+  },
+  {
+   "name": "SceneState",
+   "file": "classes/scenestate.md",
+   "inherits": "RefCounted",
+   "brief": "Provides access to a scene file's information."
+  },
+  {
+   "name": "SceneTree",
+   "file": "classes/scenetree.md",
+   "inherits": "MainLoop",
+   "brief": "Manages the game loop via a hierarchy of nodes."
+  },
+  {
+   "name": "SceneTreeTimer",
+   "file": "classes/scenetreetimer.md",
+   "inherits": "RefCounted",
+   "brief": "One-shot timer."
+  },
+  {
+   "name": "Script",
+   "file": "classes/script.md",
+   "inherits": "Resource",
+   "brief": "A class stored as a resource."
+  },
+  {
+   "name": "ScriptBacktrace",
+   "file": "classes/scriptbacktrace.md",
+   "inherits": "RefCounted",
+   "brief": "A captured backtrace of a specific script language."
+  },
+  {
+   "name": "ScriptCreateDialog",
+   "file": "classes/scriptcreatedialog.md",
+   "inherits": "ConfirmationDialog",
+   "brief": "Godot editor's popup dialog for creating new `Script` files."
+  },
+  {
+   "name": "ScriptEditor",
+   "file": "classes/scripteditor.md",
+   "inherits": "PanelContainer",
+   "brief": "Godot editor's script editor."
+  },
+  {
+   "name": "ScriptEditorBase",
+   "file": "classes/scripteditorbase.md",
+   "inherits": "VBoxContainer",
+   "brief": "Base editor for editing scripts in the `ScriptEditor`."
+  },
+  {
+   "name": "ScriptExtension",
+   "file": "classes/scriptextension.md",
+   "inherits": "Script",
+   "brief": ""
+  },
+  {
+   "name": "ScriptLanguage",
+   "file": "classes/scriptlanguage.md",
+   "inherits": "Object",
+   "brief": ""
+  },
+  {
+   "name": "ScriptLanguageExtension",
+   "file": "classes/scriptlanguageextension.md",
+   "inherits": "ScriptLanguage",
+   "brief": ""
+  },
+  {
+   "name": "ScrollBar",
+   "file": "classes/scrollbar.md",
+   "inherits": "Range",
+   "brief": "Abstract base class for scrollbars."
+  },
+  {
+   "name": "ScrollContainer",
+   "file": "classes/scrollcontainer.md",
+   "inherits": "Container",
+   "brief": "A container used to provide scrollbars to a child control when needed."
+  },
+  {
+   "name": "SegmentShape2D",
+   "file": "classes/segmentshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D line segment shape used for physics collision."
+  },
+  {
+   "name": "Semaphore",
+   "file": "classes/semaphore.md",
+   "inherits": "RefCounted",
+   "brief": "A synchronization mechanism used to control access to a shared resource by `Thread`s."
+  },
+  {
+   "name": "SeparationRayShape2D",
+   "file": "classes/separationrayshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D ray shape used for physics collision that tries to separate itself from any collider."
+  },
+  {
+   "name": "SeparationRayShape3D",
+   "file": "classes/separationrayshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D ray shape used for physics collision that tries to separate itself from any collider."
+  },
+  {
+   "name": "Separator",
+   "file": "classes/separator.md",
+   "inherits": "Control",
+   "brief": "Abstract base class for separators."
+  },
+  {
+   "name": "Shader",
+   "file": "classes/shader.md",
+   "inherits": "Resource",
+   "brief": "A shader implemented in the Godot shading language."
+  },
+  {
+   "name": "ShaderGlobalsOverride",
+   "file": "classes/shaderglobalsoverride.md",
+   "inherits": "Node",
+   "brief": "A node used to override global shader parameters' values in a scene."
+  },
+  {
+   "name": "ShaderInclude",
+   "file": "classes/shaderinclude.md",
+   "inherits": "Resource",
+   "brief": "A snippet of shader code to be included in a `Shader` with `#include`."
+  },
+  {
+   "name": "ShaderIncludeDB",
+   "file": "classes/shaderincludedb.md",
+   "inherits": "Object",
+   "brief": "Internal database of built in shader include files."
+  },
+  {
+   "name": "ShaderMaterial",
+   "file": "classes/shadermaterial.md",
+   "inherits": "Material",
+   "brief": "A material defined by a custom `Shader` program and the values of its shader parameters."
+  },
+  {
+   "name": "Shape2D",
+   "file": "classes/shape2d.md",
+   "inherits": "Resource",
+   "brief": "Abstract base class for 2D shapes used for physics collision."
+  },
+  {
+   "name": "Shape3D",
+   "file": "classes/shape3d.md",
+   "inherits": "Resource",
+   "brief": "Abstract base class for 3D shapes used for physics collision."
+  },
+  {
+   "name": "ShapeCast2D",
+   "file": "classes/shapecast2d.md",
+   "inherits": "Node2D",
+   "brief": "A 2D shape that sweeps a region of space to detect `CollisionObject2D`s."
+  },
+  {
+   "name": "ShapeCast3D",
+   "file": "classes/shapecast3d.md",
+   "inherits": "Node3D",
+   "brief": "A 3D shape that sweeps a region of space to detect `CollisionObject3D`s."
+  },
+  {
+   "name": "Shortcut",
+   "file": "classes/shortcut.md",
+   "inherits": "Resource",
+   "brief": "A shortcut for binding input."
+  },
+  {
+   "name": "Signal",
+   "file": "classes/signal.md",
+   "inherits": null,
+   "brief": "A built-in type representing a signal of an `Object`."
+  },
+  {
+   "name": "Skeleton2D",
+   "file": "classes/skeleton2d.md",
+   "inherits": "Node2D",
+   "brief": "The parent of a hierarchy of `Bone2D`s, used to create a 2D skeletal animation."
+  },
+  {
+   "name": "Skeleton3D",
+   "file": "classes/skeleton3d.md",
+   "inherits": "Node3D",
+   "brief": "A node containing a bone hierarchy, used to create a 3D skeletal animation."
+  },
+  {
+   "name": "SkeletonIK3D",
+   "file": "classes/skeletonik3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A node used to rotate all bones of a `Skeleton3D` bone chain a way that places the end bone at a desired 3D position."
+  },
+  {
+   "name": "SkeletonModification2D",
+   "file": "classes/skeletonmodification2d.md",
+   "inherits": "Resource",
+   "brief": "Base class for resources that operate on `Bone2D`s in a `Skeleton2D`."
+  },
+  {
+   "name": "SkeletonModification2DCCDIK",
+   "file": "classes/skeletonmodification2dccdik.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that uses CCDIK to manipulate a series of bones to reach a target in 2D."
+  },
+  {
+   "name": "SkeletonModification2DFABRIK",
+   "file": "classes/skeletonmodification2dfabrik.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that uses FABRIK to manipulate a series of `Bone2D` nodes to reach a target."
+  },
+  {
+   "name": "SkeletonModification2DJiggle",
+   "file": "classes/skeletonmodification2djiggle.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that jiggles `Bone2D` nodes as they move towards a target."
+  },
+  {
+   "name": "SkeletonModification2DLookAt",
+   "file": "classes/skeletonmodification2dlookat.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that rotates a `Bone2D` node to look at a target."
+  },
+  {
+   "name": "SkeletonModification2DPhysicalBones",
+   "file": "classes/skeletonmodification2dphysicalbones.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that applies the transforms of `PhysicalBone2D` nodes to `Bone2D` nodes."
+  },
+  {
+   "name": "SkeletonModification2DStackHolder",
+   "file": "classes/skeletonmodification2dstackholder.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that holds and executes a `SkeletonModificationStack2D`."
+  },
+  {
+   "name": "SkeletonModification2DTwoBoneIK",
+   "file": "classes/skeletonmodification2dtwoboneik.md",
+   "inherits": "SkeletonModification2D",
+   "brief": "A modification that rotates two bones using the law of cosines to reach the target."
+  },
+  {
+   "name": "SkeletonModificationStack2D",
+   "file": "classes/skeletonmodificationstack2d.md",
+   "inherits": "Resource",
+   "brief": "A resource that holds a stack of `SkeletonModification2D`s."
+  },
+  {
+   "name": "SkeletonModifier3D",
+   "file": "classes/skeletonmodifier3d.md",
+   "inherits": "Node3D",
+   "brief": "A node that may modify a Skeleton3D's bones."
+  },
+  {
+   "name": "SkeletonProfile",
+   "file": "classes/skeletonprofile.md",
+   "inherits": "Resource",
+   "brief": "Base class for a profile of a virtual skeleton used as a target for retargeting."
+  },
+  {
+   "name": "SkeletonProfileHumanoid",
+   "file": "classes/skeletonprofilehumanoid.md",
+   "inherits": "SkeletonProfile",
+   "brief": "A humanoid `SkeletonProfile` preset."
+  },
+  {
+   "name": "Skin",
+   "file": "classes/skin.md",
+   "inherits": "Resource",
+   "brief": ""
+  },
+  {
+   "name": "SkinReference",
+   "file": "classes/skinreference.md",
+   "inherits": "RefCounted",
+   "brief": "A reference-counted holder object for a skeleton RID used in the `RenderingServer`."
+  },
+  {
+   "name": "Sky",
+   "file": "classes/sky.md",
+   "inherits": "Resource",
+   "brief": "Defines a 3D environment's background by using a `Material`."
+  },
+  {
+   "name": "Slider",
+   "file": "classes/slider.md",
+   "inherits": "Range",
+   "brief": "Abstract base class for sliders."
+  },
+  {
+   "name": "SliderJoint3D",
+   "file": "classes/sliderjoint3d.md",
+   "inherits": "Joint3D",
+   "brief": "A physics joint that restricts the movement of a 3D physics body along an axis relative to another physics body."
+  },
+  {
+   "name": "SocketServer",
+   "file": "classes/socketserver.md",
+   "inherits": "RefCounted",
+   "brief": "An abstract class for servers based on sockets."
+  },
+  {
+   "name": "SoftBody3D",
+   "file": "classes/softbody3d.md",
+   "inherits": "MeshInstance3D",
+   "brief": "A deformable 3D physics mesh."
+  },
+  {
+   "name": "SphereMesh",
+   "file": "classes/spheremesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Class representing a spherical `PrimitiveMesh`."
+  },
+  {
+   "name": "SphereOccluder3D",
+   "file": "classes/sphereoccluder3d.md",
+   "inherits": "Occluder3D",
+   "brief": "Spherical shape for use with occlusion culling in `OccluderInstance3D`."
+  },
+  {
+   "name": "SphereShape3D",
+   "file": "classes/sphereshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D sphere shape used for physics collision."
+  },
+  {
+   "name": "SpinBox",
+   "file": "classes/spinbox.md",
+   "inherits": "Range",
+   "brief": "An input field for numbers."
+  },
+  {
+   "name": "SplineIK3D",
+   "file": "classes/splineik3d.md",
+   "inherits": "ChainIK3D",
+   "brief": "A `SkeletonModifier3D` for aligning bones along a `Path3D`."
+  },
+  {
+   "name": "SplitContainer",
+   "file": "classes/splitcontainer.md",
+   "inherits": "Container",
+   "brief": "A container that arranges child controls horizontally or vertically and provides grabbers for adjusting the split ratios between them."
+  },
+  {
+   "name": "SpotLight3D",
+   "file": "classes/spotlight3d.md",
+   "inherits": "Light3D",
+   "brief": "A spotlight, such as a reflector spotlight or a lantern."
+  },
+  {
+   "name": "SpringArm3D",
+   "file": "classes/springarm3d.md",
+   "inherits": "Node3D",
+   "brief": "A 3D raycast that dynamically moves its children near the collision point."
+  },
+  {
+   "name": "SpringBoneCollision3D",
+   "file": "classes/springbonecollision3d.md",
+   "inherits": "Node3D",
+   "brief": "A base class of the collision that interacts with `SpringBoneSimulator3D`."
+  },
+  {
+   "name": "SpringBoneCollisionCapsule3D",
+   "file": "classes/springbonecollisioncapsule3d.md",
+   "inherits": "SpringBoneCollision3D",
+   "brief": "A capsule shape collision that interacts with `SpringBoneSimulator3D`."
+  },
+  {
+   "name": "SpringBoneCollisionPlane3D",
+   "file": "classes/springbonecollisionplane3d.md",
+   "inherits": "SpringBoneCollision3D",
+   "brief": "An infinite plane collision that interacts with `SpringBoneSimulator3D`."
+  },
+  {
+   "name": "SpringBoneCollisionSphere3D",
+   "file": "classes/springbonecollisionsphere3d.md",
+   "inherits": "SpringBoneCollision3D",
+   "brief": "A sphere shape collision that interacts with `SpringBoneSimulator3D`."
+  },
+  {
+   "name": "SpringBoneSimulator3D",
+   "file": "classes/springbonesimulator3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A `SkeletonModifier3D` to apply inertial wavering to bone chains."
+  },
+  {
+   "name": "Sprite2D",
+   "file": "classes/sprite2d.md",
+   "inherits": "Node2D",
+   "brief": "General-purpose sprite node."
+  },
+  {
+   "name": "Sprite3D",
+   "file": "classes/sprite3d.md",
+   "inherits": "SpriteBase3D",
+   "brief": "2D sprite node in a 3D world."
+  },
+  {
+   "name": "SpriteBase3D",
+   "file": "classes/spritebase3d.md",
+   "inherits": "GeometryInstance3D",
+   "brief": "2D sprite node in 3D environment."
+  },
+  {
+   "name": "SpriteFrames",
+   "file": "classes/spriteframes.md",
+   "inherits": "Resource",
+   "brief": "Sprite frame library for AnimatedSprite2D and AnimatedSprite3D."
+  },
+  {
+   "name": "StandardMaterial3D",
+   "file": "classes/standardmaterial3d.md",
+   "inherits": "BaseMaterial3D",
+   "brief": "A PBR (Physically Based Rendering) material to be used on 3D objects."
+  },
+  {
+   "name": "StaticBody2D",
+   "file": "classes/staticbody2d.md",
+   "inherits": "PhysicsBody2D",
+   "brief": "A 2D physics body that can't be moved by external forces. When moved manually, it doesn't affect other bodies in its path."
+  },
+  {
+   "name": "StaticBody3D",
+   "file": "classes/staticbody3d.md",
+   "inherits": "PhysicsBody3D",
+   "brief": "A 3D physics body that can't be moved by external forces. When moved manually, it doesn't affect other bodies in its path."
+  },
+  {
+   "name": "StatusIndicator",
+   "file": "classes/statusindicator.md",
+   "inherits": "Node",
+   "brief": "Application status indicator (aka notification area icon). **Note:** Status indicator is implemented on macOS and Windows."
+  },
+  {
+   "name": "StreamPeer",
+   "file": "classes/streampeer.md",
+   "inherits": "RefCounted",
+   "brief": "Abstract base class for interacting with streams."
+  },
+  {
+   "name": "StreamPeerBuffer",
+   "file": "classes/streampeerbuffer.md",
+   "inherits": "StreamPeer",
+   "brief": "A stream peer used to handle binary data streams."
+  },
+  {
+   "name": "StreamPeerExtension",
+   "file": "classes/streampeerextension.md",
+   "inherits": "StreamPeer",
+   "brief": ""
+  },
+  {
+   "name": "StreamPeerGZIP",
+   "file": "classes/streampeergzip.md",
+   "inherits": "StreamPeer",
+   "brief": "A stream peer that handles GZIP and deflate compression/decompression."
+  },
+  {
+   "name": "StreamPeerSocket",
+   "file": "classes/streampeersocket.md",
+   "inherits": "StreamPeer",
+   "brief": "Abstract base class for interacting with socket streams."
+  },
+  {
+   "name": "StreamPeerTCP",
+   "file": "classes/streampeertcp.md",
+   "inherits": "StreamPeerSocket",
+   "brief": "A stream peer that handles TCP connections."
+  },
+  {
+   "name": "StreamPeerTLS",
+   "file": "classes/streampeertls.md",
+   "inherits": "StreamPeer",
+   "brief": "A stream peer that handles TLS connections."
+  },
+  {
+   "name": "StreamPeerUDS",
+   "file": "classes/streampeeruds.md",
+   "inherits": "StreamPeerSocket",
+   "brief": "A stream peer that handles UNIX Domain Socket (UDS) connections."
+  },
+  {
+   "name": "String",
+   "file": "classes/string.md",
+   "inherits": null,
+   "brief": "A built-in type for strings."
+  },
+  {
+   "name": "StringName",
+   "file": "classes/stringname.md",
+   "inherits": null,
+   "brief": "A built-in type for unique strings."
+  },
+  {
+   "name": "StyleBox",
+   "file": "classes/stylebox.md",
+   "inherits": "Resource",
+   "brief": "Abstract base class for defining stylized boxes for UI elements."
+  },
+  {
+   "name": "StyleBoxEmpty",
+   "file": "classes/styleboxempty.md",
+   "inherits": "StyleBox",
+   "brief": "An empty `StyleBox` (does not display anything)."
+  },
+  {
+   "name": "StyleBoxFlat",
+   "file": "classes/styleboxflat.md",
+   "inherits": "StyleBox",
+   "brief": "A customizable `StyleBox` that doesn't use a texture."
+  },
+  {
+   "name": "StyleBoxLine",
+   "file": "classes/styleboxline.md",
+   "inherits": "StyleBox",
+   "brief": "A `StyleBox` that displays a single line of a given color and thickness."
+  },
+  {
+   "name": "StyleBoxTexture",
+   "file": "classes/styleboxtexture.md",
+   "inherits": "StyleBox",
+   "brief": "A texture-based nine-patch `StyleBox`."
+  },
+  {
+   "name": "SubtweenTweener",
+   "file": "classes/subtweentweener.md",
+   "inherits": "Tweener",
+   "brief": "Runs a `Tween` nested within another `Tween`."
+  },
+  {
+   "name": "SubViewport",
+   "file": "classes/subviewport.md",
+   "inherits": "Viewport",
+   "brief": "An interface to a game world that doesn't create a window or draw to the screen directly."
+  },
+  {
+   "name": "SubViewportContainer",
+   "file": "classes/subviewportcontainer.md",
+   "inherits": "Container",
+   "brief": "A container used for displaying the contents of a `SubViewport`."
+  },
+  {
+   "name": "SurfaceTool",
+   "file": "classes/surfacetool.md",
+   "inherits": "RefCounted",
+   "brief": "Helper tool to create geometry."
+  },
+  {
+   "name": "SyntaxHighlighter",
+   "file": "classes/syntaxhighlighter.md",
+   "inherits": "Resource",
+   "brief": "Base class for syntax highlighters. Provides syntax highlighting data to a `TextEdit`."
+  },
+  {
+   "name": "SystemFont",
+   "file": "classes/systemfont.md",
+   "inherits": "Font",
+   "brief": "A font loaded from a system font. Falls back to a default theme font if not implemented on the host OS."
+  },
+  {
+   "name": "TabBar",
+   "file": "classes/tabbar.md",
+   "inherits": "Control",
+   "brief": "A control that provides a horizontal bar with tabs."
+  },
+  {
+   "name": "TabContainer",
+   "file": "classes/tabcontainer.md",
+   "inherits": "Container",
+   "brief": "A container that creates a tab for each child control, displaying only the active tab's control."
+  },
+  {
+   "name": "TCPServer",
+   "file": "classes/tcpserver.md",
+   "inherits": "SocketServer",
+   "brief": "A TCP server."
+  },
+  {
+   "name": "TextEdit",
+   "file": "classes/textedit.md",
+   "inherits": "Control",
+   "brief": "A multiline text editor."
+  },
+  {
+   "name": "TextLine",
+   "file": "classes/textline.md",
+   "inherits": "RefCounted",
+   "brief": "Holds a line of text."
+  },
+  {
+   "name": "TextMesh",
+   "file": "classes/textmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Generate a `PrimitiveMesh` from the text."
+  },
+  {
+   "name": "TextParagraph",
+   "file": "classes/textparagraph.md",
+   "inherits": "RefCounted",
+   "brief": "Holds a paragraph of text."
+  },
+  {
+   "name": "TextServer",
+   "file": "classes/textserver.md",
+   "inherits": "RefCounted",
+   "brief": "A server interface for font management and text rendering."
+  },
+  {
+   "name": "TextServerDummy",
+   "file": "classes/textserverdummy.md",
+   "inherits": "TextServerExtension",
+   "brief": "A dummy text server that can't render text or manage fonts."
+  },
+  {
+   "name": "TextServerExtension",
+   "file": "classes/textserverextension.md",
+   "inherits": "TextServer",
+   "brief": "Base class for custom `TextServer` implementations (plugins)."
+  },
+  {
+   "name": "TextServerManager",
+   "file": "classes/textservermanager.md",
+   "inherits": "Object",
+   "brief": "A singleton for managing `TextServer` implementations."
+  },
+  {
+   "name": "Texture",
+   "file": "classes/texture.md",
+   "inherits": "Resource",
+   "brief": "Base class for all texture types."
+  },
+  {
+   "name": "Texture2D",
+   "file": "classes/texture2d.md",
+   "inherits": "Texture",
+   "brief": "Texture for 2D and 3D."
+  },
+  {
+   "name": "Texture2DArray",
+   "file": "classes/texture2darray.md",
+   "inherits": "ImageTextureLayered",
+   "brief": "A single texture resource which consists of multiple, separate images. Each image has the same dimensions and number of mipmap levels."
+  },
+  {
+   "name": "Texture2DArrayRD",
+   "file": "classes/texture2darrayrd.md",
+   "inherits": "TextureLayeredRD",
+   "brief": "Texture Array for 2D that is bound to a texture created on the `RenderingDevice`."
+  },
+  {
+   "name": "Texture2DRD",
+   "file": "classes/texture2drd.md",
+   "inherits": "Texture2D",
+   "brief": "Texture for 2D that is bound to a texture created on the `RenderingDevice`."
+  },
+  {
+   "name": "Texture3D",
+   "file": "classes/texture3d.md",
+   "inherits": "Texture",
+   "brief": "Base class for 3-dimensional textures."
+  },
+  {
+   "name": "Texture3DRD",
+   "file": "classes/texture3drd.md",
+   "inherits": "Texture3D",
+   "brief": "Texture for 3D that is bound to a texture created on the `RenderingDevice`."
+  },
+  {
+   "name": "TextureButton",
+   "file": "classes/texturebutton.md",
+   "inherits": "BaseButton",
+   "brief": "Texture-based button. Supports Pressed, Hover, Disabled and Focused states."
+  },
+  {
+   "name": "TextureCubemapArrayRD",
+   "file": "classes/texturecubemaparrayrd.md",
+   "inherits": "TextureLayeredRD",
+   "brief": "Texture Array for Cubemaps that is bound to a texture created on the `RenderingDevice`."
+  },
+  {
+   "name": "TextureCubemapRD",
+   "file": "classes/texturecubemaprd.md",
+   "inherits": "TextureLayeredRD",
+   "brief": "Texture for Cubemap that is bound to a texture created on the `RenderingDevice`."
+  },
+  {
+   "name": "TextureLayered",
+   "file": "classes/texturelayered.md",
+   "inherits": "Texture",
+   "brief": "Base class for texture types which contain the data of multiple `Image`s. Each image is of the same size and format."
+  },
+  {
+   "name": "TextureLayeredRD",
+   "file": "classes/texturelayeredrd.md",
+   "inherits": "TextureLayered",
+   "brief": "Abstract base class for layered texture RD types."
+  },
+  {
+   "name": "TextureProgressBar",
+   "file": "classes/textureprogressbar.md",
+   "inherits": "Range",
+   "brief": "Texture-based progress bar. Useful for loading screens and life or stamina bars."
+  },
+  {
+   "name": "TextureRect",
+   "file": "classes/texturerect.md",
+   "inherits": "Control",
+   "brief": "A control that displays a texture."
+  },
+  {
+   "name": "Theme",
+   "file": "classes/theme.md",
+   "inherits": "Resource",
+   "brief": "A resource used for styling/skinning `Control`s and `Window`s."
+  },
+  {
+   "name": "ThemeDB",
+   "file": "classes/themedb.md",
+   "inherits": "Object",
+   "brief": "A singleton that provides access to static information about `Theme` resources used by the engine and by your project."
+  },
+  {
+   "name": "Thread",
+   "file": "classes/thread.md",
+   "inherits": "RefCounted",
+   "brief": "A unit of execution in a process."
+  },
+  {
+   "name": "TileData",
+   "file": "classes/tiledata.md",
+   "inherits": "Object",
+   "brief": "Settings for a single tile in a `TileSet`."
+  },
+  {
+   "name": "TileMap",
+   "file": "classes/tilemap.md",
+   "inherits": "Node2D",
+   "brief": "Node for 2D tile-based maps."
+  },
+  {
+   "name": "TileMapLayer",
+   "file": "classes/tilemaplayer.md",
+   "inherits": "Node2D",
+   "brief": "Node for 2D tile-based maps."
+  },
+  {
+   "name": "TileMapPattern",
+   "file": "classes/tilemappattern.md",
+   "inherits": "Resource",
+   "brief": "Holds a pattern to be copied from or pasted into `TileMap`s."
+  },
+  {
+   "name": "TileSet",
+   "file": "classes/tileset.md",
+   "inherits": "Resource",
+   "brief": "Tile library for tilemaps."
+  },
+  {
+   "name": "TileSetAtlasSource",
+   "file": "classes/tilesetatlassource.md",
+   "inherits": "TileSetSource",
+   "brief": "Exposes a 2D atlas texture as a set of tiles for a `TileSet` resource."
+  },
+  {
+   "name": "TileSetScenesCollectionSource",
+   "file": "classes/tilesetscenescollectionsource.md",
+   "inherits": "TileSetSource",
+   "brief": "Exposes a set of scenes as tiles for a `TileSet` resource."
+  },
+  {
+   "name": "TileSetSource",
+   "file": "classes/tilesetsource.md",
+   "inherits": "Resource",
+   "brief": "Exposes a set of tiles for a `TileSet` resource."
+  },
+  {
+   "name": "Time",
+   "file": "classes/time.md",
+   "inherits": "Object",
+   "brief": "A singleton for working with time data."
+  },
+  {
+   "name": "Timer",
+   "file": "classes/timer.md",
+   "inherits": "Node",
+   "brief": "A countdown timer."
+  },
+  {
+   "name": "TLSOptions",
+   "file": "classes/tlsoptions.md",
+   "inherits": "RefCounted",
+   "brief": "TLS configuration for clients and servers."
+  },
+  {
+   "name": "TorusMesh",
+   "file": "classes/torusmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Class representing a torus `PrimitiveMesh`."
+  },
+  {
+   "name": "TouchScreenButton",
+   "file": "classes/touchscreenbutton.md",
+   "inherits": "Node2D",
+   "brief": "Button for touch screen devices for gameplay use."
+  },
+  {
+   "name": "Transform2D",
+   "file": "classes/transform2d.md",
+   "inherits": null,
+   "brief": "A 2×3 matrix representing a 2D transformation."
+  },
+  {
+   "name": "Transform3D",
+   "file": "classes/transform3d.md",
+   "inherits": null,
+   "brief": "A 3×4 matrix representing a 3D transformation."
+  },
+  {
+   "name": "Translation",
+   "file": "classes/translation.md",
+   "inherits": "Resource",
+   "brief": "A language translation that maps a collection of strings to their individual translations."
+  },
+  {
+   "name": "TranslationDomain",
+   "file": "classes/translationdomain.md",
+   "inherits": "RefCounted",
+   "brief": "A self-contained collection of `Translation` resources."
+  },
+  {
+   "name": "TranslationServer",
+   "file": "classes/translationserver.md",
+   "inherits": "Object",
+   "brief": "The server responsible for language translations."
+  },
+  {
+   "name": "Tree",
+   "file": "classes/tree.md",
+   "inherits": "Control",
+   "brief": "A control used to show a set of internal `TreeItem`s in a hierarchical structure."
+  },
+  {
+   "name": "TreeItem",
+   "file": "classes/treeitem.md",
+   "inherits": "Object",
+   "brief": "An internal control for a single item inside `Tree`."
+  },
+  {
+   "name": "TriangleMesh",
+   "file": "classes/trianglemesh.md",
+   "inherits": "RefCounted",
+   "brief": "Triangle geometry for efficient, physicsless intersection queries."
+  },
+  {
+   "name": "TubeTrailMesh",
+   "file": "classes/tubetrailmesh.md",
+   "inherits": "PrimitiveMesh",
+   "brief": "Represents a straight tube-shaped `PrimitiveMesh` with variable width."
+  },
+  {
+   "name": "Tween",
+   "file": "classes/tween.md",
+   "inherits": "RefCounted",
+   "brief": "Lightweight object used for general-purpose animation via script, using `Tweener`s."
+  },
+  {
+   "name": "Tweener",
+   "file": "classes/tweener.md",
+   "inherits": "RefCounted",
+   "brief": "Abstract class for all Tweeners used by `Tween`."
+  },
+  {
+   "name": "TwoBoneIK3D",
+   "file": "classes/twoboneik3d.md",
+   "inherits": "IKModifier3D",
+   "brief": "Rotation based intersection of two circles inverse kinematics solver."
+  },
+  {
+   "name": "UDPServer",
+   "file": "classes/udpserver.md",
+   "inherits": "RefCounted",
+   "brief": "Helper class to implement a UDP server."
+  },
+  {
+   "name": "UDSServer",
+   "file": "classes/udsserver.md",
+   "inherits": "SocketServer",
+   "brief": "A Unix Domain Socket (UDS) server."
+  },
+  {
+   "name": "UndoRedo",
+   "file": "classes/undoredo.md",
+   "inherits": "Object",
+   "brief": "Provides a high-level interface for implementing undo and redo operations."
+  },
+  {
+   "name": "UniformSetCacheRD",
+   "file": "classes/uniformsetcacherd.md",
+   "inherits": "Object",
+   "brief": "Uniform set cache manager for Rendering Device based renderers."
+  },
+  {
+   "name": "Variant",
+   "file": "classes/variant.md",
+   "inherits": null,
+   "brief": "The most important data type in Godot."
+  },
+  {
+   "name": "VBoxContainer",
+   "file": "classes/vboxcontainer.md",
+   "inherits": "BoxContainer",
+   "brief": "A container that arranges its child controls vertically."
+  },
+  {
+   "name": "Vector2",
+   "file": "classes/vector2.md",
+   "inherits": null,
+   "brief": "A 2D vector using floating-point coordinates."
+  },
+  {
+   "name": "Vector2i",
+   "file": "classes/vector2i.md",
+   "inherits": null,
+   "brief": "A 2D vector using integer coordinates."
+  },
+  {
+   "name": "Vector3",
+   "file": "classes/vector3.md",
+   "inherits": null,
+   "brief": "A 3D vector using floating-point coordinates."
+  },
+  {
+   "name": "Vector3i",
+   "file": "classes/vector3i.md",
+   "inherits": null,
+   "brief": "A 3D vector using integer coordinates."
+  },
+  {
+   "name": "Vector4",
+   "file": "classes/vector4.md",
+   "inherits": null,
+   "brief": "A 4D vector using floating-point coordinates."
+  },
+  {
+   "name": "Vector4i",
+   "file": "classes/vector4i.md",
+   "inherits": null,
+   "brief": "A 4D vector using integer coordinates."
+  },
+  {
+   "name": "VehicleBody3D",
+   "file": "classes/vehiclebody3d.md",
+   "inherits": "RigidBody3D",
+   "brief": "A 3D physics body that simulates the behavior of a car."
+  },
+  {
+   "name": "VehicleWheel3D",
+   "file": "classes/vehiclewheel3d.md",
+   "inherits": "Node3D",
+   "brief": "A 3D physics body for a `VehicleBody3D` that simulates the behavior of a wheel."
+  },
+  {
+   "name": "VFlowContainer",
+   "file": "classes/vflowcontainer.md",
+   "inherits": "FlowContainer",
+   "brief": "A container that arranges its child controls vertically and wraps them around at the borders."
+  },
+  {
+   "name": "VideoStream",
+   "file": "classes/videostream.md",
+   "inherits": "Resource",
+   "brief": "Base resource for video streams."
+  },
+  {
+   "name": "VideoStreamPlayback",
+   "file": "classes/videostreamplayback.md",
+   "inherits": "Resource",
+   "brief": "Internal class used by `VideoStream` to manage playback state when played from a `VideoStreamPlayer`."
+  },
+  {
+   "name": "VideoStreamPlayer",
+   "file": "classes/videostreamplayer.md",
+   "inherits": "Control",
+   "brief": "A control used for video playback."
+  },
+  {
+   "name": "Viewport",
+   "file": "classes/viewport.md",
+   "inherits": "Node",
+   "brief": "Abstract base class for viewports. Encapsulates drawing and interaction with a game world."
+  },
+  {
+   "name": "ViewportTexture",
+   "file": "classes/viewporttexture.md",
+   "inherits": "Texture2D",
+   "brief": "Provides the content of a `Viewport` as a dynamic texture."
+  },
+  {
+   "name": "VirtualJoystick",
+   "file": "classes/virtualjoystick.md",
+   "inherits": "Control",
+   "brief": "A virtual joystick control for touchscreen devices."
+  },
+  {
+   "name": "VisibleOnScreenEnabler2D",
+   "file": "classes/visibleonscreenenabler2d.md",
+   "inherits": "VisibleOnScreenNotifier2D",
+   "brief": "A rectangular region of 2D space that, when visible on screen, enables a target node."
+  },
+  {
+   "name": "VisibleOnScreenEnabler3D",
+   "file": "classes/visibleonscreenenabler3d.md",
+   "inherits": "VisibleOnScreenNotifier3D",
+   "brief": "A box-shaped region of 3D space that, when visible on screen, enables a target node."
+  },
+  {
+   "name": "VisibleOnScreenNotifier2D",
+   "file": "classes/visibleonscreennotifier2d.md",
+   "inherits": "Node2D",
+   "brief": "A rectangular region of 2D space that detects whether it is visible on screen."
+  },
+  {
+   "name": "VisibleOnScreenNotifier3D",
+   "file": "classes/visibleonscreennotifier3d.md",
+   "inherits": "VisualInstance3D",
+   "brief": "A box-shaped region of 3D space that detects whether it is visible on screen."
+  },
+  {
+   "name": "VisualInstance3D",
+   "file": "classes/visualinstance3d.md",
+   "inherits": "Node3D",
+   "brief": "Parent of all visual 3D nodes."
+  },
+  {
+   "name": "VoxelGI",
+   "file": "classes/voxelgi.md",
+   "inherits": "VisualInstance3D",
+   "brief": "Real-time global illumination (GI) probe."
+  },
+  {
+   "name": "VoxelGIData",
+   "file": "classes/voxelgidata.md",
+   "inherits": "Resource",
+   "brief": "Contains baked voxel global illumination data for use in a `VoxelGI` node."
+  },
+  {
+   "name": "VScrollBar",
+   "file": "classes/vscrollbar.md",
+   "inherits": "ScrollBar",
+   "brief": "A vertical scrollbar that goes from top (min) to bottom (max)."
+  },
+  {
+   "name": "VSeparator",
+   "file": "classes/vseparator.md",
+   "inherits": "Separator",
+   "brief": "A vertical line used for separating other controls."
+  },
+  {
+   "name": "VSlider",
+   "file": "classes/vslider.md",
+   "inherits": "Slider",
+   "brief": "A vertical slider that goes from bottom (min) to top (max)."
+  },
+  {
+   "name": "VSplitContainer",
+   "file": "classes/vsplitcontainer.md",
+   "inherits": "SplitContainer",
+   "brief": "A container that splits two child controls vertically and provides a grabber for adjusting the split ratio."
+  },
+  {
+   "name": "WeakRef",
+   "file": "classes/weakref.md",
+   "inherits": "RefCounted",
+   "brief": "Holds an `Object`. If the object is `RefCounted`, it doesn't update the reference count."
+  },
+  {
+   "name": "Window",
+   "file": "classes/window.md",
+   "inherits": "Viewport",
+   "brief": "Base class for all windows, dialogs, and popups."
+  },
+  {
+   "name": "WorkerThreadPool",
+   "file": "classes/workerthreadpool.md",
+   "inherits": "Object",
+   "brief": "A singleton that allocates some `Thread`s on startup, used to offload tasks to these threads."
+  },
+  {
+   "name": "World2D",
+   "file": "classes/world2d.md",
+   "inherits": "Resource",
+   "brief": "A resource that holds all components of a 2D world, such as a canvas and a physics space."
+  },
+  {
+   "name": "World3D",
+   "file": "classes/world3d.md",
+   "inherits": "Resource",
+   "brief": "A resource that holds all components of a 3D world, such as a visual scenario and a physics space."
+  },
+  {
+   "name": "WorldBoundaryShape2D",
+   "file": "classes/worldboundaryshape2d.md",
+   "inherits": "Shape2D",
+   "brief": "A 2D world boundary (half-plane) shape used for physics collision."
+  },
+  {
+   "name": "WorldBoundaryShape3D",
+   "file": "classes/worldboundaryshape3d.md",
+   "inherits": "Shape3D",
+   "brief": "A 3D world boundary (half-space) shape used for physics collision."
+  },
+  {
+   "name": "WorldEnvironment",
+   "file": "classes/worldenvironment.md",
+   "inherits": "Node",
+   "brief": "Default environment properties for the entire scene (post-processing effects, lighting and background settings)."
+  },
+  {
+   "name": "X509Certificate",
+   "file": "classes/x509certificate.md",
+   "inherits": "Resource",
+   "brief": "An X509 certificate (e.g. for TLS)."
+  },
+  {
+   "name": "XMLParser",
+   "file": "classes/xmlparser.md",
+   "inherits": "RefCounted",
+   "brief": "Provides a low-level interface for creating parsers for XML files."
+  },
+  {
+   "name": "XRAnchor3D",
+   "file": "classes/xranchor3d.md",
+   "inherits": "XRNode3D",
+   "brief": "An anchor point in AR space."
+  },
+  {
+   "name": "XRBodyModifier3D",
+   "file": "classes/xrbodymodifier3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A node for driving body meshes from `XRBodyTracker` data."
+  },
+  {
+   "name": "XRBodyTracker",
+   "file": "classes/xrbodytracker.md",
+   "inherits": "XRPositionalTracker",
+   "brief": "A tracked body in XR."
+  },
+  {
+   "name": "XRCamera3D",
+   "file": "classes/xrcamera3d.md",
+   "inherits": "Camera3D",
+   "brief": "A camera node which automatically positions itself based on XR tracking data."
+  },
+  {
+   "name": "XRController3D",
+   "file": "classes/xrcontroller3d.md",
+   "inherits": "XRNode3D",
+   "brief": "A 3D node representing a spatially-tracked controller."
+  },
+  {
+   "name": "XRControllerTracker",
+   "file": "classes/xrcontrollertracker.md",
+   "inherits": "XRPositionalTracker",
+   "brief": "A tracked controller."
+  },
+  {
+   "name": "XRFaceModifier3D",
+   "file": "classes/xrfacemodifier3d.md",
+   "inherits": "Node3D",
+   "brief": "A node for driving standard face meshes from `XRFaceTracker` weights."
+  },
+  {
+   "name": "XRFaceTracker",
+   "file": "classes/xrfacetracker.md",
+   "inherits": "XRTracker",
+   "brief": "A tracked face."
+  },
+  {
+   "name": "XRHandModifier3D",
+   "file": "classes/xrhandmodifier3d.md",
+   "inherits": "SkeletonModifier3D",
+   "brief": "A node for driving hand meshes from `XRHandTracker` data."
+  },
+  {
+   "name": "XRHandTracker",
+   "file": "classes/xrhandtracker.md",
+   "inherits": "XRPositionalTracker",
+   "brief": "A tracked hand in XR."
+  },
+  {
+   "name": "XRInterface",
+   "file": "classes/xrinterface.md",
+   "inherits": "RefCounted",
+   "brief": "Base class for an XR interface implementation."
+  },
+  {
+   "name": "XRInterfaceExtension",
+   "file": "classes/xrinterfaceextension.md",
+   "inherits": "XRInterface",
+   "brief": "Base class for XR interface extensions (plugins)."
+  },
+  {
+   "name": "XRNode3D",
+   "file": "classes/xrnode3d.md",
+   "inherits": "Node3D",
+   "brief": "A 3D node that has its position automatically updated by the `XRServer`."
+  },
+  {
+   "name": "XROrigin3D",
+   "file": "classes/xrorigin3d.md",
+   "inherits": "Node3D",
+   "brief": "The origin point in AR/VR."
+  },
+  {
+   "name": "XRPose",
+   "file": "classes/xrpose.md",
+   "inherits": "RefCounted",
+   "brief": "This object contains all data related to a pose on a tracked object."
+  },
+  {
+   "name": "XRPositionalTracker",
+   "file": "classes/xrpositionaltracker.md",
+   "inherits": "XRTracker",
+   "brief": "A tracked object."
+  },
+  {
+   "name": "XRServer",
+   "file": "classes/xrserver.md",
+   "inherits": "Object",
+   "brief": "Server for AR and VR features."
+  },
+  {
+   "name": "XRTracker",
+   "file": "classes/xrtracker.md",
+   "inherits": "RefCounted",
+   "brief": "A tracked object."
+  },
+  {
+   "name": "XRVRS",
+   "file": "classes/xrvrs.md",
+   "inherits": "Object",
+   "brief": "Helper class for XR interfaces that generates VRS images."
+  }
+ ]
+}

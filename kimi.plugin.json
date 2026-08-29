@@ -1,0 +1,23 @@
+{
+  "$schema": "https://kimi.com/schemas/kimi.plugin.schema.json",
+  "name": "godot-player-kimi",
+  "version": "0.1.0",
+  "description": "让 Kimi Code 真正「玩」Godot 游戏：回合制试玩装置（游戏常态暂停等 AI，动作块注入，PNG 序列录像+逐帧遥测）。AI 自主试玩为主，人随时说一声即可接管一起玩；也支持人玩 AI 看的复盘模式。Play-test Godot games turn by turn with video + telemetry feedback.",
+  "keywords": [
+    "godot",
+    "playtest",
+    "game",
+    "试玩",
+    "游戏",
+    "video",
+    "telemetry"
+  ],
+  "author": "godot-player-kimi",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Kimi Godot Playtest",
+    "shortDescription": "让 Kimi 玩 Godot 游戏：回合制试玩 + 录像遥测反馈",
+    "longDescription": "把 Godot 游戏变成 AI 可玩的回合制环境：游戏常态暂停等待 AI，动作块（hold/tap/wait）注入输入，全程 PNG 序列录像与逐帧遥测，当前帧随手可取、任意区间可打包慢放。AI 自主试玩为主；人随时说一声即可接管（manual/auto 为装置级命令，块执行中也能立即打断），人和 AI 一起玩无需另开模式；也可人玩 AI 看（真人接管全程录制，事后复盘）。装置为单个 autoload 脚本 + 一个 bash 运行器，零依赖 vendor 进任意 Godot >=4.4 项目。"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "events": [
+    {"frame": 10, "action": "ui_right", "pressed": true},
+    {"frame": 40, "action": "ui_right", "pressed": false},
+    {"frame": 55, "action": "ui_left", "pressed": true},
+    {"frame": 85, "action": "ui_left", "pressed": false},
+    {"frame": 95, "action": "ui_right", "pressed": true},
+    {"frame": 105, "action": "ui_right", "pressed": false}
+  ]
+}
