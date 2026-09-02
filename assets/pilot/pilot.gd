@@ -1,5 +1,5 @@
 extends Node
-## Kimi Pilot v2.1 —— 回合制游玩装置（PLAY.md v0.2）
+## Kimi Pilot v2.3 —— 回合制游玩装置（PLAY.md v0.2）
 ##
 ## 游戏启动后热身（0.5s 等效帧数），随后进入常态暂停。
 ## 轮询 .kimi-play/in/move.json（动作块/命令），注入执行、推进块长、再暂停，
@@ -31,7 +31,7 @@ extends Node
 ## 每段运行区间记录于 out/framemap.jsonl（{"f0","p0","f1"}），区间内按 movie_fps/tps 线性换算。
 ## 磁盘防护：暂停期重复帧定期裁剪（只留最新一小窗），锚点与历史段不受影响。
 
-const VERSION := "2.1"
+const VERSION := "2.4"
 const DIR := "res://.kimi-play"
 const IN_DIR := DIR + "/in"
 const OUT_DIR := DIR + "/out"
@@ -67,6 +67,7 @@ var block_end := -1               # 当前块结束的绝对帧号；-1 = 无在
 var warmup_done := false
 var run_start_f := 0              # 当前运行区间的起始物理帧
 var run_start_png := 0            # 当前运行区间的起始 PNG 序号
+var last_block = null             # 最近完成运行段 {"f0","p0","f1"}，随 obs 交付（clip-last 的依据）
 var last_status := ""             # 最近一次 obs 的 status（暂停期定时刷新用）
 var last_hint := ""
 var obs_refresh := 0.0
@@ -81,10 +82,16 @@ var prev_states := {}
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	tps = Engine.physics_ticks_per_second
-	var args := OS.get_cmdline_args()
-	for i in args.size():
-		if args[i] == "--fixed-fps" and i + 1 < args.size():
-			movie_fps = int(args[i + 1])
+	# movie_fps：--fixed-fps 不落到 editor/movie_writer/fps（4.7.2 实测该设置恒为默认 60，
+	# 与录像实际帧率无关），get_cmdline_args() 又过滤引擎参数读不到 --fixed-fps——
+	# 故以运行器经用户参数的显式声明（run.sh start 的 --fps）为准；ProjectSettings 仅兜底。
+	var ps_movie_fps := int(ProjectSettings.get_setting("editor/movie_writer/fps", 0))
+	if ps_movie_fps > 0:
+		movie_fps = ps_movie_fps
+	var uargs := OS.get_cmdline_user_args()
+	for i in uargs.size():
+		if uargs[i] == "--pilot-movie-fps" and i + 1 < uargs.size():
+			movie_fps = int(uargs[i + 1])
 	# 帧率无关的标定：热身 0.5s；tap 覆盖两个输入冲刷周期（电影帧 = tps/movie_fps 物理帧）
 	warmup_frames = maxi(30, int(tps * 0.5))
 	tap_frames = maxi(4, 2 * int(ceil(float(tps) / float(movie_fps))) + 2)
@@ -491,6 +498,7 @@ func _pause_turn() -> void:
 		fm.seek_end()
 	fm.store_line(JSON.stringify({"f0": run_start_f, "p0": run_start_png, "f1": frame}))
 	fm.close()
+	last_block = {"f0": run_start_f, "p0": run_start_png, "f1": frame}
 	prune_floor = _max_png_index() + PRUNE_LAG_MARGIN
 	capture_pending = 15  # 0.5s 后把最新帧钉存为 current.png（等编码器冲刷）
 	print("PILOT paused at f=%d turn=%d" % [frame, turn])
@@ -555,13 +563,17 @@ func _write_json_atomic(path: String, text: String) -> void:
 		ProjectSettings.globalize_path(path))
 
 
-## 把暂停时刻的最新帧拷贝为固定地址 out/current.png（agent 的「当前画面」永不失联）
+## 把暂停时刻的最新帧钉存为 out/current.png（agent 的「当前画面」永不失联）
 func _pin_current_frame() -> void:
 	var idx := _max_png_index()
-	if idx < 0:
-		return
-	var src := ProjectSettings.globalize_path(FRAMES_DIR + "/movie%08d.png" % idx)
-	DirAccess.copy_absolute(src, ProjectSettings.globalize_path(OUT_DIR + "/current.png"))
+	if idx >= 0:
+		var src := ProjectSettings.globalize_path(FRAMES_DIR + "/movie%08d.png" % idx)
+		DirAccess.copy_absolute(src, ProjectSettings.globalize_path(OUT_DIR + "/current.png"))
+	else:
+		# 无 MovieWriter 录像（--no-movie 实时观看模式）：直接抓视口画面
+		var img := get_viewport().get_texture().get_image()
+		if img != null:
+			img.save_png(ProjectSettings.globalize_path(OUT_DIR + "/current.png"))
 	_write_obs(last_status, last_hint)
 
 
@@ -579,6 +591,7 @@ func _write_obs(status: String, hint: String) -> void:
 		"movie_fps": movie_fps,
 		"viewport": [int(vp.x), int(vp.y)],
 		"current_frame_png": (".kimi-play/out/current.png" if has_current else ""),
+		"last_block": last_block,
 		"frames_glob": ".kimi-play/out/frames/movie%08d.png",
 		"framemap": ".kimi-play/out/framemap.jsonl",
 		"telemetry": ".kimi-play/out/telemetry.jsonl",
