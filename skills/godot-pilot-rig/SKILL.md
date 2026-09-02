@@ -38,7 +38,8 @@ metadata:
 | 命令 | 说明 |
 |---|---|
 | `run.sh start [proj] [--visible] [--fps N]` | 前台启动常驻进程（用后台任务托管）。默认窗口离屏（`--position 5000,5000`）；**人要看/要玩时必须 `--visible`**。fps 默认 30。启动清空上一局残留（会话契约：`in/` 指令心跳 + `out/` 的 frames/framemap/current.png——旧帧序号与旧段锚点会污染新局） |
-| `run.sh clip <A> <B> [proj] [--slow N] [--wide]` | 把物理帧区间 [A,B] 打包成 mp4 到 `out/clips/`。A,B 必须落在 framemap 的**同一运行段**内，跨段会报错并列出可用段。`--slow N` 慢放 N 倍；`--wide` 统一输出 1280×720 16:9（缩放+黑边填充，宣传片画幅用；`--resolution` 改不了 MovieWriter 尺寸，实测无效） |
+| `run.sh clip <A> <B> [proj] [--slow N] [--ff N] [--wide]` | 把物理帧区间 [A,B] 打包成 mp4 到 `out/clips/`。A,B 必须落在 framemap 的**同一运行段**内，跨段会报错并列出可用段。`--slow N` 慢放 N 倍；`--ff N` 快进 N 倍（同批帧按 N 倍帧率打包，长块/赶路快扫用）；`--wide` 统一输出 1280×720 16:9（缩放+黑边填充，宣传片画幅用；`--resolution` 改不了 MovieWriter 尺寸，实测无效） |
+| `run.sh clip-last [proj] [--slow N] [--ff N] [--wide]` | 打包**最近一个运行段**到固定地址 `out/clips/last.mp4`（每次覆盖，地址稳定），默认 `--slow 2`——每回合看「刚执行的块发生了什么」的默认入口，免 framemap 换算。段依据 = obs 的 `last_block` 字段 |
 
 结束进程：写 `{"command":"quit"}` 到 move.json。不要直接杀进程（quit 才能干净 finalize 录像）。
 
@@ -123,7 +124,7 @@ warmup(0.5s 等效帧；60tps=30帧，120tps=60帧) → PAUSED ⇄ RUNNING-BLOCK
 
 | 文件 | 内容 |
 |---|---|
-| `obs.json` | 观察包：`status`（paused/manual/error）、`frame`、`turn`、`tps`、`movie_fps`、`viewport`、`current_frame_png`（**指向 `out/current.png`**：每次暂停钉存的当前画面副本，地址稳定、不随裁剪消失）、各产物路径、`hint`（错误时的下一步指引） |
+| `obs.json` | 观察包：`status`（paused/manual/error）、`frame`、`turn`、`tps`、`movie_fps`、`viewport`、`current_frame_png`（**指向 `out/current.png`**：每次暂停钉存的当前画面副本，地址稳定、不随裁剪消失）、`last_block`（最近完成运行段 `{"f0","p0","f1"}`，`clip-last` 的段依据；尚未跑过运行段为 null）、各产物路径、`hint`（错误时的下一步指引） |
 | `state.json` | `{frame, turn, status}` 最小状态 |
 | `telemetry.jsonl` | 每物理帧一行：`{"f","turn", ...watch 字段}`。**数值真值以它为准** |
 | `framemap.jsonl` | 运行段锚点 `{"f0","f1","p0"}`（JSON 键按字典序输出）：物理帧 [f0,f1) 从 PNG 序号 p0 起按 movie_fps/tps 线性映射。**暂停期 PNG 持续重复落盘，物理帧↔PNG 序号无固定比率，剪辑必须走此表**。每局 start 时清空重开（与遥测/磁带同生命周期） |
@@ -137,6 +138,8 @@ warmup(0.5s 等效帧；60tps=30帧，120tps=60帧) → PAUSED ⇄ RUNNING-BLOCK
 - **输入注入有 ~3 帧延迟**：不假设事件精确在第 N 帧生效；以遥测验证实际效果。
 - 心跳：每回合往 `in/heartbeat` `touch` 一次；30 分钟未触活 pilot 自毁（防孤儿进程）。
 - 暂停期 PNG 重复帧持续产生（~30/s），pilot 每 5s 裁剪旧帧只留最新一小窗——**引用画面一律用 `current.png`，不要引用 frames/ 里的具体序号**（可能已被裁掉）。
+- **movie_fps 以运行器声明为准**：`--fixed-fps` 不落 ProjectSettings（4.7.2 实测该设置恒为默认 60，与录像实际帧率无关），run.sh start 经用户参数 `--pilot-movie-fps` 把 `--fps` 值显式传给 pilot；手动 godot 启动时以 `editor/movie_writer/fps` 兜底。movie_fps 一旦失真，clip 区间按比例错配（如 2 倍：成片前半运动、后半暂停静止帧）。
+- clip / clip-last 内部会等段尾 PNG 冲刷落盘（至多 ~3s），暂停后立即可调，无需手工等待。
 - obs 一直不出现/不更新 → 看 `godot.log` 里 PILOT 行；进程没了 → 后台任务日志。
 - move.json 长时间不被消费 → 确认状态（paused 或 manual 才消费；running-block 中不消费）。
 - 玩家冻结不动 → 多半是导入缓存缺失，重跑 `godot --headless --import --path .`。
